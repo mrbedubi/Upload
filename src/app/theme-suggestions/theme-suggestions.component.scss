@@ -1,0 +1,58 @@
+.theme_sug_container{
+  border-radius: 15px;
+  background-color: #1C1C24;
+
+  p {
+    color: #FAFAFB;
+    padding-left: 15px;
+
+  }
+
+  .tematicas_sugeridas{
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  .tematica{
+    display: flex;
+    align-items: center;
+  }
+
+  h5 {
+    color: #FFFFFF;
+    padding-right: 15px;
+    line-height: 0px;
+  }
+
+  hr {
+    border-color: #292932;
+    margin: 0;
+  }
+
+  .avatar {
+    height: 30px;
+    padding-left: 15px;
+    padding-right: 10px;
+  }
+
+  h6 {
+    color: #FFFFFF;
+    line-height: 0px;
+    font-weight: 200;
+  }
+
+  .image {
+    width: 100%;
+    border-radius:15px;
+    padding: 10px;
+
+
+  }
+  .ver_todas{
+    color: #FAFAFB;
+    padding-left: 15px;
+    padding-top: 8px;
+  }
+
+}
