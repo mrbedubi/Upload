@@ -10,18 +10,19 @@ interface Video {
   video_url: string
   tags: [number]
   thumbnail: string
+
 }
 
-interface Channel{
+interface Channel {
   id: number
   name: string
   cover_image: string
   description: string
-  profile_picture:string
+  profile_picture: string
 
 }
 
-interface Theme{
+interface Theme {
   id:number
   title: string
   teaser: string
@@ -30,6 +31,7 @@ interface Theme{
   video_id:[number]
   thumbnail: string
   cover_image: string
+
 }
 
 interface Tag {
@@ -41,6 +43,7 @@ interface Tag {
 interface Category {
   id:number
   name:string
+
 }
 
 
@@ -48,6 +51,7 @@ interface Playlist{
   title:string
   category:[number]
   tags:[number]
+
 }
 
 
