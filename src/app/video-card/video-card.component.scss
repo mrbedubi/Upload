@@ -54,11 +54,12 @@
     position: absolute;
     right: 30px;
     bottom: 60px;
+    overflow: hidden;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
 
     img{
       width: 100%;
-      border: 2px solid #FFFFFF;
-      border-radius: 50%;
     }
   }
 
