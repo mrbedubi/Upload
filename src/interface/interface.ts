@@ -14,7 +14,7 @@ interface Video {
 
 interface Channel{
   id: number
-  name: string
+  nam: string
   cover_image: string
   description: string
   profile_picture:string
