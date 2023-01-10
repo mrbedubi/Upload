@@ -1,6 +1,6 @@
 
 interface Video {
-  id: num
+  id: number
   title: string
   category: [number]
   channel_id: number
