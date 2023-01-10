@@ -1,0 +1,84 @@
+.video_card_container{
+  width: 100%;
+  background-color: #1C1C24;
+  border-radius: 20px;
+  position: relative;
+
+  .imagem {
+    width: 100%;
+
+    img {
+      width: 100%;
+      border-radius: 20px 20px 0 0;
+    }
+
+    .time {
+      position: absolute;
+      background-color: #171725;
+      border-radius: 5px;
+      color: white;
+      margin-left: 25px;
+      margin-top: -60px;
+      padding: 0 10px;
+
+      p {
+        margin: 0;
+      }
+    }
+
+  }
+  .canal{
+    color: #1E75FF;
+    font-weight: 200;
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .titulo{
+    color: white;
+    font-size: 18px;
+    margin: 0;
+  }
+
+  .data{
+    color: #92929D;
+    font-weight: 200;
+    font-size: 14px;
+    margin: 0;
+
+  }
+
+  .avatar{
+    width: 69.72px;
+    height: 69.65px;
+    position: absolute;
+    right: 20px;
+    bottom: 60px;
+
+    img{
+      border: 2px solid #FFFFFF;
+      border-radius: 50%;
+    }
+  }
+
+  .info{
+    padding-left: 20px;
+  }
+
+  .info_bottom{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+  }
+
+  .buttons_container{
+    color: #92929D;
+
+    .icon:last-child{
+      margin-left: 20px;
+    }
+
+  }
+}
