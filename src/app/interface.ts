@@ -54,4 +54,5 @@ interface Playlist{
 
 }
 
+export {Video , Tag , Theme , Playlist, Channel , Category};
 
