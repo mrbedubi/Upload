@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {UploadService} from "../../upload.service";
+//import {UploadService} from "../../upload.service";
 
 @Component({
   selector: 'app-video-card',
@@ -22,8 +22,8 @@ export class VideoCardComponent implements OnInit{
 @Input() card!: "homepage" | "channelpage" | "videopage"
 
 
-constructor(public uploadService: UploadService) { }
-
+constructor() { }
+//public uploadService: UploadService
 ngOnInit(): void {
 
 }
