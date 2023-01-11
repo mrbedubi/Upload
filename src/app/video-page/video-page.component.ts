@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./video-page.component.scss']
 })
 export class VideoPageComponent {
+  video: any;
+  channel: any;
 
 }

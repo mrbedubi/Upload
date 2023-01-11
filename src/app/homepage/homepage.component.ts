@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent {
+  channel: any;
+  video: any;
 
 }
