@@ -1,59 +1,68 @@
 .theme_sug_container{
-  border-radius: 15px;
+  border-radius: 1rem;
   background-color: #1C1C24;
   width: 100%;
+  overflow: hidden;
 
   p {
     color: #FAFAFB;
     padding-left: 15px;
-
   }
 
-  .tematicas_sugeridas{
+  .theme_sug_title {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 1rem;
+    border-bottom: 1.5px solid #292932;
 
+    p {
+      margin: 0;
+    }
+
+    h5 {
+      margin: 0;
+    }
   }
 
-  .tematica{
+  .theme_container {
     display: flex;
     align-items: center;
+    padding: 1rem;
+
+    .theme_avatar {
+      height: 2.1rem;
+    }
+
+    .theme_info {
+      h5 {
+        color: #FFFFFF;
+        padding-left: 1rem;
+        margin: 0;
+      }
+
+      h6 {
+        margin: 0;
+        color: #FFFFFF;
+        font-weight: 200;
+        padding-left: 1rem;
+      }
+    }
   }
 
-  h5 {
-    color: #FFFFFF;
-    padding-right: 15px;
-    line-height: 0px;
-  }
-
-  hr {
-    border-color: #292932;
-    margin: 0;
-  }
-
-  .avatar {
-    height: 30px;
-    padding-left: 15px;
-    padding-right: 10px;
-  }
-
-  h6 {
-    color: #FFFFFF;
-    line-height: 0px;
-    font-weight: 200;
-  }
-
-  .image {
+  .theme_img_container {
     width: 100%;
-    border-radius:15px;
-    padding: 10px;
+    aspect-ratio: 1/0.5;
+    padding: 1rem;
+    box-sizing: border-box;
 
 
-  }
-  .ver_todas{
-    color: #FAFAFB;
-    padding-left: 15px;
-    padding-top: 8px;
+    .theme_img {
+      width: 100%;
+      border-radius: 1rem;
+    }
   }
 
 }

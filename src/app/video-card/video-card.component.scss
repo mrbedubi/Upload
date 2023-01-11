@@ -3,6 +3,7 @@
   background-color: #1C1C24;
   border-radius: 20px;
   position: relative;
+  overflow: hidden;
 
   .imagem {
     width: 100%;
@@ -15,7 +16,6 @@
 
     img {
       width: 100%;
-      border-radius: 20px 20px 0 0;
 
     }
 
@@ -57,16 +57,14 @@
   .avatar{
     width: 70px;
     aspect-ratio: 1/1;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    overflow: hidden;
     position: absolute;
     right: 30px;
     bottom: 80px;
-    overflow: hidden;
-    border: 2px solid #FFFFFF;
-    border-radius: 50%;
-
-    img{
-      width: 100%;
-    }
+    background-size: cover;
+    background-position: center;
   }
 
   .info{
