@@ -2,13 +2,12 @@
   width: 100%;
   min-height: 100vh;
   top: 0;
-  padding-left: 14%;
   display: flex;
 
 
   .right_menu{
-    width: 400px;
-    overflow-x: hidden;
+    min-width: 400px;
+
   }
 
   p {
