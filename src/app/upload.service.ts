@@ -15,13 +15,8 @@ export class UploadService {
    return this.http.get<Video[]>(BASE_URL+"videos");
   }
 
-  getVideosById(ids:number[]){
-    let s:string=""
-    ids.forEach((item)=>{
-      s+=item+",";
-    });
-    s= s.slice(0,s.length-1);
-   return this.http.get<Video>(BASE_URL+"videos/"+ids);
+  getVideosById(ids:number){
+   return this.http.get<Video[]>(BASE_URL+"videos/"+ids);
   }
 
   getVideosByChannel(id:number){
@@ -45,7 +40,7 @@ export class UploadService {
   // Get Tags
 
   getTags(){
-    return this.http.get<Tag>(BASE_URL+"tags");
+    return this.http.get<Tag[]>(BASE_URL+"tags");
   }
 
   getTagsById(id:number){

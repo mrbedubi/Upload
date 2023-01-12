@@ -2,7 +2,7 @@
   <div class="video_wrapper">
     <div class="video_header">
       <div class="video_information">
-        <h1 class="video_title">Bring Me The Horizon - Doomed (Live at the Royal Albert Hall)</h1>
+        <h1 class="video_title">{{video.title}}</h1>
         <div class="video_tag_container">
           <p class="video_tag">#metal</p>
           <p class="video_tag">#music</p>
@@ -15,16 +15,16 @@
     </div>
 
     <div id="video_container">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/OGc9W-_C9u0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="{{video.video_url}}" title="{{video.title}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 
     <div id="channel_wrapper">
       <div class="channel_logo_container">
-        <img class="channel_logo" src="assets/download.jpg" alt="">
+        <img class="channel_logo" src="{{video.channel_picture}}" alt="">
       </div>
       <div class="channel_information">
-        <div class="channel_name">Bring Me The Horizon</div>
-        <div class="publishing_date">há 6 anos</div>
+        <div class="channel_name">{{video.channel_id}}</div>
+        <div class="publishing_date">{{video.published_date}}</div>
       </div>
       <div class="rating_container">
         <div class="likes_container">
@@ -39,7 +39,7 @@
     </div>
 
     <div id="video_description_wrapper">
-      <p class="video_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor dolores eligendi eos error ipsum molestiae, necessitatibus nostrum quas tenetur vitae. Doloribus ex iste non pariatur, provident quae veritatis. Cumque, obcaecati. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad excepturi mollitia soluta totam voluptas. Doloremque, explicabo, nobis. Adipisci blanditiis corporis dolorum eos ex impedit incidunt iure molestiae porro reprehenderit, sequi?</p>
+      <p class="video_description">{{video.description}}</p>
     </div>
   </div>
   <div class="video-card_wrapper">

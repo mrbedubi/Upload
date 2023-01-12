@@ -25,12 +25,7 @@
   <div id="tag_wrapper">
     <h1>TAGS</h1>
     <div class="tag_container">
-      <div class="tag">gamers</div>
-      <div class="tag">freefire</div>
-      <div class="tag">live</div>
-      <div class="tag">games</div>
-      <div class="tag">playstation</div>
-      <div class="tag">delicious</div>
+      <div class="tag" *ngFor="let tag of tags">{{tag.name}}</div>
     </div>
   </div>
 </nav>

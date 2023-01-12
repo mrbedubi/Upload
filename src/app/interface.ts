@@ -11,6 +11,8 @@ interface Video {
   video_url: string
   tags: [number]
   thumbnail: string
+  channel_name: string
+  channel_picture: string
 
 }
 
