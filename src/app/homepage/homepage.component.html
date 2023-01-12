@@ -1,60 +1,19 @@
 <div id="home_wrapper">
   <div class="main_content_wrapper">
   <p>Últimos Vídeos</p>
-  <div class="content_wrapper">
-    <app-video-card class="video_card"
-                    channel_name="NatGeo"
+  <div class="content_wrapper" >
+    <app-video-card class="video_card" *ngFor=" let video of videos "
+                    [channel_name]=""
                     card="homepage"
-                    title="macaco"
-                    published_date="há um dia"
-                    duration="03:22"
-                    thumbnail="https://www.pontotel.com.br/wp-content/uploads/2022/05/imagem-corporativa.jpg"
-                    channel_avatar="https://m.media-amazon.com/images/I/71kDDnFE68L._CR204,0,1224,1224_UX256.jpg">
-
-    </app-video-card>
-    <app-video-card class="video_card"
-                    channel_name="NatGeo"
-                    card="homepage"
-                    title="macaco"
-                    published_date="há um dia"
-                    duration="03:22"
-                    thumbnail="https://img.youtube.com/vi/z2kuC7w9emE/sddefault.jpg"
-                    channel_avatar="https://www.pontotel.com.br/wp-content/uploads/2022/05/imagem-corporativa.jpg">
-
-    </app-video-card>
-    <app-video-card class="video_card"
-                    channel_name="NatGeo"
-                    card="homepage"
-                    title="macaco"
-                    published_date="há um dia"
-                    duration="03:22"
-                    thumbnail="https://www.pontotel.com.br/wp-content/uploads/2022/05/imagem-corporativa.jpg"
-                    channel_avatar="https://www.pontotel.com.br/wp-content/uploads/2022/05/imagem-corporativa.jpg">
-
-    </app-video-card>
-    <app-video-card class="video_card"
-                    channel_name="NatGeo"
-                    card="homepage"
-                    title="macaco"
-                    published_date="há um dia"
-                    duration="03:22"
-                    thumbnail="https://www.pontotel.com.br/wp-content/uploads/2022/05/imagem-corporativa.jpg"
-                    channel_avatar="https://www.pontotel.com.br/wp-content/uploads/2022/05/imagem-corporativa.jpg">
-
-    </app-video-card>
-    <app-video-card class="video_card"
-                    channel_name="NatGeo"
-                    card="homepage"
-                    title="macaco"
-                    published_date="há um dia"
-                    duration="03:22"
-                    thumbnail="https://www.pontotel.com.br/wp-content/uploads/2022/05/imagem-corporativa.jpg"
-                    channel_avatar="https://www.pontotel.com.br/wp-content/uploads/2022/05/imagem-corporativa.jpg">
+                    [title]="video.title"
+                    [published_date]="video.published_date"
+                    [duration]="video.duration"
+                    [thumbnail]="this.VideoId(video.thumbnail, video.video_url)"
+                    [channel_avatar]="this.VideoId(video.thumbnail, video.video_url)">
 
     </app-video-card>
   </div>
   </div>
-
   <div class="right_menu">
     <app-channel-suggestions>
     </app-channel-suggestions>

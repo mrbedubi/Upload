@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Channel, Tag, Video} from "./interface"
+import {Channel, Tag, Video,Videos } from "./interface"
+import {toArray} from "rxjs";
 
 const BASE_URL = "https://dev-project-upskill2-grupo2.pantheonsite.io/api/";
 @Injectable({
@@ -10,7 +11,8 @@ export class UploadService {
   // Get Videos
 
   getVideos(){
-   return this.http.get<Video>(BASE_URL+"videos");
+    console.log("Hello");
+   return this.http.get<Video[]>(BASE_URL+"videos");
   }
 
   getVideosById(ids:number[]){

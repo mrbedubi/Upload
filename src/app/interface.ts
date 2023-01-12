@@ -1,5 +1,6 @@
 
 interface Video {
+
   id: number
   title: string
   category: [number]
@@ -13,6 +14,11 @@ interface Video {
 
 }
 
+
+interface Videos{
+data:Video[];
+}
+
 interface Channel {
   id: number
   name: string
@@ -23,6 +29,7 @@ interface Channel {
 }
 
 interface Theme {
+
   id:number
   title: string
   teaser: string
@@ -54,5 +61,5 @@ interface Playlist{
 
 }
 
-export {Video , Tag , Theme , Playlist, Channel , Category};
+export {Video ,Videos, Tag , Theme , Playlist, Channel , Category};
 

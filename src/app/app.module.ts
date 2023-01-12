@@ -12,6 +12,7 @@ import { ChannelPageComponent } from './channel-page/channel-page.component';
 import { ChannelSuggestionsComponent } from './channel-suggestions/channel-suggestions.component';
 import { ThemeSuggestionsComponent } from './theme-suggestions/theme-suggestions.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FontAwesomeModule
   ],
   providers: [],
