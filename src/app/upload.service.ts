@@ -1,0 +1,56 @@
+import { Injectable } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Channel, Tag, Video,Videos } from "./interface"
+import {toArray} from "rxjs";
+
+const BASE_URL = "https://dev-project-upskill2-grupo2.pantheonsite.io/api/";
+@Injectable({
+  providedIn: 'root'
+})
+export class UploadService {
+  // Get Videos
+
+  getVideos(){
+    console.log("Hello");
+   return this.http.get<Video[]>(BASE_URL+"videos");
+  }
+
+  getVideosById(ids:number[]){
+    let s:string=""
+    ids.forEach((item)=>{
+      s+=item+",";
+    });
+    s= s.slice(0,s.length-1);
+   return this.http.get<Video>(BASE_URL+"videos/"+ids);
+  }
+
+  getVideosByChannel(id:number){
+   return this.http.get<Video>(BASE_URL+"channels/"+id+"/videos");
+  }
+
+  getVideosByTag(id:number){
+   return this.http.get<Video>(BASE_URL+"tags/"+id+"/videos");
+  }
+
+  // Get Channels
+
+  getChanels(){
+    return this.http.get<Channel>(BASE_URL+"channels");
+  }
+
+  getChanelsById(id:number){
+    return this.http.get<Channel>(BASE_URL+"channels/"+id);
+  }
+
+  // Get Tags
+
+  getTags(){
+    return this.http.get<Tag>(BASE_URL+"tags");
+  }
+
+  getTagsById(id:number){
+    return this.http.get<Tag>(BASE_URL+"tags/"+id);
+  }
+
+  constructor(public http: HttpClient) { }
+}

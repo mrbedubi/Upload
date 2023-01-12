@@ -1,0 +1,20 @@
+<div class="video_card_container"[ngClass]="card">
+  <div class="imagem">
+    <img src="{{thumbnail}}" alt="cobra verde">
+    <div class="time">
+      <p>{{duration}}</p>
+    </div>
+  </div>
+    <div class="avatar" style="background-image: url({{channel_avatar}})"></div>
+  <div class="info">
+    <p class="canal">{{channel_name}}</p>
+    <p class="titulo">{{title}}</p>
+  </div>
+  <div class="info_bottom">
+    <p class="data">{{published_date}}</p>
+    <div class="buttons_container">
+      <i class="fa-regular fa-bookmark icon"></i>
+      <i class="fa-solid fa-share-nodes icon"></i>
+    </div>
+  </div>
+</div>
