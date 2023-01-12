@@ -3,7 +3,7 @@
   <p>Últimos Vídeos</p>
   <div class="content_wrapper" >
     <app-video-card class="video_card" *ngFor=" let video of videos "
-                    [channel_name]=""
+                    channel_name="NatGeo"
                     card="homepage"
                     [title]="video.title"
                     [published_date]="video.published_date"

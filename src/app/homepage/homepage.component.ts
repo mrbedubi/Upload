@@ -9,13 +9,6 @@ import {Video,Videos, Channel ,Tag} from "../interface";
 })
 export class HomepageComponent {
   videos!:Video[]
-  channel_name!:string
-  title!:string
-  published_date!:string
-  duration!:string
-  thumbnail!:string
-  channel_avatar!:string
-
 
 
 constructor( public list:UploadService) {
