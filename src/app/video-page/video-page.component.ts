@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {Video} from "../interface";
 import {UploadService} from "../upload.service";
+import { DomSanitizer } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-video-page',
@@ -12,7 +14,7 @@ export class VideoPageComponent {
   channel: any;
   video!:Video
 
-  constructor( public list:UploadService){
+  constructor( public list:UploadService ,public sanitizer: DomSanitizer ){
 
   }
   ngOnInit():void {
@@ -22,5 +24,11 @@ export class VideoPageComponent {
     })
 
 }
+
+  public VideoId(url: string) {
+    const urlParts = url.split("=");
+    const videoId = urlParts[urlParts.length - 1];
+    return "https://www.youtube.com/embed/"+videoId;
+  }
 }
 
