@@ -34,11 +34,11 @@ export class UploadService {
 
   // Get Channels
 
-  getChanels(){
+  getChannels(){
     return this.http.get<Channel[]>(BASE_URL+"channels");
   }
 
-  getChanelsById(id:number){
+  getChannelsById(id:number){
     return this.http.get<Channel[]>(BASE_URL+"channels/"+id);
   }
 

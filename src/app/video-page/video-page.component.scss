@@ -79,12 +79,18 @@
       display: flex;
 
       .channel_logo_container {
-        width: 5%;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         .channel_logo {
           width: 100%;
-          border-radius: 50%;
-          border: 2px solid #fff;
+
         }
       }
 
@@ -155,3 +161,6 @@
   }
 }
 
+.video-card_wrapper{
+  visibility: hidden;
+}

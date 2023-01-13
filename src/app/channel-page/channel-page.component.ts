@@ -23,7 +23,7 @@ export class ChannelPageComponent {
 
   }
   ngOnInit():void {
-    this.list.getChanels().subscribe((channel) => {
+    this.list.getChannels().subscribe((channel) => {
       this.channel = channel
     })
     this.list.getVideos().subscribe((video) => {

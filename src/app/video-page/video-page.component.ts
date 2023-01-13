@@ -8,7 +8,7 @@ import {UploadService} from "../upload.service";
   styleUrls: ['./video-page.component.scss']
 })
 export class VideoPageComponent {
-
+  BaseUrl:string="https://dev-project-upskill2-grupo2.pantheonsite.io";
   channel: any;
   video!:Video
 

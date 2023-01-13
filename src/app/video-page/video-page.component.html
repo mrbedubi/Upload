@@ -15,15 +15,16 @@
     </div>
 
     <div id="video_container">
-      <iframe width="560" height="315" src="{{this.getEmbedURL(video.video_url)}}" title="Youtube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/_3EuiU1qdpE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <!--<iframe width="560" height="315" src="{{this.getEmbedURL(video.video_url)}}" title="Youtube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
     </div>
 
     <div id="channel_wrapper">
       <div class="channel_logo_container">
-        <img class="channel_logo" src="{{video.channel_picture}}" alt="">
+        <img class="channel_logo" src="{{this.BaseUrl+video.channel_picture}}" alt="">
       </div>
       <div class="channel_information">
-        <div class="channel_name">{{video.channel_id}}</div>
+        <div class="channel_name">{{video.channel_name}}</div>
         <div class="publishing_date">{{video.published_date}}</div>
       </div>
       <div class="rating_container">

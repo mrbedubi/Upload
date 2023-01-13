@@ -3,26 +3,11 @@
     <p>Canais Sugeridos</p>
   </div>
   <div class="channel_avatar_wrapper">
-    <div class="channel_avatar">
-      <img src="assets/avatar.png">
-      <p>FailTurma</p>
+    <div class="channel_avatar" *ngFor="let channel of channels">
+      <div class="channel_avatar_img" style="background-image:url({{this.BaseUrl+channel.profile_picture}})"></div>
+      <p>{{channel.name}}</p>
     </div>
-    <div class="channel_avatar">
-      <img src="assets/avatar.png">
-      <p>BuzzSkill</p>
-    </div>
-    <div class="channel_avatar">
-      <img src="assets/avatar.png">
-      <p>ZeAcademy</p>
-    </div>
-    <div class="channel_avatar">
-      <img src="assets/avatar.png">
-      <p>Eleven Skill</p>
-    </div>
-    <div class="channel_avatar">
-      <img src="assets/avatar.png">
-      <p>NatGeo Alunos</p>
-    </div>
+
   </div>
   <div class="show_more_container">
     <p>MOSTRAR MAIS</p>
