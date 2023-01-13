@@ -18,7 +18,9 @@ export class VideoPageComponent {
   ngOnInit():void {
     this.list.getVideosById(2).subscribe((videos) => {
       this.video=videos[0]
+      console.log(this.video)
     })
-  }
+
+}
 }
 

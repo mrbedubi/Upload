@@ -19,6 +19,11 @@ export class UploadService {
    return this.http.get<Video[]>(BASE_URL+"videos/"+ids);
   }
 
+  getEmbedUrl(url: string) {
+    const urlParts = url.split("=");
+    return "https://www.youtube.com/embed/"+urlParts;
+  }
+
   getVideosByChannel(id:number){
    return this.http.get<Video>(BASE_URL+"channels/"+id+"/videos");
   }
