@@ -13,6 +13,9 @@ import { ChannelSuggestionsComponent } from './channel-suggestions/channel-sugge
 import { ThemeSuggestionsComponent } from './theme-suggestions/theme-suggestions.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {HttpClientModule} from "@angular/common/http";
+import { ChannelListComponent } from './channel-list/channel-list.component';
+import { CardChannelListComponent } from './card-channel-list/card-channel-list.component';
+//import { ArticlePageComponent } from './article-page/article-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import {HttpClientModule} from "@angular/common/http";
     HomepageComponent,
     ChannelPageComponent,
     ChannelSuggestionsComponent,
-    ThemeSuggestionsComponent
+    ThemeSuggestionsComponent,
+    ChannelListComponent,
+    CardChannelListComponent
+    //ArticlePageComponent
   ],
   imports: [
     BrowserModule,

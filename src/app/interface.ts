@@ -11,13 +11,12 @@ interface Video {
   video_url: string
   tags: [number]
   thumbnail: string
+  channel_name: string
+  channel_picture: string
 
 }
 
 
-interface Videos{
-data:Video[];
-}
 
 interface Channel {
   id: number
@@ -42,8 +41,8 @@ interface Theme {
 }
 
 interface Tag {
-  id:number
-  name:string
+    name:string
+    id:number
 
 }
 
@@ -61,5 +60,5 @@ interface Playlist{
 
 }
 
-export {Video ,Videos, Tag , Theme , Playlist, Channel , Category};
+export {Video , Tag , Theme , Playlist, Channel , Category};
 

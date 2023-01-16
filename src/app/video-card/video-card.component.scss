@@ -4,6 +4,12 @@
   border-radius: 20px;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
+
+  //&:hover{
+    //transform: scale(1.2);
+    //transition: 0.5s ease-in-out;
+  //}
 
   .imagem {
     width: 100%;
@@ -50,7 +56,8 @@
     white-space: nowrap;
     max-height: 1.5rem;
     max-width: 70%;
-  }
+    margin-bottom: 0.5rem;
+}
 
   .data{
     color: #92929D;

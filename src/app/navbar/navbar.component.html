@@ -4,18 +4,24 @@
   </div>
 
   <div id="menu_wrapper">
+    <a href="">
     <div class="menu_item">
       <i class="fa-solid fa-house"></i>
       <p>Início</p>
     </div>
+    </a>
+    <a href="/channel">
     <div class="menu_item">
       <i class="fa-solid fa-bars-staggered"></i>
       <p>Canais</p>
     </div>
-    <div class="menu_item">
-      <i class="fa-solid fa-clapperboard"></i>
-      <p>Temáticas</p>
-    </div>
+    </a>
+    <a href="/article">
+      <div class="menu_item">
+        <i class="fa-solid fa-clapperboard"></i>
+        <p>Temáticas</p>
+      </div>
+    </a>
     <div class="menu_item">
       <i class="fa-solid fa-play"></i>
       <p>Playlists</p>
@@ -25,12 +31,7 @@
   <div id="tag_wrapper">
     <h1>TAGS</h1>
     <div class="tag_container">
-      <div class="tag">gamers</div>
-      <div class="tag">freefire</div>
-      <div class="tag">live</div>
-      <div class="tag">games</div>
-      <div class="tag">playstation</div>
-      <div class="tag">delicious</div>
+      <div class="tag" *ngFor="let tag of tags">{{tag.name}}</div>
     </div>
   </div>
 </nav>

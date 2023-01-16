@@ -29,8 +29,13 @@
         padding-left: 1rem;
       }
 
-      img {
-        height: 2.1rem;
+      .channel_avatar_img {
+        height: 3rem;
+        width: 3rem;
+        background-size: cover;
+        background-position: center;
+        border-radius: 100%;
+        border: 1px solid white;
       }
     }
   }
