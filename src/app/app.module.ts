@@ -13,7 +13,10 @@ import { ChannelSuggestionsComponent } from './channel-suggestions/channel-sugge
 import { ThemeSuggestionsComponent } from './theme-suggestions/theme-suggestions.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {HttpClientModule} from "@angular/common/http";
-import { ArticlePageComponent } from './article-page/article-page.component';
+import { ChannelListComponent } from './channel-list/channel-list.component';
+import { CardChannelListComponent } from './card-channel-list/card-channel-list.component';
+import { SafeUrlPipe } from './safe-url.pipe';
+//import { ArticlePageComponent } from './article-page/article-page.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { ArticlePageComponent } from './article-page/article-page.component';
     ChannelPageComponent,
     ChannelSuggestionsComponent,
     ThemeSuggestionsComponent,
-    ArticlePageComponent
+    ChannelListComponent,
+    CardChannelListComponent,
+    SafeUrlPipe
+    //ArticlePageComponent
   ],
   imports: [
     BrowserModule,
