@@ -1,7 +1,7 @@
 #article_wrapper {
   padding-left: 13.5%;
 
-  #channel_information_wrapper {
+  .channel_information_wrapper {
     position: relative;
 
     .channel_cover_container {
@@ -16,6 +16,13 @@
         border-radius: 3.5rem;
         mask-image: linear-gradient(to top, transparent 7%, #13131A);
       }
+    }
+
+    .channel_name {
+      position: absolute;
+      font-size: 1.7rem;
+      top: 27rem;
+      left: 3rem;
     }
 
     .channel_avatar_container {
@@ -36,8 +43,9 @@
     }
   }
 
-  #article_container {
+  .article_info {
     padding-left: 1rem;
+
 
     .article_title {
       width: 70%;
@@ -60,10 +68,46 @@
         }
       }
     }
+  }
+
+  .article_container {
+    padding-left: 1rem;
+    width: 100%;
+
+    h2 {
+      font-size: 1.6rem;
+      margin: 0;
+      padding: 3rem 0 1rem 0;
+    }
 
     .article_body {
-      width: 70%;
+      width: 90%;
       font-size: 1.1rem;
+      box-sizing: border-box;
+      padding-right: 1rem;
+    }
+
+    .article_videos_container {
+      width: 100%;
+      display: flex;
+      padding-bottom: 1rem;
+
+      .video_card {
+        width: 30%;
+        padding-right: 2rem;
+      }
+    }
+
+    .tag_videos_container {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+
+      .video_card {
+        width: 30%;
+        padding: 0 2rem 2rem 0;
+      }
+
     }
   }
 }

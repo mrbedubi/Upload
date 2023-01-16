@@ -16,7 +16,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { ChannelListComponent } from './channel-list/channel-list.component';
 import { CardChannelListComponent } from './card-channel-list/card-channel-list.component';
 import { SafeUrlPipe } from './safe-url.pipe';
-//import { ArticlePageComponent } from './article-page/article-page.component';
+import {ArticlePageComponent} from "./article-page/article-page.component";
 
 @NgModule({
   declarations: [
@@ -31,8 +31,8 @@ import { SafeUrlPipe } from './safe-url.pipe';
     ThemeSuggestionsComponent,
     ChannelListComponent,
     CardChannelListComponent,
-    SafeUrlPipe
-    //ArticlePageComponent
+    SafeUrlPipe,
+    ArticlePageComponent
   ],
   imports: [
     BrowserModule,
