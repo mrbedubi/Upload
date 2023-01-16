@@ -1,6 +1,5 @@
 .card_channel_container{
-  width:100%;
-  max-width:600px;
+  width: 50%;
   background-color: #1C1C24;
   border-radius: 20px;
   position: relative;
@@ -25,62 +24,44 @@
 
 
   }
-
-  .info_container{
-    display: flex;
-
-    .avatar_container{
-      width: 27%;
-      display: flex;
-      justify-content: center;
-      position: relative;
-
-      .avatar{
-        position: absolute;
-        width: 70px;
-        top:-35px;
-        aspect-ratio: 1/1;
-        border: 2px solid #FFFFFF;
-        border-radius: 50%;
-        overflow: hidden;
-        background-size: cover;
-        background-position: center;
-      }
-
-    }
-
-
-    .info{
-width:73%;
-      padding: 0.5rem;
-      .canal{
-        color: white;
-        font-size: 1.3rem;
-        margin: 0;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        max-height: 1.5rem;
-        margin-bottom: 0.5rem;
-      }
-      .tag{
-        color: #1E75FF;
-        font-weight: 200;
-        margin: 0;
-      }
-
-      .nr_videos{
-        color: #92929D;
-        font-weight: 200;
-        margin: 0;
-
-      }
-    }
-
-
+  .avatar{
+    width: 70px;
+    aspect-ratio: 1/1;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    left: 30px;
+    bottom: 40px;
+    background-size: cover;
+    background-position: center;
   }
 
+  .info{
+   margin-left: 120px;
+  }
 
+  .canal{
+    color: white;
+    font-size: 1.3rem;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-height: 1.5rem;
+    max-width: 70%;
+    margin-bottom: 0.5rem;
+  }
+  .tag{
+      color: #1E75FF;
+      font-weight: 200;
+      margin: 0;
+    }
 
+  .nr_videos{
+    color: #92929D;
+    font-weight: 200;
+    margin: 0;
 
+  }
   }
