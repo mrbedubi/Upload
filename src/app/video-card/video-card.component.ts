@@ -17,8 +17,8 @@ export class VideoCardComponent implements OnInit{
 @Input() duration?: string;
 @Input() cover_image?: string;
 @Input() thumbnail?: string
-  @Input() channel_name?: string
-  @Input() channel_avatar?: string
+@Input() channel_name?: string
+@Input() channel_avatar?: string
 @Input() card!: "homepage" | "channelpage" | "videopage"
 
 

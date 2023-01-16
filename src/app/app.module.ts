@@ -15,6 +15,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {HttpClientModule} from "@angular/common/http";
 import { ChannelListComponent } from './channel-list/channel-list.component';
 import { CardChannelListComponent } from './card-channel-list/card-channel-list.component';
+import { SafeUrlPipe } from './safe-url.pipe';
 //import { ArticlePageComponent } from './article-page/article-page.component';
 
 @NgModule({
@@ -29,7 +30,8 @@ import { CardChannelListComponent } from './card-channel-list/card-channel-list.
     ChannelSuggestionsComponent,
     ThemeSuggestionsComponent,
     ChannelListComponent,
-    CardChannelListComponent
+    CardChannelListComponent,
+    SafeUrlPipe
     //ArticlePageComponent
   ],
   imports: [
