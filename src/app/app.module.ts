@@ -15,6 +15,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {HttpClientModule} from "@angular/common/http";
 import { ChannelListComponent } from './channel-list/channel-list.component';
 import { CardChannelListComponent } from './card-channel-list/card-channel-list.component';
+import { ArticlePageComponent } from './article-page/article-page.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { CardChannelListComponent } from './card-channel-list/card-channel-list.
     ThemeSuggestionsComponent,
     ChannelListComponent,
     CardChannelListComponent
+    ArticlePageComponent
   ],
   imports: [
     BrowserModule,
