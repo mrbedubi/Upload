@@ -37,6 +37,9 @@ interface Theme {
   video_id:[number]
   thumbnail: string
   cover_image: string
+  channel_name: string
+  channel_cover: string
+  channel_picture: string
 
 }
 

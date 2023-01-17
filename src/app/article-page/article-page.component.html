@@ -1,20 +1,20 @@
-<main id="article_wrapper">
+<main id="article_wrapper" *ngFor="let theme of theme">
   <div class="channel_information_wrapper">
     <div class="channel_cover_container">
       <img
-        src="https://petapixel.com/assets/uploads/2021/06/Social-Medias-Impact-on-Landscape-and-Nature-Photography.jpg"
+        [src]="BaseUrl + theme.channel_cover"
         alt="" class="channel_cover">
     </div>
-    <p class="channel_name">National Geographic</p>
+    <p class="channel_name">{{theme.channel_name}}</p>
     <div class="channel_avatar_container">
-      <img src="https://static.nationalgeographicbrasil.com/files/styles/image_3200/public/nglogo2.png?w=1900&h=1161"
+      <img [src]="BaseUrl + theme.channel_picture"
            alt="" class="channel_avatar">
     </div>
   </div>
 
   <div class="article_info">
     <div class="article_title">
-      <h1>Tips and Tricks for CSS!</h1>
+      <h1>{{theme.title}}</h1>
       <div class="article_tags">
         <p>#CSS</p>
         <p>#Kevin Powell</p>
@@ -25,45 +25,7 @@
 
   <div class="article_container">
     <div class="article_body">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus architecto autem beatae culpa cum ea, fugit
-        ipsam non repellat sapiente similique sint tempore totam vero voluptas? Et iure labore quo!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam asperiores commodi cupiditate debitis deleniti
-        enim illum sapiente sunt velit? Et id labore laudantium modi optio quam repellendus? Debitis, nesciunt, ullam.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur corporis deserunt dolore doloremque fugit
-        ipsum nihil odit, quaerat, quibusdam repellendus sequi veniam? Culpa deserunt doloribus neque odit pariatur!
-        Quo, unde.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi blanditiis cupiditate delectus doloremque
-        dolores est eum ex, excepturi illum, iusto magnam maiores molestiae natus neque nisi optio qui sapiente
-        voluptatum?
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam at, aut consectetur deserunt dolor,
-        dolores eligendi explicabo fuga illum natus nostrum officiis omnis quae quo reiciendis velit veritatis
-        voluptatibus!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam at, aut consectetur deserunt dolor,
-        dolores eligendi explicabo fuga illum natus nostrum officiis omnis quae quo reiciendis velit veritatis
-        voluptatibus!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam at, aut consectetur deserunt dolor,
-        dolores eligendi explicabo fuga illum natus nostrum officiis omnis quae quo reiciendis velit veritatis
-        voluptatibus!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam at, aut consectetur deserunt dolor,
-        dolores eligendi explicabo fuga illum natus nostrum officiis omnis quae quo reiciendis velit veritatis
-        voluptatibus!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam at, aut consectetur deserunt dolor,
-        dolores eligendi explicabo fuga illum natus nostrum officiis omnis quae quo reiciendis velit veritatis
-        voluptatibus!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam at, aut consectetur deserunt dolor,
-        dolores eligendi explicabo fuga illum natus nostrum officiis omnis quae quo reiciendis velit veritatis
-        voluptatibus!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam at, aut consectetur deserunt dolor,
-        dolores eligendi explicabo fuga illum natus nostrum officiis omnis quae quo reiciendis velit veritatis
-        voluptatibus!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam at, aut consectetur deserunt dolor,
-        dolores eligendi explicabo fuga illum natus nostrum officiis omnis quae quo reiciendis velit veritatis
-        voluptatibus!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi asperiores blanditiis dolore doloremque
-        facilis impedit non, numquam porro provident quae quam quisquam recusandae repellat, sit ut voluptate. Eum,
-        fugit!
-      </p>
+      <p>{{theme.body}}</p>
     </div>
     <h2>Featured Videos</h2>
     <div class="article_videos_container">
