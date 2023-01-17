@@ -20,7 +20,7 @@ export class ArticlePageComponent implements OnInit {
     })
 
     this.service.getThemeById(8).subscribe((theme) => {
-      this.theme = theme
+      this.theme = Object.values(theme)
     })
   }
 

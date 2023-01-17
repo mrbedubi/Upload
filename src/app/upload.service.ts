@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Channel, NrVideosChannel, Tag, Video} from "./interface"
+import {Channel, NrVideosChannel, Tag, Theme, Video} from "./interface"
 
 
 const BASE_URL = "https://dev-project-upskill2-grupo2.pantheonsite.io/api/";
@@ -30,6 +30,10 @@ export class UploadService {
 
   getVideosByTag(id:number){
    return this.http.get<Video>(BASE_URL+"tags/"+id+"/videos");
+  }
+
+  getThemeById(id:number) {
+    return this.http.get<Theme>(BASE_URL+"theme/"+id)
   }
 
   // Get Channels
