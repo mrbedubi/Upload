@@ -1,0 +1,55 @@
+<main id="article_wrapper" *ngFor="let theme of theme">
+  <div class="channel_information_wrapper">
+    <div class="channel_cover_container">
+      <img
+        [src]="BaseUrl + theme.channel_cover"
+        alt="" class="channel_cover">
+    </div>
+    <p class="channel_name">{{theme.channel_name}}</p>
+    <div class="channel_avatar_container">
+      <img [src]="BaseUrl + theme.channel_picture"
+           alt="" class="channel_avatar">
+    </div>
+  </div>
+
+  <div class="article_info">
+    <div class="article_title">
+      <h1>{{theme.title}}</h1>
+      <div class="article_tags">
+        <p>#CSS</p>
+        <p>#Kevin Powell</p>
+        <p>#English</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="article_container">
+    <div class="article_body">
+      <p>{{theme.body}}</p>
+    </div>
+    <h2>Featured Videos</h2>
+    <div class="article_videos_container">
+      <app-video-card class="video_card" [routerLink]="['/video']" *ngFor=" let video of videos | slice:0:3"
+                      [channel_name]="video.channel_name"
+                      card="homepage"
+                      [title]="video.title"
+                      [published_date]="video.published_date"
+                      [duration]="video.duration"
+                      [thumbnail]="this.VideoId(video.thumbnail, video.video_url)"
+                      [channel_avatar]="this.BaseUrl + video.channel_picture">
+      </app-video-card>
+    </div>
+    <h2>More videos about this theme</h2>
+    <div class="tag_videos_container">
+      <app-video-card class="video_card" [routerLink]="['/video']" *ngFor=" let video of videos"
+                      [channel_name]="video.channel_name"
+                      card="homepage"
+                      [title]="video.title"
+                      [published_date]="video.published_date"
+                      [duration]="video.duration"
+                      [thumbnail]="this.VideoId(video.thumbnail, video.video_url)"
+                      [channel_avatar]="this.BaseUrl + video.channel_picture">
+      </app-video-card>
+    </div>
+  </div>
+</main>

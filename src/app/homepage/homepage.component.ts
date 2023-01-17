@@ -9,7 +9,7 @@ import {Video, Channel ,Tag} from "../interface";
 })
 export class HomepageComponent {
   videos!: Video[];
-  BaseUrl:string="https://dev-project-upskill2-grupo2.pantheonsite.io"
+  BaseUrl: string="https://dev-project-upskill2-grupo2.pantheonsite.io"
 
 
 
@@ -20,8 +20,6 @@ export class HomepageComponent {
 
     this.list.getVideos().subscribe((videos) => {
       this.videos = videos
-       console.log(this.videos);
-
     })
 
   }
