@@ -2,11 +2,15 @@
   <div class="main_content_wrapper">
     <p>Canais</p>
     <div class="content_wrapper">
-      <app-card-channel-list class="card">
-      </app-card-channel-list>
-      <app-card-channel-list class="card">
-      </app-card-channel-list>
-      <app-card-channel-list class="card">
+      <app-card-channel-list
+        *ngFor="let channel of channels"
+        class="card"
+        [id]="channel.channel_id"
+        [name]="channel.name"
+        [cover_image]="channel.cover_image"
+        [description]="channel.description"
+        [profile_picture]="channel.profile_picture"
+        [nr_videos]="nrvideos[channel.channel_id]?.number_of_videos">
       </app-card-channel-list>
     </div>
   </div>
