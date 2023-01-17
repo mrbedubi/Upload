@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Channel, Tag, Video } from "./interface"
+import {Channel, Tag, Theme, Video} from "./interface"
 
 
 const BASE_URL = "https://dev-project-upskill2-grupo2.pantheonsite.io/api/";
@@ -19,6 +19,13 @@ export class UploadService {
    return this.http.get<Video[]>(BASE_URL+"videos/"+ids);
   }
 
+  //Alterar api para /themes
+  getThemeById(id:number) {
+    return this.http.get<Theme[]>(BASE_URL+"theme/"+id)
+  }
+
+
+  //Acho que esta já não tem uso, temos uma igual na pág. de videos @Diogo @Xaninha
   getEmbedUrl(url: string) {
     const urlParts = url.split("=");
     return "https://www.youtube.com/embed/"+urlParts;

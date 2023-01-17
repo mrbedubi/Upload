@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, SecurityContext} from '@angular/core';
 import {Video} from "../interface";
 import {UploadService} from "../upload.service";
-import { DomSanitizer } from '@angular/platform-browser';
+import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 
 
 @Component({
@@ -13,14 +13,15 @@ export class VideoPageComponent {
   BaseUrl:string="https://dev-project-upskill2-grupo2.pantheonsite.io";
   channel: any;
   video!:Video
+  safeUrl?: SafeResourceUrl
 
-  constructor( public list:UploadService ,public sanitizer: DomSanitizer ){
+  constructor(public list:UploadService, public sanitizer: DomSanitizer){
+
 
   }
   ngOnInit():void {
     this.list.getVideosById(2).subscribe((videos) => {
       this.video=videos[0]
-      console.log(this.video)
     })
 
 }
@@ -28,7 +29,7 @@ export class VideoPageComponent {
   public VideoId(url: string) {
     const urlParts = url.split("=");
     const videoId = urlParts[urlParts.length - 1];
-    return "https://www.youtube.com/embed/"+videoId;
+    return "https://www.youtube.com/embed/"+videoId
   }
 }
 
