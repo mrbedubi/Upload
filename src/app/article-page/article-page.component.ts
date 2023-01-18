@@ -19,7 +19,7 @@ export class ArticlePageComponent implements OnInit {
       this.videos = videos
     })
 
-    this.service.getThemeById(8).subscribe((theme) => {
+   this.service.getThemeById(8).subscribe((theme) => {
       this.theme = Object.values(theme)
     })
   }

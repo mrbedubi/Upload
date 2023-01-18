@@ -5,13 +5,15 @@ import {VideoPageComponent} from "./video-page/video-page.component";
 import {ChannelPageComponent} from "./channel-page/channel-page.component";
 import {ArticlePageComponent} from "./article-page/article-page.component";
 import {ChannelListComponent} from "./channel-list/channel-list.component";
+import {PlaylistListComponent} from "./playlist-list/playlist-list.component";
 
 const routes: Routes = [
   {path: '', component: HomepageComponent},
   {path: 'video', component: VideoPageComponent},
   {path: 'channel', component: ChannelPageComponent},
   {path: 'article', component: ArticlePageComponent},
-  {path: 'channel-list', component: ChannelListComponent}
+  {path: 'channel-list', component: ChannelListComponent},
+  {path: 'playlist-list', component: PlaylistListComponent},
 ];
 
 @NgModule({
