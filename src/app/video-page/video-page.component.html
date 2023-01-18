@@ -44,7 +44,7 @@
 
 
     <ng-container *ngFor=" let videoByTag of videosByTag">
-      <app-video-card class="video_card" [routerLink]="['/video']"  *ngIf="video.id !== videoByTag.id"
+      <app-video-card class="video_card" *ngIf="video.id !== videoByTag.id" routerLink="/video/{{videoByTag.id}}"
                       [channel_name]="videoByTag.channel_name"
                       card="homepage"
                       [title]="videoByTag.title"

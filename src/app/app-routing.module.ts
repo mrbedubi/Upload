@@ -9,7 +9,7 @@ import {PlaylistListComponent} from "./playlist-list/playlist-list.component";
 
 const routes: Routes = [
   {path: '', component: HomepageComponent},
-  {path: 'video', component: VideoPageComponent},
+  {path: 'video/:id', component: VideoPageComponent},
   {path: 'channel', component: ChannelPageComponent},
   {path: 'article', component: ArticlePageComponent},
   {path: 'channel-list', component: ChannelListComponent},

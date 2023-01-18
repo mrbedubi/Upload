@@ -2,6 +2,7 @@ import {Component, SecurityContext} from '@angular/core';
 import {Video} from "../interface";
 import {UploadService} from "../upload.service";
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
+import {ActivatedRoute} from "@angular/router";
 
 
 @Component({
@@ -14,12 +15,16 @@ export class VideoPageComponent {
   channel: any;
   video!:Video
   videosByTag: Video[] = []
+  ids!: any
 
-  constructor(public service:UploadService, public sanitizer: DomSanitizer){
+  constructor(public service:UploadService, public sanitizer: DomSanitizer, private route: ActivatedRoute){
 
   }
   ngOnInit():void {
-    this.service.getVideosById(8).subscribe((videos) => {
+    this.ids = this.route.snapshot.paramMap.get('id')
+
+
+    this.service.getVideosById(this.ids).subscribe((videos) => {
       this.video=videos[0]
       console.log(this.video.id)
     })
@@ -27,7 +32,6 @@ export class VideoPageComponent {
     this.service.getVideosByTag(6).subscribe((videosByTag) => {
       this.videosByTag = videosByTag
       console.log(this.videosByTag)
-      console.log(this.videosByTag[0].id)
     })
 
 

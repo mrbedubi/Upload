@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {UploadService} from "../upload.service";
 import {Video, Channel ,Tag} from "../interface";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-homepage',
@@ -13,7 +14,7 @@ export class HomepageComponent {
 
 
 
-  constructor(public list: UploadService) {
+  constructor(public list: UploadService, public router: Router) {
   }
 
   ngOnInit(): void {

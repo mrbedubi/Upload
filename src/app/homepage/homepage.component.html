@@ -2,7 +2,7 @@
   <div class="main_content_wrapper">
   <p>Últimos Vídeos</p>
   <div class="content_wrapper" >
-    <app-video-card class="video_card" [routerLink]="['/video']" *ngFor=" let video of videos"
+    <app-video-card class="video_card" *ngFor=" let video of videos"
                     [channel_name]="video.channel_name"
                     card="homepage"
                     [title]="video.title"
@@ -23,3 +23,4 @@
 
 
 </div>
+

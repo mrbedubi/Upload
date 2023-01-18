@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 
 //import {UploadService} from "../../upload.service";
 
@@ -10,7 +11,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class VideoCardComponent implements OnInit {
   page: any;
 
-  @Input() id?: number;
+  @Input() id?: string;
   @Input() title?: string;
   @Input() published_date?: string;
   @Input() video_url?: string;
@@ -22,12 +23,11 @@ export class VideoCardComponent implements OnInit {
   @Input() card!: "homepage" | "channelpage" | "videopage"
 
 
-  constructor() {
+  constructor(public router: Router) {
   }
 
 //public uploadService: UploadService
   ngOnInit(): void {
-
   }
 
 }
