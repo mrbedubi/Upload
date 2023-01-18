@@ -21,12 +21,13 @@ export class VideoPageComponent {
   ngOnInit():void {
     this.service.getVideosById(8).subscribe((videos) => {
       this.video=videos[0]
-      console.log(this.video.tags)
+      console.log(this.video.id)
     })
 
     this.service.getVideosByTag(6).subscribe((videosByTag) => {
       this.videosByTag = videosByTag
       console.log(this.videosByTag)
+      console.log(this.videosByTag[0].id)
     })
 
 
