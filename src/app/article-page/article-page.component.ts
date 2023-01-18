@@ -11,7 +11,7 @@ export class ArticlePageComponent implements OnInit {
 
   videoIds!: string[]
   videos!: Video[]
-  videosById!: Video[]
+  videosById: Video[] = []
   theme!: Theme[]
   BaseUrl: string="https://dev-project-upskill2-grupo2.pantheonsite.io"
   constructor(public service: UploadService) { }
@@ -29,11 +29,10 @@ export class ArticlePageComponent implements OnInit {
       for (let video in this.videoIds) {
         console.log(this.videoIds[video])
         this.service.getVideosById(parseInt(this.videoIds[video])).subscribe((videosById)=>{
-          console.log(videosById)
-          this.videosById = videosById
+          this.videosById.push(videosById[0])
         })
       }
-      
+
     })
 
 
