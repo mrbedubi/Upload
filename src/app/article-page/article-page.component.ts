@@ -9,10 +9,13 @@ import {Theme, Video} from "../interface";
 })
 export class ArticlePageComponent implements OnInit {
 
+  videoIds!: string[]
   videos!: Video[]
+  videosById!: Video[]
   theme!: Theme[]
   BaseUrl: string="https://dev-project-upskill2-grupo2.pantheonsite.io"
   constructor(public service: UploadService) { }
+
 
   ngOnInit(): void {
     this.service.getVideos().subscribe((videos) => {
@@ -20,8 +23,24 @@ export class ArticlePageComponent implements OnInit {
     })
 
     this.service.getThemeById(8).subscribe((theme) => {
-      this.theme = theme
+      this.videoIds = Object.values(theme)[0].video_id.split(", ")
+      this.theme = Object.values(theme)
+
+      for (let video in this.videoIds) {
+        console.log(this.videoIds[video])
+        this.service.getVideosById(parseInt(this.videoIds[video])).subscribe((videosById)=>{
+          console.log(videosById)
+          this.videosById = videosById
+        })
+      }
+      
     })
+
+
+    //this.service.getVideosById(16).subscribe((videos)=> {
+    //  console.log(videos)
+    //  this.videosById = videos
+    //})
   }
 
   public VideoId(s: string, url: string) {

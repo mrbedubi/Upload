@@ -10,7 +10,6 @@ import {Component, Input, OnInit} from '@angular/core';
 export class VideoCardComponent implements OnInit {
   page: any;
 
-
   @Input() id?: number;
   @Input() title?: string;
   @Input() published_date?: string;
@@ -30,6 +29,5 @@ export class VideoCardComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
 
 }

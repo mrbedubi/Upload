@@ -1,15 +1,16 @@
 <div class="card_channel_container">
   <div class="imagem">
-    <img src="assets/yoga.jpg" alt="...">
-  </div>
-  <div>
-    <img class="avatar" src="assets/avatar.png" alt="...">
+    <img [src]="BASE_URL+cover_image" alt="...">
   </div>
 
-
+  <div class="info_container">
+  <div class="avatar_container">
+    <img class="avatar" [src]="BASE_URL+profile_picture" alt="...">
+  </div>
 <div class="info">
-  <p class="canal">Canal da Alexandra</p>
+  <p class="canal">{{name}}</p>
   <p class="tag">#yoga #foco #cenas</p>
-  <p class="nr_videos">7 videos</p>
+  <p class="nr_videos">{{nr_videos}} vídeos</p>
 </div>
+  </div>
 </div>

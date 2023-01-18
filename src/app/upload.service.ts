@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Channel, Tag, Theme, Video} from "./interface"
+import {Channel, NrVideosChannel, Tag, Theme, Video} from "./interface"
 
 
 const BASE_URL = "https://dev-project-upskill2-grupo2.pantheonsite.io/api/";
@@ -19,30 +19,39 @@ export class UploadService {
    return this.http.get<Video[]>(BASE_URL+"videos/"+ids);
   }
 
-  //Alterar api para /themes
   getThemeById(id:number) {
-    return this.http.get<Theme[]>(BASE_URL+"theme/"+id)
+    return this.http.get<Theme>(BASE_URL+"theme/"+id)
   }
 
+  teste() {
+    for (let i = 0; i++; i<3){
+      console.log(i)
+    }
+  }
 
-  //Acho que esta já não tem uso, temos uma igual na pág. de videos @Diogo @Xaninha
   getEmbedUrl(url: string) {
     const urlParts = url.split("=");
     return "https://www.youtube.com/embed/"+urlParts;
   }
 
   getVideosByChannel(id:number){
-   return this.http.get<Video>(BASE_URL+"channels/"+id+"/videos");
+   return this.http.get<Video[]>(BASE_URL+"channels/"+id+"/videos");
   }
 
   getVideosByTag(id:number){
    return this.http.get<Video>(BASE_URL+"tags/"+id+"/videos");
   }
 
+
+
   // Get Channels
 
   getChannels(){
     return this.http.get<Channel[]>(BASE_URL+"channels");
+  }
+
+  getNrVideosChannel(){
+    return this.http.get<NrVideosChannel[]>(BASE_URL+"channels/all/nvideos")
   }
 
   getChannelsById(id:number){

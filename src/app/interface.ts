@@ -17,9 +17,8 @@ interface Video {
 }
 
 
-
 interface Channel {
-  id: number
+  channel_id: number
   name: string
   cover_image: string
   description: string
@@ -63,5 +62,11 @@ interface Playlist{
 
 }
 
-export {Video , Tag , Theme , Playlist, Channel , Category};
+interface NrVideosChannel{
+  id:number
+  number_of_videos:number
+  name:string
+}
+
+export {Video , Tag , Theme , Playlist, Channel , Category, NrVideosChannel};
 
