@@ -31,10 +31,7 @@ export class ArticlePageComponent implements OnInit {
           this.videosById.push(videosById[0])
         })
       }
-
     })
-
-
   }
 
   public VideoId(s: string, url: string) {

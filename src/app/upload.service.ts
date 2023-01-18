@@ -23,12 +23,7 @@ export class UploadService {
     return this.http.get<Theme>(BASE_URL+"theme/"+id)
   }
 
-  teste() {
-    for (let i = 0; i++; i<3){
-      console.log(i)
-    }
-  }
-
+  //Acho que não precisamos disto - ts
   getEmbedUrl(url: string) {
     const urlParts = url.split("=");
     return "https://www.youtube.com/embed/"+urlParts;
@@ -38,11 +33,10 @@ export class UploadService {
    return this.http.get<Video[]>(BASE_URL+"channels/"+id+"/videos");
   }
 
-  getVideosByTag(id:number){
+  getVideosByTag(id:number[]){
+
    return this.http.get<Video>(BASE_URL+"tags/"+id+"/videos");
   }
-
-
 
   // Get Channels
 
