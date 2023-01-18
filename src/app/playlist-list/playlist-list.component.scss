@@ -1,0 +1,20 @@
+p {
+  padding-left: 2.5rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin: 0;
+}
+#playlist_list_wrapper{
+  padding-left:14%;
+}
+.content_wrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  .card{
+    padding: 1rem;
+    box-sizing: border-box;
+    width: 33%;
+  }
+}

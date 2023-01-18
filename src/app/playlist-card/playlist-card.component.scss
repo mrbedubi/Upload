@@ -1,4 +1,4 @@
-.card_channel_container {
+.playlist_card_container {
   width: 100%;
   max-width: 600px;
   background-color: #1C1C24;
@@ -6,7 +6,6 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
-
 
   .imagem {
     width: 100%;
@@ -23,35 +22,17 @@
     }
   }
 
-  .info_container {
-    display: flex;
 
-    .avatar_container {
-      width: 27%;
+    .info_container{
       display: flex;
-      justify-content: center;
-      position: relative;
+      padding-left: 2rem;
 
-      .avatar {
-        position: absolute;
-        width: 70px;
-        top: -35px;
-        aspect-ratio: 1/1;
-        border: 2px solid #FFFFFF;
-        border-radius: 50%;
-        overflow: hidden;
-        background-size: cover;
-        background-position: center;
+      .info {
+        width: 73%;
+        padding: 0.5rem;
       }
 
-    }
-
-
-    .info {
-      width: 73%;
-      padding: 0.5rem;
-
-      .canal {
+      .nome {
         color: white;
         font-size: 1.3rem;
         margin: 0;
@@ -62,13 +43,12 @@
         margin-bottom: 0.5rem;
       }
 
-      .tag {
+      .user {
         color: #1E75FF;
         font-weight: 200;
         margin: 0;
       }
-
-      .nr_videos {
+      .data {
         color: #92929D;
         font-weight: 200;
         margin: 0;
@@ -76,8 +56,23 @@
       }
     }
 
+.play_videos{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.8rem;
+
+
+.nr_videos{
+  padding-right: 10px;
+}
+}
 
   }
 
 
-}
+
+
+
+
+

@@ -17,6 +17,9 @@ import { ChannelListComponent } from './channel-list/channel-list.component';
 import { CardChannelListComponent } from './card-channel-list/card-channel-list.component';
 import { SafeUrlPipe } from './safe-url.pipe';
 import {ArticlePageComponent} from "./article-page/article-page.component";
+import { PlaylistListComponent } from './playlist-list/playlist-list.component';
+import { PlaylistPageComponent } from './playlist-page/playlist-page.component';
+import { PlaylistCardComponent } from './playlist-card/playlist-card.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import {ArticlePageComponent} from "./article-page/article-page.component";
     ChannelListComponent,
     CardChannelListComponent,
     SafeUrlPipe,
-    ArticlePageComponent
+    ArticlePageComponent,
+    PlaylistListComponent,
+    PlaylistPageComponent,
+    PlaylistCardComponent
   ],
   imports: [
     BrowserModule,
