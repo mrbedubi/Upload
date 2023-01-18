@@ -13,23 +13,29 @@ export class VideoPageComponent {
   BaseUrl:string="https://dev-project-upskill2-grupo2.pantheonsite.io";
   channel: any;
   video!:Video
-  safeUrl?: SafeResourceUrl
+  videosByTag: Video[] = []
 
-  constructor(public list:UploadService, public sanitizer: DomSanitizer){
-
+  constructor(public service:UploadService, public sanitizer: DomSanitizer){
 
   }
   ngOnInit():void {
-    this.list.getVideosById(2).subscribe((videos) => {
+    this.service.getVideosById(8).subscribe((videos) => {
       this.video=videos[0]
+      console.log(this.video.tags)
     })
+
+    this.service.getVideosByTag(6).subscribe((videosByTag) => {
+      this.videosByTag = videosByTag
+      console.log(this.videosByTag)
+    })
+
 
 }
 
   public VideoId(url: string) {
     const urlParts = url.split("=");
     const videoId = urlParts[urlParts.length - 1];
-    return "https://www.youtube.com/embed/"+videoId
+    return "https://www.youtube.com/embed/"+videoId//+"?&autoplay=1"
   }
 }
 

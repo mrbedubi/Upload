@@ -33,9 +33,8 @@ export class UploadService {
    return this.http.get<Video[]>(BASE_URL+"channels/"+id+"/videos");
   }
 
-  getVideosByTag(id:number[]){
-
-   return this.http.get<Video>(BASE_URL+"tags/"+id+"/videos");
+  getVideosByTag(id:number|string){
+   return this.http.get<Video[]>(BASE_URL+"tags/"+id+"/videos");
   }
 
   // Get Channels
@@ -60,6 +59,16 @@ export class UploadService {
 
   getTagsById(id:number){
     return this.http.get<Tag>(BASE_URL+"tags/"+id);
+  }
+
+  getThumbnail(s: string, url: string) {
+
+    if (s != "") {
+      return "https://dev-project-upskill2-grupo2.pantheonsite.io/" + s
+    }
+    const urlParts = url.split("=");
+    const videoId = urlParts[urlParts.length - 1];
+    return "https://img.youtube.com/vi/" + videoId + "/sddefault.jpg"
   }
 
   constructor(public http: HttpClient) { }

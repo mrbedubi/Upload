@@ -6,12 +6,15 @@
   display: flex;
 
   //video header properties
-  .video-card_wrapper {
+  .video_card_wrapper {
     width: 25%;
     margin-left: 1.5%;
     margin-top: 5.8%;
-  }
 
+    .video_card {
+      padding: 1rem;
+    }
+  }
 
   .video_wrapper {
     width: 72%;

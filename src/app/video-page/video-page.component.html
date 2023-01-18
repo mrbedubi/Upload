@@ -3,10 +3,8 @@
     <div class="video_header">
       <div class="video_information">
         <h1 class="video_title">{{video.title}}</h1>
-        <div class="video_tag_container">
-          <p class="video_tag">#metal</p>
-          <p class="video_tag">#music</p>
-          <p class="video_tag">#bmth</p>
+        <div class="video_tag_container" *ngFor="let tag of video.tags">
+          <p class="video_tag">#{{tag}}</p>
         </div>
       </div>
       <div class="report_container">
@@ -15,8 +13,7 @@
     </div>
 
     <div id="video_container">
-      <iframe width="560" height="315" [src]="this.VideoId(this.video.video_url)+'?&autoplay=1' | safeUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      <!--<iframe width="560" height="315" src="{{this.getEmbedURL(video.video_url)}}" title="Youtube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+      <iframe width="560" height="315" [src]="this.VideoId(this.video.video_url) | safeUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
 
     <div id="channel_wrapper">
@@ -43,11 +40,17 @@
       <p class="video_description">{{video.description}}</p>
     </div>
   </div>
-  <div class="video-card_wrapper">
-    <app-video-card card ="videopage"
+  <div class="video_card_wrapper">
+    <app-video-card class="video_card" [routerLink]="['/video']" *ngFor=" let videoByTag of videosByTag"
+                    [channel_name]="videoByTag.channel_name"
+                    card="homepage"
+                    [title]="videoByTag.title"
+                    [published_date]="videoByTag.published_date"
+                    [duration]="videoByTag.duration"
+                    [thumbnail]="this.service.getThumbnail(videoByTag.thumbnail, videoByTag.video_url)"
+                    [channel_avatar]="this.BaseUrl + videoByTag.channel_picture">
 
-    ></app-video-card>
-    <app-video-card></app-video-card>
+    </app-video-card>
   </div>
 </div>
 
