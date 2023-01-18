@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Channel, NrVideosChannel} from "../interface";
 import {UploadService} from "../upload.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-channel-list',

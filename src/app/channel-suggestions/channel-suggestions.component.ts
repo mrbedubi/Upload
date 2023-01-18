@@ -14,6 +14,7 @@ export class ChannelSuggestionsComponent {
   }
 
   ngOnInit():void{
+
 this.list.getChannels().subscribe((channels)=>{
   this.channels=channels;
 })

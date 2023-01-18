@@ -14,7 +14,7 @@ export class HomepageComponent {
 
 
 
-  constructor(public list: UploadService, public router: Router) {
+  constructor(public list: UploadService) {
   }
 
   ngOnInit(): void {
@@ -34,19 +34,6 @@ export class HomepageComponent {
     const videoId = urlParts[urlParts.length - 1];
     return "https://img.youtube.com/vi/" + videoId + "/sddefault.jpg"
   }
-
-/*
-  public getChannelInfo(id: number) {
-    let channels!:Channel[];
-     this.list.getChanelsById(id).subscribe((channel) => {
-      channels = channel
-
-    })
-console.log(channels[0].name);
-    return channels[0]
-
-  }
-*/
 
 
 }

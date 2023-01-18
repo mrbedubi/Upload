@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Channel, Video} from "../interface";
 import {UploadService} from "../upload.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-channel-page',
@@ -11,6 +12,7 @@ export class ChannelPageComponent {
   channel!:Channel
   video:Video[]=[];
   BaseUrl: string="https://dev-project-upskill2-grupo2.pantheonsite.io"
+  ids!: any
 
 
   @Input() id?: number;
@@ -20,15 +22,18 @@ export class ChannelPageComponent {
   @Input() profile_picture?: string;
 
 
-  constructor( public list:UploadService){
+  constructor( public list:UploadService, private activatedRoute: ActivatedRoute){
 
   }
   ngOnInit():void {
-    this.list.getChannelsById(1).subscribe((channel) => {
+    this.ids = this.activatedRoute.snapshot.paramMap.get('id')
+
+
+    this.list.getChannelsById(this.ids).subscribe((channel) => {
       this.channel = channel[0];
       console.log(this.channel);
     })
-    this.list.getVideosByChannel(1).subscribe((video) => {
+    this.list.getVideosByChannel(this.ids).subscribe((video) => {
       this.video = video
       console.log(video[0].thumbnail);
     })
