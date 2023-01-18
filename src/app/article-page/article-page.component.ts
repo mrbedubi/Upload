@@ -27,7 +27,6 @@ export class ArticlePageComponent implements OnInit {
       this.theme = Object.values(theme)
 
       for (let video in this.videoIds) {
-        console.log(this.videoIds[video])
         this.service.getVideosById(parseInt(this.videoIds[video])).subscribe((videosById)=>{
           this.videosById.push(videosById[0])
         })
