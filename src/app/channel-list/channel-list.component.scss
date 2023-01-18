@@ -10,6 +10,19 @@ p {
 .content_wrapper{
   width: 100%;
   display: flex;
+
+  .card{
+    padding: 15px;
+    width: 33%;
+  }
+
+}
+#channel_list_wrapper{
+  padding-left:14%;
+}
+.content_wrapper{
+  width: 100%;
+  display: flex;
   flex-wrap: wrap;
 
   .card{

@@ -1,13 +1,13 @@
 <div class="body_container">
 <div class="cover_container">
   <div class="cover_img">
-    <div class="img" style="background-image:url('https://petapixel.com/assets/uploads/2021/06/Social-Medias-Impact-on-Landscape-and-Nature-Photography.jpg')"> </div>
+    <div class="img" style="background-image:url({{this.BaseUrl+channel.cover_image}})"> </div>
     <div class="gradient"></div>
   </div>
 </div>
 
-  <div class="cover_details" *ngFor="let channel of channel">
-    <div class="img" style="background-image:url('https://nationalgeographic.pt/images/revistas/140/Chitas/chita12.jpg')"></div>
+  <div class="cover_details">
+    <div class="img" style="background-image:url({{this.BaseUrl+channel.profile_picture}})"></div>
     <div class="cover_details_text">
       <p class="title">{{channel.name}}</p>
       <p>{{channel.description}}</p>
@@ -18,13 +18,13 @@
   <p>Videos</p>
   <div class="container_vid">
     <app-video-card class="video_card" *ngFor=" let video of video"
-                    card="channelpage"
-                    [channel_name]=""
+                    card="homepage"
+                    [channel_name]="video.channel_name"
                     [title]="video.title"
                     [published_date]="video.published_date"
                     [duration]="video.duration"
                     [thumbnail]="this.VideoId(video.thumbnail, video.video_url)"
-                    [channel_avatar]="">
+                    [channel_avatar]="this.BaseUrl+video.channel_picture">
 
     </app-video-card>
 

@@ -8,8 +8,9 @@ import {UploadService} from "../upload.service";
   styleUrls: ['./channel-page.component.scss']
 })
 export class ChannelPageComponent {
-  channel!:Channel[]
-  video!:Video[]
+  channel!:Channel
+  video:Video[]=[];
+  BaseUrl: string="https://dev-project-upskill2-grupo2.pantheonsite.io"
 
 
   @Input() id?: number;
@@ -23,11 +24,13 @@ export class ChannelPageComponent {
 
   }
   ngOnInit():void {
-    this.list.getChannels().subscribe((channel) => {
-      this.channel = channel
+    this.list.getChannelsById(1).subscribe((channel) => {
+      this.channel = channel[0];
+      console.log(this.channel);
     })
-    this.list.getVideos().subscribe((video) => {
+    this.list.getVideosByChannel(1).subscribe((video) => {
       this.video = video
+      console.log(video[0].thumbnail);
     })
   }
 

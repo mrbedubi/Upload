@@ -81,10 +81,11 @@ border: none;
     display: flex;
     box-sizing:border-box;
     flex-wrap: wrap;
-    .vid{
+
+    .video_card {
+      width: 33%;
+      padding: 1.25rem;
       box-sizing: border-box;
-      width: 25%;
-      padding: 1rem;
     }
   }
 
