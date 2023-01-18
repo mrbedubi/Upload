@@ -35,10 +35,6 @@ export class ArticlePageComponent implements OnInit {
     })
 
 
-    //this.service.getVideosById(16).subscribe((videos)=> {
-    //  console.log(videos)
-    //  this.videosById = videos
-    //})
   }
 
   public VideoId(s: string, url: string) {

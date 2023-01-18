@@ -1,0 +1,78 @@
+.playlist_card_container {
+  width: 100%;
+  max-width: 600px;
+  background-color: #1C1C24;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  .imagem {
+    width: 100%;
+    aspect-ratio: 1/0.20;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%;
+
+    }
+  }
+
+
+    .info_container{
+      display: flex;
+      padding-left: 2rem;
+
+      .info {
+        width: 73%;
+        padding: 0.5rem;
+      }
+
+      .nome {
+        color: white;
+        font-size: 1.3rem;
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-height: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .user {
+        color: #1E75FF;
+        font-weight: 200;
+        margin: 0;
+      }
+      .data {
+        color: #92929D;
+        font-weight: 200;
+        margin: 0;
+
+      }
+    }
+
+.play_videos{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.8rem;
+
+
+.nr_videos{
+  padding-right: 10px;
+}
+}
+
+  }
+
+
+
+
+
+
+
