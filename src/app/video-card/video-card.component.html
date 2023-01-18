@@ -1,4 +1,4 @@
-<div class="video_card_container"[ngClass]="card" routerLink="/video/{{id}}">
+<div class="video_card_container"[ngClass]="card" [routerLink]="['/video/', id]">
   <div class="imagem">
     <img src="{{thumbnail}}" alt="...">
     <div class="time">

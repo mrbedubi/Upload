@@ -30,6 +30,7 @@
     <h2>Featured Videos</h2>
     <div class="article_videos_container">
       <app-video-card class="video_card" [routerLink]="['/video']" *ngFor=" let video of videosById"
+                      [id]="video.id"
                       [channel_name]="video.channel_name"
                       card="homepage"
                       [title]="video.title"
@@ -42,6 +43,7 @@
     <h2>More videos about this theme</h2>
     <div class="tag_videos_container">
       <app-video-card class="video_card" [routerLink]="['/video']" *ngFor=" let video of videos"
+                      [id]="video.id"
                       [channel_name]="video.channel_name"
                       card="homepage"
                       [title]="video.title"

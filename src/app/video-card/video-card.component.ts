@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 export class VideoCardComponent implements OnInit {
   page: any;
 
-  @Input() id?: string;
+  @Input() id?: number;
   @Input() title?: string;
   @Input() published_date?: string;
   @Input() video_url?: string;
