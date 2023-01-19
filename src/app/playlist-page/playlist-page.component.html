@@ -1,1 +1,41 @@
-<p>playlist-page works!</p>
+
+<div id="home_wrapper">
+  <div class="playlist_wrapper">
+    <div id="video_container">
+      <iframe width="560" height="315" [src]="this.VideoId(this.video.video_url) | safeUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <!--<iframe width="560" height="315" src="{{this.getEmbedURL(video.video_url)}}" title="Youtube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+    </div>
+
+    <div id="channel_wrapper">
+      <div class="channel_logo_container">
+        <img class="channel_logo" src="{{this.BaseUrl+video.channel_picture}}" alt="">
+      </div>
+
+      <div class="channel_information">
+        <div class="channel_name">{{video.channel_name}}</div>
+        <div class="publishing_date">{{video.published_date}}</div>
+      </div>
+      <div class="rating_container">
+        <div class="likes_container">
+          <i class="like fa-solid fa-thumbs-up"></i>
+          100
+        </div>
+        <div class="dislikes_container">
+          <i class="dislike fa-regular fa-thumbs-down"></i>
+          3
+        </div>
+      </div>
+    </div>
+
+    <div id="video_description_wrapper">
+      <p class="video_description">{{video.description}}</p>
+    </div>
+  </div>
+
+  <div class="playlist_card_wrapper">
+    <div class="nome_canal">{{playlist.title}}</div>
+    <app-video-card>
+
+    </app-video-card>
+  </div>
+</div>
