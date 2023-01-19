@@ -7,6 +7,7 @@ import {ArticlePageComponent} from "./article-page/article-page.component";
 import {ChannelListComponent} from "./channel-list/channel-list.component";
 import {PlaylistListComponent} from "./playlist-list/playlist-list.component";
 import {SearchComponent} from "./search/search.component";
+import {PlaylistPageComponent} from "./playlist-page/playlist-page.component";
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'article', component: ArticlePageComponent},
   {path: 'channel-list', component: ChannelListComponent},
   {path: 'playlist-list', component: PlaylistListComponent},
+  {path: 'playlist', component: PlaylistPageComponent},
 ];
 
 @NgModule({
