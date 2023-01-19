@@ -25,17 +25,13 @@ export class VideoPageComponent {
 
     this.service.getVideosById(this.ids).subscribe((videos) => {
       this.video=videos[0]
-      console.log(this.video.id)
     })
 
     this.service.getVideosByTag(6).subscribe((videosByTag) => {
       this.videosByTag = videosByTag
 
-      console.log("ola", this.video.tags)
-
       this.service.getTagsById(this.video.tags).subscribe((tagbyId)=>{
         this.tags=tagbyId;
-
     });
 
     });
@@ -47,7 +43,7 @@ export class VideoPageComponent {
   public VideoId(url: string) {
     const urlParts = url.split("=");
     const videoId = urlParts[urlParts.length - 1];
-    return "https://www.youtube.com/embed/"+videoId//+"?&autoplay=1"
+    return "https://www.youtube.com/embed/"+videoId+"?&autoplay=1"
   }
 }
 
