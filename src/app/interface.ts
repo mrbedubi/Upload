@@ -58,6 +58,8 @@ interface Category {
 interface Playlist{
   title:string
   category:string
+  image:string
+  date:string
 
 
 }

@@ -1,65 +1,66 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Channel, NrVideosChannel, Tag, Theme, Video} from "./interface"
+import {Channel, NrVideosChannel, Playlist, Tag, Theme, Video} from "./interface"
 
 
 const BASE_URL = "https://dev-project-upskill2-grupo2.pantheonsite.io/api/";
+
 @Injectable({
   providedIn: 'root'
 })
 export class UploadService {
   // Get Videos
 
-  getVideos(){
+  getVideos() {
     console.log("Hello");
-   return this.http.get<Video[]>(BASE_URL+"videos");
+    return this.http.get<Video[]>(BASE_URL + "videos");
   }
 
-  getVideosById(ids:number){
-   return this.http.get<Video[]>(BASE_URL+"videos/"+ids);
+  getVideosById(ids: number) {
+    return this.http.get<Video[]>(BASE_URL + "videos/" + ids);
   }
 
-  getThemeById(id:number) {
-    return this.http.get<Theme>(BASE_URL+"theme/"+id)
+  getThemeById(id: number) {
+    return this.http.get<Theme>(BASE_URL + "theme/" + id)
   }
 
   //Acho que não precisamos disto - ts
   getEmbedUrl(url: string) {
     const urlParts = url.split("=");
-    return "https://www.youtube.com/embed/"+urlParts;
+    return "https://www.youtube.com/embed/" + urlParts;
   }
 
-  getVideosByChannel(id:number){
-   return this.http.get<Video[]>(BASE_URL+"channels/"+id+"/videos");
+  getVideosByChannel(id: number) {
+    return this.http.get<Video[]>(BASE_URL + "channels/" + id + "/videos");
   }
 
-  getVideosByTag(id:number|string){
-   return this.http.get<Video[]>(BASE_URL+"tags/"+id+"/videos");
+  getVideosByTag(id: number | string) {
+    return this.http.get<Video[]>(BASE_URL + "tags/" + id + "/videos");
   }
 
   // Get Channels
 
-  getChannels(){
-    return this.http.get<Channel[]>(BASE_URL+"channels");
+  getChannels() {
+    return this.http.get<Channel[]>(BASE_URL + "channels");
   }
 
-  getNrVideosChannel(){
-    return this.http.get<NrVideosChannel[]>(BASE_URL+"channels/all/nvideos")
+  getNrVideosChannel() {
+    return this.http.get<NrVideosChannel[]>(BASE_URL + "channels/all/nvideos")
   }
 
-  getChannelsById(id:number){
-    return this.http.get<Channel[]>(BASE_URL+"channels/"+id);
+  getChannelsById(id: number) {
+    return this.http.get<Channel[]>(BASE_URL + "channels/" + id);
   }
 
   // Get Tags
 
-  getTags(){
-    return this.http.get<Tag[]>(BASE_URL+"tags");
+  getTags() {
+    return this.http.get<Tag[]>(BASE_URL + "tags");
   }
 
-  getTagsById(id:string|number){
+  getTagsById(id: string | number) {
     console.log(id)
-    return this.http.get<Tag[]>(BASE_URL+"tags/"+id);
+    return this.http.get<Tag[]>(BASE_URL + "tags/" + id);
   }
 
   getThumbnail(s: string, url: string) {
@@ -72,5 +73,18 @@ export class UploadService {
     return "https://img.youtube.com/vi/" + videoId + "/sddefault.jpg"
   }
 
-  constructor(public http: HttpClient) { }
+//Get Playlist
+
+    getPlaylist(){
+      return this.http.get<Playlist[]>(BASE_URL + "playlist");
+    }
+
+    getPlaylistById(id:number){
+      return this.http.get<Playlist[]>(BASE_URL + "playlist/" + id);
+    }
+    constructor(public http: HttpClient)
+    {
+
+    }
+
 }
