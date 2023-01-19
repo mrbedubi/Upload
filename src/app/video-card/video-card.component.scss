@@ -45,6 +45,10 @@
     color: #1E75FF;
     font-weight: 200;
     margin: 0;
+
+    &:hover{
+ text-decoration: underline;
+    }
   }
 
   .titulo{
@@ -121,6 +125,27 @@
   .canal{
     display: none;
   }
+
+  .tags{
+    display: flex;
+    width: 100%;
+    column-gap: 0.5rem;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+
+    .tag{
+      font-weight: 400;
+      color: #1E75FF;
+
+      &:hover{
+        text-decoration: underline;
+
+      }
+    }
+  }
+
+
 
 
 }

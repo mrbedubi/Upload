@@ -57,8 +57,9 @@ export class UploadService {
     return this.http.get<Tag[]>(BASE_URL+"tags");
   }
 
-  getTagsById(id:number){
-    return this.http.get<Tag>(BASE_URL+"tags/"+id);
+  getTagsById(id:string|number){
+    console.log(id)
+    return this.http.get<Tag[]>(BASE_URL+"tags/"+id);
   }
 
   getThumbnail(s: string, url: string) {

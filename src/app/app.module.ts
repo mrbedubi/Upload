@@ -19,6 +19,7 @@ import {ArticlePageComponent} from "./article-page/article-page.component";
 import { PlaylistListComponent } from './playlist-list/playlist-list.component';
 import { PlaylistPageComponent } from './playlist-page/playlist-page.component';
 import { PlaylistCardComponent } from './playlist-card/playlist-card.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { PlaylistCardComponent } from './playlist-card/playlist-card.component';
     ArticlePageComponent,
     PlaylistListComponent,
     PlaylistPageComponent,
-    PlaylistCardComponent
+    PlaylistCardComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

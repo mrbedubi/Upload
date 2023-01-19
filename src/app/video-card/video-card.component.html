@@ -5,9 +5,13 @@
       <p>{{duration}}</p>
     </div>
   </div>
-    <div class="avatar" style="background-image: url({{channel_avatar}})"></div>
+    <div class="avatar"  *ngIf="card=='homepage'|| card=='videopage'" style="background-image: url({{channel_avatar}})" [routerLink]="['/channel/',channelId]"></div>
   <div class="info">
-    <p class="canal" [routerLink]="['/channel']" >{{channel_name}}</p>
+    <p class="canal" *ngIf="card=='homepage'|| card=='videopage'" [routerLink]="['/channel/',channelId]" >{{channel_name}}</p>
+    <div class="tags" *ngIf="card=='channelpage'">
+      <a class="tag" href="" *ngFor=" let tag of tags">#{{tag.name}}</a>
+    </div>
+
     <p class="titulo">{{title}}</p>
   </div>
   <div class="info_bottom">

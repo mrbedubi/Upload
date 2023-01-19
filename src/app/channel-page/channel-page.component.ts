@@ -31,22 +31,13 @@ export class ChannelPageComponent {
 
     this.list.getChannelsById(this.ids).subscribe((channel) => {
       this.channel = channel[0];
-      console.log(this.channel);
+
     })
     this.list.getVideosByChannel(this.ids).subscribe((video) => {
-      this.video = video
-      console.log(video[0].thumbnail);
+      this.video = video;
+      console.log(video);
     })
   }
 
-  public VideoId(s: string, url: string) {
-
-    if (s != "") {
-      return "https://dev-project-upskill2-grupo2.pantheonsite.io" + s
-    }
-    const urlParts = url.split("=");
-    const videoId = urlParts[urlParts.length - 1];
-    return "https://img.youtube.com/vi/" + videoId + "/sddefault.jpg"
-  }
 }
 

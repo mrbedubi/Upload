@@ -4,12 +4,13 @@
   <div class="content_wrapper" >
     <app-video-card class="video_card" *ngFor=" let video of videos"
                     [id]="video.id"
+                    [channelId]="video.channel_id"
                     [channel_name]="video.channel_name"
                     card="homepage"
                     [title]="video.title"
                     [published_date]="video.published_date"
                     [duration]="video.duration"
-                    [thumbnail]="this.VideoId(video.thumbnail, video.video_url)"
+                    [thumbnail]="this.list.getThumbnail(video.thumbnail, video.video_url)"
                     [channel_avatar]="this.BaseUrl + video.channel_picture">
 
     </app-video-card>

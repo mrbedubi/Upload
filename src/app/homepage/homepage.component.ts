@@ -25,15 +25,18 @@ export class HomepageComponent {
 
   }
 
-  public VideoId(s: string, url: string) {
+/*
+  public getChannelInfo(id: number) {
+    let channels!:Channel[];
+     this.list.getChanelsById(id).subscribe((channel) => {
+      channels = channel
 
-    if (s != "") {
-      return this.BaseUrl+ s
-    }
-    const urlParts = url.split("=");
-    const videoId = urlParts[urlParts.length - 1];
-    return "https://img.youtube.com/vi/" + videoId + "/sddefault.jpg"
+    })
+console.log(channels[0].name);
+    return channels[0]
+
   }
+*/
 
 
 }

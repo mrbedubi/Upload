@@ -3,13 +3,13 @@ interface Video {
 
   id: number
   title: string
-  category: [number]
+  category: string
   channel_id: number
   description: string
   duration: string
   published_date: string
   video_url: string
-  tags: [number]
+  tags: string|number
   thumbnail: string
   channel_name: string
   channel_picture: string
@@ -32,8 +32,8 @@ interface Theme {
   title: string
   teaser: string
   body: string
-  tag_id:[number]
-  video_id:[number]
+  tag_id:string
+  video_id:string
   thumbnail: string
   cover_image: string
   channel_name: string
@@ -57,8 +57,8 @@ interface Category {
 
 interface Playlist{
   title:string
-  category:[number]
-  tags:[number]
+  category:string
+
 
 }
 

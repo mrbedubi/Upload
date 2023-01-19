@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {UploadService} from "../upload.service";
+import {Tag} from "../interface";
 import {Router} from "@angular/router";
 
 //import {UploadService} from "../../upload.service";
@@ -9,9 +11,10 @@ import {Router} from "@angular/router";
   styleUrls: ['./video-card.component.scss']
 })
 export class VideoCardComponent implements OnInit {
-  page: any;
+tags!:Tag[];
 
   @Input() id?: number;
+  @Input() channelId?: number;
   @Input() title?: string;
   @Input() published_date?: string;
   @Input() video_url?: string;
@@ -20,14 +23,26 @@ export class VideoCardComponent implements OnInit {
   @Input() thumbnail?: string
   @Input() channel_name?: string
   @Input() channel_avatar?: string
+  @Input() tag!: string|number
   @Input() card!: "homepage" | "channelpage" | "videopage"
 
 
-  constructor(public router: Router) {
+  constructor(public list: UploadService,public router: Router) {
+
   }
+
 
 //public uploadService: UploadService
   ngOnInit(): void {
-  }
+
+    if(this.tag!=undefined){
+      this.list.getTagsById(this.tag).subscribe( (tags)=>{
+        this.tags=tags;
+      });
+
+  }}
+
+
+
 
 }

@@ -1,5 +1,5 @@
 import {Component, SecurityContext} from '@angular/core';
-import {Video} from "../interface";
+import {Tag, Video} from "../interface";
 import {UploadService} from "../upload.service";
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from "@angular/router";
@@ -12,9 +12,9 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class VideoPageComponent {
   BaseUrl:string="https://dev-project-upskill2-grupo2.pantheonsite.io";
-  channel: any;
   video!:Video
   videosByTag: Video[] = []
+  tags:Tag[]=[]
   ids!: any
 
   constructor(public service:UploadService, public sanitizer: DomSanitizer, private route: ActivatedRoute, private router: Router){
@@ -30,12 +30,19 @@ export class VideoPageComponent {
 
     this.service.getVideosByTag(6).subscribe((videosByTag) => {
       this.videosByTag = videosByTag
-      console.log(this.videosByTag)
-    })
+
+      console.log("ola", this.video.tags)
+
+      this.service.getTagsById(this.video.tags).subscribe((tagbyId)=>{
+        this.tags=tagbyId;
+
+    });
+
+    });
 
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
 
-}
+  }
 
   public VideoId(url: string) {
     const urlParts = url.split("=");

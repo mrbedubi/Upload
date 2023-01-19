@@ -21,7 +21,7 @@
     height: 100%;
 
     .video_header {
-      padding: 3% 0 0 3%;
+      padding: 2rem 0 0 1rem;
       display: flex;
       justify-content: space-between;
 
@@ -64,7 +64,7 @@
     #video_container {
       width: 97%;
       height: 65%;
-      padding: 3% 0 0 3%;
+      padding:  1rem 0 0 1rem;
 
       iframe {
         border-radius: 25px;
