@@ -2,14 +2,13 @@
   <div class="main_content_wrapper">
     <p>Playlists</p>
     <div class="content_wrapper">
-      <!--<app-playlist-card
-
+      <app-playlist-card *ngFor="let playlist of playlists"
         [title]="playlist.title"
         [category]="playlist.category"
         [image]="playlist.image"
-        [date]="playlist.date"
-      >
-      </app-playlist-card>-->
+        [date]="playlist.date">
+
+      </app-playlist-card>
     </div>
   </div>
 </div>

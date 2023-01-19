@@ -14,10 +14,10 @@ export class PlaylistListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    /*this.service.getPlaylist().subscribe((playlist) => {
+    this.service.getPlaylist().subscribe((playlist) => {
       this.playlists = playlist
-      console.log(playlist)
-    })*/
+      console.log(playlist[0])
+    })
   }
 
 }

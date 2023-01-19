@@ -10,7 +10,7 @@ export class PlaylistCardComponent implements OnInit {
 
 
   @Input() title?: string;
-  @Input() category?: number;
+  @Input() category?: string;
   @Input() image?: string;
   @Input() date?: string;
 
