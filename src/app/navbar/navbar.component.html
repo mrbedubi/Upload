@@ -35,6 +35,9 @@
     <h1>TAGS</h1>
     <div class="tag_container">
       <div class="tag" *ngFor="let tag of tags" [routerLink]="['/search/tag/',tag.id]"> {{tag.name}}</div>
+      <app-tags-list *ngIf="tagModal" class="tagPopUp"></app-tags-list>
     </div>
+    <p (click)="tagModal=true">Mostar Mais </p>
+
   </div>
 </nav>
