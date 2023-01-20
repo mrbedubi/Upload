@@ -22,7 +22,8 @@ import { PlaylistCardComponent } from './playlist-card/playlist-card.component';
 import { SearchComponent } from './search/search.component';
 import { TagsListComponent } from './tags-list/tags-list.component';
 import { ShareComponent } from './share/share.component';
-import { ThemeCardComponent } from './theme-card/theme-card.component';
+import { ArticleCardComponent } from './article-card/article-card.component';
+import { ArticleListComponent } from './article-list/article-list.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ThemeCardComponent } from './theme-card/theme-card.component';
     SearchComponent,
     TagsListComponent,
     ShareComponent,
-    ThemeCardComponent
+    ArticleCardComponent,
+    ArticleListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,14 @@
+#article_card_wrapper {
+  width: 30%;
+
+  .article_cover_container {
+    width: 100%;
+    display: flex;
+
+    img {
+      width: 100%;
+      aspect-ratio: 5/1;
+      object-fit: cover;
+    }
+  }
+}

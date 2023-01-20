@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {UploadService} from "../upload.service";
 import {Theme, Video} from "../interface";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-article-page',
@@ -14,23 +15,26 @@ export class ArticlePageComponent implements OnInit {
   videosById: Video[] = []
   theme!: Theme[]
   BaseUrl: string="https://dev-project-upskill2-grupo2.pantheonsite.io"
-  constructor(public service: UploadService) { }
+
+  ids!: any
+  constructor(public service: UploadService, private route: ActivatedRoute) { }
 
 
   ngOnInit(): void {
+    this.ids = this.route.snapshot.paramMap.get('id')
+
     this.service.getVideos().subscribe((videos) => {
       this.videos = videos
     })
 
-
-
-    this.service.getThemeById(8).subscribe((theme) => {
+    this.service.getThemeById(this.ids).subscribe((theme) => {
       this.videoIds = Object.values(theme)[0].video_id.split(", ")
       this.theme = Object.values(theme)
 
       for (let video in this.videoIds) {
         this.service.getVideosById(parseInt(this.videoIds[video])).subscribe((videosById)=>{
           this.videosById.push(videosById[0])
+          console.log(this.videosById)
         })
       }
     })
