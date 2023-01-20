@@ -75,16 +75,23 @@ export class UploadService {
 
 //Get Playlist
 
-    getPlaylist(){
-      return this.http.get<Playlist[]>(BASE_URL + "playlist");
-    }
+  getPlaylist() {
+    return this.http.get<Playlist[]>(BASE_URL + "playlist");
+  }
 
-    getPlaylistById(id:number){
-      return this.http.get<Playlist[]>(BASE_URL + "playlist/" + id);
-    }
-    constructor(public http: HttpClient)
-    {
+  getPlaylistById(id: number) {
+    return this.http.get<Playlist[]>(BASE_URL + "playlist/" + id);
+  }
 
-    }
+  countVideos(ids: string) {
+    let count: number;
+    count = ids.split(",").length
+    return count
+  }
+
+
+  constructor(public http: HttpClient) {
+
+  }
 
 }

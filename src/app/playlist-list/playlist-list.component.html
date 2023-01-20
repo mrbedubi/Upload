@@ -2,11 +2,13 @@
   <div class="main_content_wrapper">
     <p>Playlists</p>
     <div class="content_wrapper">
-      <app-playlist-card *ngFor="let playlist of playlists"
-        [title]="playlist.title"
-        [category]="playlist.category"
-        [image]="playlist.image"
-        [date]="playlist.date">
+      <app-playlist-card class="playlist_card" *ngFor="let playlist of playlists"
+                         [title]="playlist.title"
+                         [category]="playlist.category_name"
+                         [image]="playlist.image"
+                         [date]="playlist.date"
+                         [videosId]="playlist.videos"
+      >
 
       </app-playlist-card>
     </div>

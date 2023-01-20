@@ -8,6 +8,7 @@ import {ChannelListComponent} from "./channel-list/channel-list.component";
 import {PlaylistListComponent} from "./playlist-list/playlist-list.component";
 import {SearchComponent} from "./search/search.component";
 import {PlaylistPageComponent} from "./playlist-page/playlist-page.component";
+import {ShareComponent} from "./share/share.component";
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'channel-list', component: ChannelListComponent},
   {path: 'playlist-list', component: PlaylistListComponent},
   {path: 'playlist', component: PlaylistPageComponent},
+  {path: 'share', component: ShareComponent},
 ];
 
 @NgModule({

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CardChannelListComponent } from './card-channel-list.component';
+import { ChannelCardComponent } from './channel-card.component';
 
 describe('CardChannelListComponent', () => {
-  let component: CardChannelListComponent;
-  let fixture: ComponentFixture<CardChannelListComponent>;
+  let component: ChannelCardComponent;
+  let fixture: ComponentFixture<ChannelCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CardChannelListComponent ]
+      declarations: [ ChannelCardComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CardChannelListComponent);
+    fixture = TestBed.createComponent(ChannelCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,16 +1,16 @@
 <div class="playlist_card_container" routerLink="/playlist">
   <div class="imagem">
-    <img src="{{image}}" alt="...">
+    <img src="./assets/Snake.png" alt="...">
   </div>
 
   <div class="info_container">
     <div class="info">
-      <p class="{{title}}"></p>
-      <p class="{{category}}"></p>
-      <p class="{{date}}"></p>
+      <p class="nome">{{title}}</p>
+      <p class="categoria">{{category}}</p>
+      <p class="data">{{date}}</p>
     </div>
     <div class="play_videos">
-      <p class="nr_videos">15</p>
+      <p class="nr_videos">{{this.service.countVideos(videosId)}}</p>
       <i class="fa-solid fa-play"></i>
 
     </div>

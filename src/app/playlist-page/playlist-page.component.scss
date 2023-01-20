@@ -9,6 +9,8 @@
   .playlist_wrapper {
     width: 72%;
     height: 100%;
+
+
   }
 
 
@@ -57,5 +59,45 @@
       width: 100%;
 
     }
+
   }
+  .playlist_card_wrapper{
+    width: 30%;
+    background-color: #1C1C24;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    margin-top: 30px;
+
+    .nome_canal{
+      color: white;
+      font-size: 1.3rem;
+      margin: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-height: 2rem;
+      max-width: 70%;
+      margin-bottom: 0.5rem;
+
+
+      }
+    .user{
+      color: #1E75FF;
+      font-weight: 200;
+      margin: 0;
+    }
+
+  }
+}
+.more_videos{
+  width: 30%;
+  background-color: #1C1C24;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+
 }

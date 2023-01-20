@@ -2,12 +2,12 @@ import {Component, Input, OnInit} from '@angular/core';
 import {UploadService} from "../upload.service";
 
 @Component({
-  selector: 'app-card-channel-list',
-  templateUrl: './card-channel-list.component.html',
-  styleUrls: ['./card-channel-list.component.scss']
+  selector: 'app-channel-card',
+  templateUrl: './channel-card.component.html',
+  styleUrls: ['./channel-card.component.scss']
 })
 
-export class CardChannelListComponent implements OnInit {
+export class ChannelCardComponent implements OnInit {
 
   BASE_URL = "https://dev-project-upskill2-grupo2.pantheonsite.io";
 

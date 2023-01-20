@@ -42,7 +42,6 @@
   </div>
   <div class="video_card_wrapper">
 
-
     <ng-container *ngFor=" let videoByTag of videosByTag">
       <app-video-card class="video_card" *ngIf="video.id !== videoByTag.id"
                       [id]="videoByTag.id"
