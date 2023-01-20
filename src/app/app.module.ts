@@ -20,6 +20,7 @@ import { PlaylistListComponent } from './playlist-list/playlist-list.component';
 import { PlaylistPageComponent } from './playlist-page/playlist-page.component';
 import { PlaylistCardComponent } from './playlist-card/playlist-card.component';
 import { SearchComponent } from './search/search.component';
+import { TagsListComponent } from './tags-list/tags-list.component';
 import { ShareComponent } from './share/share.component';
 
 @NgModule({
@@ -41,6 +42,7 @@ import { ShareComponent } from './share/share.component';
     PlaylistPageComponent,
     PlaylistCardComponent,
     SearchComponent,
+    TagsListComponent,
     ShareComponent
   ],
   imports: [
