@@ -14,12 +14,11 @@
 
     <p class="titulo">{{title}}</p>
   </div>
-  <div class="info_bottom">
+  <div class="info_bottom" (click)="$event.stopPropagation(); sharePopup($event)">
     <p class="data">{{published_date}}</p>
     <div class="buttons_container">
       <i class="fa-regular fa-bookmark icon"></i>
-
-     <i class="fa-solid fa-share-nodes icon" (click)="$event.stopPropagation(); sharePopup($event)"></i>
+      <i class="fa-solid fa-share-nodes icon"></i>
     </div>
   </div>
 </div>

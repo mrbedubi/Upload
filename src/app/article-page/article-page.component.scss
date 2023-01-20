@@ -15,14 +15,15 @@
         height: 100%;
         border-radius: 3.5rem;
         mask-image: linear-gradient(to top, transparent 7%, #13131A);
+        object-fit: cover;
       }
     }
 
     .channel_name {
       position: absolute;
       font-size: 1.7rem;
-      top: 20rem;
-      left: 3rem;
+      top: 75%;
+      left: 5%;
     }
 
     .channel_avatar_container {
@@ -32,8 +33,8 @@
       border: #FFF 3px solid;
       overflow: hidden;
       position: absolute;
-      top: 20rem;
-      right: 10rem;
+      top: 70%;
+      right: 8%;
 
       img {
         width: 100%;
