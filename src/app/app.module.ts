@@ -13,13 +13,14 @@ import { ThemeSuggestionsComponent } from './theme-suggestions/theme-suggestions
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {HttpClientModule} from "@angular/common/http";
 import { ChannelListComponent } from './channel-list/channel-list.component';
-import { CardChannelListComponent } from './card-channel-list/card-channel-list.component';
+import { ChannelCardComponent } from './channel-card/channel-card.component';
 import { SafeUrlPipe } from './safe-url.pipe';
 import {ArticlePageComponent} from "./article-page/article-page.component";
 import { PlaylistListComponent } from './playlist-list/playlist-list.component';
 import { PlaylistPageComponent } from './playlist-page/playlist-page.component';
 import { PlaylistCardComponent } from './playlist-card/playlist-card.component';
 import { SearchComponent } from './search/search.component';
+import { ShareComponent } from './share/share.component';
 
 @NgModule({
   declarations: [
@@ -33,13 +34,14 @@ import { SearchComponent } from './search/search.component';
     ChannelSuggestionsComponent,
     ThemeSuggestionsComponent,
     ChannelListComponent,
-    CardChannelListComponent,
+    ChannelCardComponent,
     SafeUrlPipe,
     ArticlePageComponent,
     PlaylistListComponent,
     PlaylistPageComponent,
     PlaylistCardComponent,
-    SearchComponent
+    SearchComponent,
+    ShareComponent
   ],
   imports: [
     BrowserModule,

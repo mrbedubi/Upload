@@ -9,7 +9,7 @@
   <div class="info">
     <p class="canal" *ngIf="card=='homepage'|| card=='videopage'" [routerLink]="['/channel/',channelId]" >{{channel_name}}</p>
     <div class="tags" *ngIf="card=='channelpage'">
-      <a class="tag" href="" *ngFor=" let tag of tags">#{{tag.name}}</a>
+      <a class="tag" href="" *ngFor=" let tag of tags" [routerLink]="['/search/tag/',tag.id]" >#{{tag.name}}</a>
     </div>
 
     <p class="titulo">{{title}}</p>
@@ -18,7 +18,13 @@
     <p class="data">{{published_date}}</p>
     <div class="buttons_container">
       <i class="fa-regular fa-bookmark icon"></i>
-      <i class="fa-solid fa-share-nodes icon"></i>
+
+     <i class="fa-solid fa-share-nodes icon" (click)="$event.stopPropagation(); sharePopup($event)"></i>
     </div>
   </div>
 </div>
+
+<div class="popup visible" [style.display]="'none'">
+ <app-share></app-share>
+</div>
+

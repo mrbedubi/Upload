@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Playlist, Video} from "../interface";
 import {UploadService} from "../upload.service";
 
@@ -10,15 +10,16 @@ import {UploadService} from "../upload.service";
 export class PlaylistListComponent implements OnInit {
   playlists!: Playlist[];
 
-  constructor(public service: UploadService) { }
+  constructor(public service: UploadService) {
+  }
 
   ngOnInit(): void {
 
     this.service.getPlaylist().subscribe((playlist) => {
       this.playlists = playlist
-      console.log(playlist[0])
+      console.log(playlist[0].title)
     })
-  }
 
+  }
 }
 

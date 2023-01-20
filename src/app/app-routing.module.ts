@@ -8,22 +8,19 @@ import {ChannelListComponent} from "./channel-list/channel-list.component";
 import {PlaylistListComponent} from "./playlist-list/playlist-list.component";
 import {SearchComponent} from "./search/search.component";
 import {PlaylistPageComponent} from "./playlist-page/playlist-page.component";
+import {ShareComponent} from "./share/share.component";
 
 
 const routes: Routes = [
   {path: '', component: HomepageComponent},
   {path: 'video/:id', component: VideoPageComponent},
   {path: 'channel/:id', component: ChannelPageComponent},
-  {path: 'search', component: SearchComponent, children:[
-      {path:'tag/:tag', component: SearchComponent},
-      {path:'category/:cat', component: SearchComponent},
-      {path:'video/:title', component: SearchComponent},
-      {path:'channel/:title', component: SearchComponent},
-    ]},
+  {path: 'search/tag/:tag', component: SearchComponent },
   {path: 'article', component: ArticlePageComponent},
   {path: 'channel-list', component: ChannelListComponent},
   {path: 'playlist-list', component: PlaylistListComponent},
   {path: 'playlist', component: PlaylistPageComponent},
+  {path: 'share', component: ShareComponent},
 ];
 
 @NgModule({

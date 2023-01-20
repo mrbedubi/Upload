@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {UploadService} from "../upload.service";
 
 @Component({
   selector: 'app-playlist-card',
@@ -13,11 +14,14 @@ export class PlaylistCardComponent implements OnInit {
   @Input() category?: string;
   @Input() image?: string;
   @Input() date?: string;
+  @Input() videosId!: string;
 
 
-  constructor() { }
+
+  constructor(public service:UploadService) { }
 
   ngOnInit(): void {
+    console.log(this.category)
   }
 
 }

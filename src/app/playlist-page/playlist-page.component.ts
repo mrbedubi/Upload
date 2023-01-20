@@ -12,6 +12,7 @@ export class PlaylistPageComponent implements OnInit {
   playlist!: Playlist
   video!: Video
   BaseUrl:string="https://dev-project-upskill2-grupo2.pantheonsite.io";
+  videos: any;
 
   constructor(public list: UploadService, public sanitizer: DomSanitizer) {
   }
@@ -21,9 +22,11 @@ export class PlaylistPageComponent implements OnInit {
       this.video = videos[0]
     })
 
-    /*this.list.getPlaylistById(2).subscribe((playlist)=> {
+
+    this.list.getPlaylistById(2).subscribe((playlist)=> {
     this.playlist = playlist[0]
-    })*/
+    })
+
   }
 
   public VideoId(url: string) {

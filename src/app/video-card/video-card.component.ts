@@ -24,7 +24,7 @@ tags!:Tag[];
   @Input() channel_name?: string
   @Input() channel_avatar?: string
   @Input() tag!: string|number
-  @Input() card!: "homepage" | "channelpage" | "videopage"
+  @Input() card!: "homepage" | "channelpage" | "videopage" | "playlistpage"
 
 
   constructor(public list: UploadService,public router: Router) {
@@ -44,5 +44,12 @@ tags!:Tag[];
 
 
 
+sharePopup(event: Event){
 
 }
+}
+
+
+
+
+

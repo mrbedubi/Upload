@@ -1,10 +1,8 @@
 .playlist_card_container {
   width: 100%;
-  max-width: 600px;
   background-color: #1C1C24;
   border-radius: 20px;
   position: relative;
-  overflow: hidden;
   cursor: pointer;
 
   .imagem {
@@ -26,10 +24,11 @@
     .info_container{
       display: flex;
       padding-left: 2rem;
+      width: 100%;
 
       .info {
         width: 73%;
-        padding: 0.5rem;
+
       }
 
       .nome {
@@ -39,11 +38,12 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        max-height: 1.5rem;
+        max-height: 2rem;
+        max-width: 70%;
         margin-bottom: 0.5rem;
       }
 
-      .user {
+      .categoria {
         color: #1E75FF;
         font-weight: 200;
         margin: 0;
