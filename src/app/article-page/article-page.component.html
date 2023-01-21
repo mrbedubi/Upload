@@ -36,13 +36,13 @@
                       [title]="video.title"
                       [published_date]="video.published_date"
                       [duration]="video.duration"
-                      [thumbnail]="this.VideoId(video.thumbnail, video.video_url)"
+                      [thumbnail]="this.service.getThumbnail(video.thumbnail, video.video_url)"
                       [channel_avatar]="this.BaseUrl + video.channel_picture">
       </app-video-card>
     </div>
     <h2>More videos about this theme</h2>
     <div class="tag_videos_container">
-      <app-video-card class="video_card" [routerLink]="['/video']" *ngFor=" let video of videos"
+      <app-video-card class="video_card" [routerLink]="['/video']" *ngFor="let video of videos"
                       [id]="video.id"
                       [title]="video.title"
                       [channel_name]="video.channel_name"

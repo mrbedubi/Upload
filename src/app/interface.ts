@@ -56,6 +56,7 @@ interface Category {
 
 
 interface Playlist{
+  playlist_id:string
   title:string
   category:string
   videos:string

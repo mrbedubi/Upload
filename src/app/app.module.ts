@@ -22,6 +22,7 @@ import { PlaylistCardComponent } from './playlist-card/playlist-card.component';
 import { SearchComponent } from './search/search.component';
 import { TagsListComponent } from './tags-list/tags-list.component';
 import { ShareComponent } from './share/share.component';
+import { SavedComponent } from './saved/saved.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ShareComponent } from './share/share.component';
     PlaylistCardComponent,
     SearchComponent,
     TagsListComponent,
-    ShareComponent
+    ShareComponent,
+    SavedComponent
   ],
   imports: [
     BrowserModule,

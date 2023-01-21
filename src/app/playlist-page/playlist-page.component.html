@@ -34,15 +34,16 @@
   <div class="playlist_card_wrapper">
     <p class="nome_canal">Nature</p>
     <p class="user">by Cristina Pedro</p>
-    <app-video-card
+    <app-video-card *ngFor="let video of videosById"
                     [id]="video.id"
                     [channelId]="video.channel_id"
                     [channel_name]="video.channel_name"
-                    card="playlistpage"
+                    [video_url]="video.video_url"
+                    card="homepage"
                     [title]="video.title"
                     [published_date]="video.published_date"
                     [duration]="video.duration"
-                    [thumbnail]="this.list.getThumbnail(video.thumbnail, video.video_url)"
+                    [thumbnail]="this.service.getThumbnail(video.thumbnail, video.video_url)"
                     [channel_avatar]="this.BaseUrl + video.channel_picture">
 
     </app-video-card>
@@ -58,7 +59,7 @@
   [title]="video.title"
   [published_date]="video.published_date"
   [duration]="video.duration"
-  [thumbnail]="this.list.getThumbnail(video.thumbnail, video.video_url)"
+  [thumbnail]="this.service.getThumbnail(video.thumbnail, video.video_url)"
   [channel_avatar]="this.BaseUrl + video.channel_picture">
 </app-video-card>
 </div>

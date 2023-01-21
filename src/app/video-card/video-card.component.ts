@@ -26,6 +26,7 @@ tags!:Tag[];
   @Input() tag!: string|number
   @Input() card!: "homepage" | "channelpage" | "videopage" | "playlistpage"
 
+showPopup: boolean=false
 
   constructor(public list: UploadService,public router: Router) {
 
@@ -44,9 +45,11 @@ tags!:Tag[];
 
 
 
-sharePopup(event: Event){
-
+sharePopup(){
+if (this.showPopup) this.showPopup=false;
+  else this.showPopup=true;
 }
+
 }
 
 

@@ -12,7 +12,6 @@ export class UploadService {
   // Get Videos
 
   getVideos() {
-    console.log("Hello");
     return this.http.get<Video[]>(BASE_URL + "videos");
   }
 
@@ -21,7 +20,7 @@ export class UploadService {
   }
 
   getThemeById(id: number) {
-    return this.http.get<Theme>(BASE_URL + "theme/" + id)
+    return this.http.get<Theme>(BASE_URL + "themes/" + id)
   }
 
   //Acho que não precisamos disto - ts
@@ -82,6 +81,7 @@ export class UploadService {
   getPlaylistById(id: number) {
     return this.http.get<Playlist[]>(BASE_URL + "playlist/" + id);
   }
+
 
   countVideos(ids: string) {
     let count: number;

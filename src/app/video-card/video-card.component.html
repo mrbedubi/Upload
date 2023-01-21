@@ -1,5 +1,5 @@
-<div class="video_card_container"[ngClass]="card" [routerLink]="['/video/', id]">
-  <div class="imagem">
+<div class="video_card_container" [ngClass]="card" [routerLink]="['/video/', id]">
+  <div class="imagem" >
     <img src="{{thumbnail}}" alt="...">
     <div class="time">
       <p>{{duration}}</p>
@@ -16,15 +16,14 @@
   </div>
   <div class="info_bottom">
     <p class="data">{{published_date}}</p>
-    <div class="buttons_container">
+    <div class="buttons_container"(click)="$event.stopPropagation(); sharePopup()">
       <i class="fa-regular fa-bookmark icon"></i>
-
-     <i class="fa-solid fa-share-nodes icon" (click)="$event.stopPropagation(); sharePopup($event)"></i>
+      <i class="fa-solid fa-share-nodes icon"></i>
     </div>
   </div>
 </div>
 
-<div class="popup visible" [style.display]="'none'">
+<div class="popup"*ngIf="showPopup">
  <app-share></app-share>
 </div>
 

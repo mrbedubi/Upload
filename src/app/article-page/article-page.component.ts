@@ -20,6 +20,7 @@ export class ArticlePageComponent implements OnInit {
   ngOnInit(): void {
     this.service.getVideos().subscribe((videos) => {
       this.videos = videos
+
     })
 
 
