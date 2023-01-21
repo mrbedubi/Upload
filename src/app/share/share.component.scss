@@ -1,21 +1,32 @@
-.share_container{
-  max-width: 200px;
-  background-color: #1C1C24;
+.share_container {
+  width: 100%;
+  max-width:18rem;
+  min-width:12rem ;
+  max-height:40rem;
+  box-sizing: content-box;
+  background-color: #B5B5BE;
   border-radius: 10px;
   cursor: pointer;
+  position: fixed;
+  z-index: 100;
+  top:228px;
+  left:300px;
 
-  .info{
+
+  .info {
     display: flex;
     justify-content: space-between;
     padding-left: 20px;
     padding-right: 20px;
+    border-bottom: 1.5px solid #292932;
+    color: #292932;
   }
 
-  .icon{
-    color: #B5B5BE;
+  .icon {
+    color: #292932;
     cursor: pointer;
     font-size: 2rem;
-   padding-bottom: 20px;
+    padding-bottom: 20px;
     padding-top: 20px;
     display: flex;
     align-items: center;

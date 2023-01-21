@@ -25,6 +25,7 @@ export class ArticlePageComponent implements OnInit {
 
     this.service.getVideos().subscribe((videos) => {
       this.videos = videos
+
     })
 
     this.service.getThemeById(this.ids).subscribe((theme) => {

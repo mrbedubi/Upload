@@ -15,6 +15,7 @@ export class PlaylistCardComponent implements OnInit {
   @Input() image?: string;
   @Input() date?: string;
   @Input() videosId!: string;
+  @Input() playlist_id!: string;
 
 
 
