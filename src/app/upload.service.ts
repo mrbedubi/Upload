@@ -19,6 +19,10 @@ export class UploadService {
     return this.http.get<Video[]>(BASE_URL + "videos/" + ids);
   }
 
+  getThemes() {
+    return this.http.get<Theme[]>(BASE_URL + "themes")
+  }
+
   getThemeById(id: number) {
     return this.http.get<Theme>(BASE_URL + "themes/" + id)
   }

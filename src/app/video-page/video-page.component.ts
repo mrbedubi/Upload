@@ -32,8 +32,7 @@ export class VideoPageComponent {
 
       this.service.getTagsById(this.video.tags).subscribe((tagbyId)=>{
         this.tags=tagbyId;
-    });
-
+      });
     });
 
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;

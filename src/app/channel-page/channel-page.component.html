@@ -18,6 +18,7 @@
   <p>Videos</p>
   <div class="container_vid">
     <app-video-card class="video_card" *ngFor=" let video of video"
+                    [id]="video.id"
                     card="channelpage"
                     [id]="video.id"
                     [tag]="video.tags"

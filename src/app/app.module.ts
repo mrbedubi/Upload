@@ -22,7 +22,8 @@ import { PlaylistCardComponent } from './playlist-card/playlist-card.component';
 import { SearchComponent } from './search/search.component';
 import { TagsListComponent } from './tags-list/tags-list.component';
 import { ShareComponent } from './share/share.component';
-import { SavedComponent } from './saved/saved.component';
+import { ArticleCardComponent } from './article-card/article-card.component';
+import { ArticleListComponent } from './article-list/article-list.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { SavedComponent } from './saved/saved.component';
     SearchComponent,
     TagsListComponent,
     ShareComponent,
-    SavedComponent
+    ArticleCardComponent,
+    ArticleListComponent
   ],
   imports: [
     BrowserModule,
