@@ -1,17 +1,39 @@
-<div id="article_card_wrapper" *ngFor="let theme of themes">
+<div id="article_card_wrapper">
+  <div class="article_card_container" *ngFor="let theme of themes">
     <div class="article_cover_container">
       <img [src]="BASE_URL+ theme.thumbnail" alt="">
     </div>
     <div class="article_info_container">
       <h1 class="title">{{theme.title}}</h1>
-      <p class="chnl">{{theme.channel_name}}</p>
+      <p class="channel">{{theme.channel_name}}</p>
       <div class="article_tags_container">
         <p class="tags">#html</p>
         <p class="tags">#css</p>
         <p class="tags">#tutorial</p>
       </div>
       <div class="article_teaser">
-        <p class="teaser">{{theme.teaser}}</p>
+        <p class="teaser">{{theme.teaser}} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias architecto dolorem non, quo sint ut. Ab ad alias deleniti distinctio et facere impedit minima numquam optio, quam quisquam quo.</p>
       </div>
     </div>
+  </div>
+  <div class="article_card_container" *ngFor="let theme of themes">
+    <div class="article_cover_container">
+      <img [src]="BASE_URL+ theme.thumbnail" alt="">
+    </div>
+    <div class="article_info_container">
+      <h1 class="title">{{theme.title}}</h1>
+      <p class="channel">{{theme.channel_name}}</p>
+      <div class="article_tags_container">
+        <p class="tags">#html</p>
+        <p class="tags">#css</p>
+        <p class="tags">#tutorial</p>
+      </div>
+      <div class="article_teaser">
+        <p class="teaser">{{theme.teaser}} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias architecto dolorem non, quo sint ut. Ab ad alias deleniti distinctio et facere impedit minima numquam optio, quam quisquam quo.</p>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+
