@@ -1,39 +1,29 @@
 <nav id="nav_wrapper">
-  <div class="brand_container">
+  <div class="brand_container" routerLink="">
     <img src="assets/upload.svg" alt="UPload" class="brand_logo">
   </div>
 
   <div id="menu_wrapper">
-    <a href="">
-    <div class="menu_item">
+    <div class="menu_item" routerLink="">
       <i class="fa-solid fa-house"></i>
       <p>Início</p>
     </div>
-    </a>
-    <a href="/channel-list">
-    <div class="menu_item">
+    <div class="menu_item" routerLink="/channels">
       <i class="fa-solid fa-bars-staggered"></i>
       <p>Canais</p>
     </div>
-    </a>
-    <a href="/article">
-      <div class="menu_item">
+      <div class="menu_item" routerLink="/articles">
         <i class="fa-solid fa-clapperboard"></i>
         <p>Temáticas</p>
       </div>
-    </a>
-    <a href="/playlist-list">
-      <div class="menu_item">
+      <div class="menu_item" routerLink="/playlists">
         <i class="fa-solid fa-play"></i>
         <p>Playlists</p>
       </div>
-    </a>
-    <a href="/saved">
-      <div class="menu_item">
+      <div class="menu_item" routerLink="/saved">
         <i class="fa-solid fa-bookmark"></i>
         <p>Saved</p>
       </div>
-    </a>
   </div>
 
 
@@ -43,7 +33,7 @@
       <div class="tag" *ngFor="let tag of tags" [routerLink]="['/search/tag/',tag.id]"> {{tag.name}}</div>
       <app-tags-list *ngIf="tagModal" class="tagPopUp"></app-tags-list>
     </div>
-    <p (click)="tagModal=true">Mostar Mais </p>
+    <p (click)="tagModal=true" class="show_more_tags">Mostar Mais </p>
 
   </div>
 </nav>

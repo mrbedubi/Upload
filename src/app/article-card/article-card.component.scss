@@ -1,14 +1,62 @@
 #article_card_wrapper {
-  width: 30%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 
-  .article_cover_container {
+  .article_card_container {
     width: 100%;
-    display: flex;
+    background-color: #1C1C24;
+    border-radius: 1rem;
 
-    img {
+    .article_info_container {
+      padding: 1rem;
+
+      .title {
+        font-size: 1.4rem;
+        margin: 0;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .channel {
+        margin: 0;
+        color: #92929D;
+      }
+
+      .article_tags_container {
+        display: flex;
+        color: #1E75FF;
+
+        p {
+          margin: 0;
+          padding-right: 0.5rem;
+        }
+      }
+    }
+
+    .article_cover_container {
       width: 100%;
-      aspect-ratio: 5/1;
-      object-fit: cover;
+
+      img {
+        border-radius: 1rem 1rem 0 0;
+        width: 100%;
+        aspect-ratio: 3/1;
+        object-fit: cover;
+      }
+    }
+
+    .article_teaser {
+
+      .teaser {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+      }
     }
   }
+
+
 }

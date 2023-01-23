@@ -82,11 +82,20 @@
           transition: 0.3s ease-in;
         }
       }
+
+      }
       .tagPopUp{
         width: 500%;
         position: absolute;
         left:115%;
       }
+
+    .show_more_tags{
+      cursor: pointer;
+      &:hover{
+        text-decoration: underline;
+      }
+
     }
 
   }

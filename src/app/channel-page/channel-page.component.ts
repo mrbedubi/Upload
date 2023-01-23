@@ -35,7 +35,6 @@ export class ChannelPageComponent {
     })
     this.list.getVideosByChannel(this.ids).subscribe((video) => {
       this.video = video;
-      console.log(video);
     })
   }
 

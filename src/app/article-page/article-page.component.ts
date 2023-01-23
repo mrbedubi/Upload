@@ -35,7 +35,6 @@ export class ArticlePageComponent implements OnInit {
       for (let video in this.videoIds) {
         this.service.getVideosById(parseInt(this.videoIds[video])).subscribe((videosById)=>{
           this.videosById.push(videosById[0])
-          console.log(this.videosById)
         })
       }
     })

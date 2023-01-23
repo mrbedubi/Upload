@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {UploadService} from "../upload.service";
+import {Theme} from "../interface";
 
 @Component({
   selector: 'app-theme-suggestions',
@@ -7,4 +9,14 @@ import { Component } from '@angular/core';
 })
 export class ThemeSuggestionsComponent {
 
+  themes: Theme[] = []
+
+  constructor(public service: UploadService) {
+  }
+
+  ngOnInit() {
+    this.service.getThemes().subscribe((theme) => {
+      this.themes = theme
+    })
+  }
 }

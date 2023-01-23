@@ -23,8 +23,6 @@ import { SearchComponent } from './search/search.component';
 import { TagsListComponent } from './tags-list/tags-list.component';
 import { ShareComponent } from './share/share.component';
 import { ArticleCardComponent } from './article-card/article-card.component';
-import { FormsModule} from "@angular/forms";
-
 //import { ArticleListComponent } from './article-list/article-list.component';
 
 @NgModule({
@@ -55,8 +53,7 @@ import { FormsModule} from "@angular/forms";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FontAwesomeModule,
-    FormsModule
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

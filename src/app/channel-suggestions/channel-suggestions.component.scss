@@ -5,7 +5,6 @@
   overflow: hidden;
   background-color: #1C1C24;
   width: 100%;
-  cursor: pointer;
 
   .channel_sug_title {
     padding: 1rem;
@@ -20,6 +19,7 @@
 
   .channel_avatar_wrapper {
     padding: 0.5rem 0;
+    cursor: pointer;
 
     .channel_avatar {
       display: flex;
@@ -42,6 +42,7 @@
   }
 
   .show_more_container {
+    cursor: pointer;
 
       p {
       color: #FFFFFF;
