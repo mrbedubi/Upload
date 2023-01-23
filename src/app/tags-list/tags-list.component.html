@@ -4,7 +4,7 @@
     <p class="title">Todas As Tags</p>
     <p class="sub_title">Selecionar uma ou mais Tags</p>
     </div>
-    <div class="close_popup" (click)="this.nav.tagModal=false">X</div>
+    <div class="close_popup" (click)="this.nav.tagModal=false"><img src="assets/closeBtn.svg" alt="close_button_popUp"></div>
   </div>
 
   <div class="popup_content">
@@ -12,16 +12,15 @@
 
     <div  class="arrow"  id="lef_arrow"><</div>
     <div class="tag_container">
-    <div class="tag" > tagsd</div>
-    <div class="tag" > tagsd</div>
-    <div class="tag" > tagsd</div>
-    <div class="tag" > tagsd</div>
-    <div class="tag" > tagsd</div>
-    <div class="tag" > tagsd</div>
-    <div class="tag" > tagsd</div>
+      <div  *ngFor="let tag of tags" class="tag" (click)="select(tag.id)" [ngClass]=" isSelected(tag.id)  ? 'select': '' " >{{tag.name}}</div>
     </div>
     <div class="arrow"  id="right_arrow">></div>
-
   </div>
 
+  <div class="searchBtn">
+    <p *ngIf="this.tagsSelected.length>0" (click)="cleanSearchTags()">Limpar seleção</p>
+
+    <button *ngIf="this.tagsSelected.length>0" type="button" [routerLink]="['/search/tag/',searchTags()]">Pesquisar</button>
+    <button *ngIf="this.tagsSelected.length==0" type="button" class="disabled">Pesquisar</button>
+  </div>
 </div>
