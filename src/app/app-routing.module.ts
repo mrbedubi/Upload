@@ -20,8 +20,8 @@ const routes: Routes = [
   {path: 'search/tag/:tag', component: SearchComponent },
   {path: 'articles', component: ArticleListComponent},
   {path: 'article/:id', component: ArticlePageComponent},
-  {path: 'channel-list', component: ChannelListComponent},
-  {path: 'playlist-list', component: PlaylistListComponent},
+  {path: 'channels', component: ChannelListComponent},
+  {path: 'playlists', component: PlaylistListComponent},
   {path: 'playlist', component: PlaylistPageComponent},
   {path: 'share', component: ShareComponent},
   {path: 'card', component: ArticleCardComponent}

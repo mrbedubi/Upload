@@ -9,7 +9,7 @@ export class SafeUrlPipe implements PipeTransform {
   constructor(private sanitize: DomSanitizer) {
   }
 
-  transform(url: any) {
+  transform(url: string) {
     return this.sanitize.bypassSecurityTrustResourceUrl(url);
   }
 

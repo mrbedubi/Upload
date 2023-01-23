@@ -4,7 +4,7 @@
       <div class="video_information">
         <h1 class="video_title">{{video.title}}</h1>
         <div class="video_tag_container">
-          <a class="video_tag" *ngFor="let tag of tags" [routerLink]="['/search/tag/',tag.id]" >#{{tag.name}}</a>
+          <a class="video_tag" *ngFor="let tag of tags" [routerLink]="['/search/tag/',tag.id]">#{{tag.name}}</a>
         </div>
       </div>
       <div class="report_container">

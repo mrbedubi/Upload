@@ -1,35 +1,16 @@
-<div id="article_card_wrapper">
-  <div class="article_card_container" *ngFor="let theme of themes">
+<div id="article_card_wrapper" routerLink="article/{{id}}">
+  <div class="article_card_container">
     <div class="article_cover_container">
-      <img [src]="BASE_URL+ theme.thumbnail" alt="">
+      <img [src]="BASE_URL+ thumbnail" alt="">
     </div>
     <div class="article_info_container">
-      <h1 class="title">{{theme.title}}</h1>
-      <p class="channel">{{theme.channel_name}}</p>
+      <h1 class="title">{{title}}</h1>
+      <p class="channel">{{channel_name}}</p>
       <div class="article_tags_container">
-        <p class="tags">#html</p>
-        <p class="tags">#css</p>
-        <p class="tags">#tutorial</p>
+        <p class="tags" *ngFor="let tag of tags">#{{tag.name}}</p>
       </div>
       <div class="article_teaser">
-        <p class="teaser">{{theme.teaser}} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias architecto dolorem non, quo sint ut. Ab ad alias deleniti distinctio et facere impedit minima numquam optio, quam quisquam quo.</p>
-      </div>
-    </div>
-  </div>
-  <div class="article_card_container" *ngFor="let theme of themes">
-    <div class="article_cover_container">
-      <img [src]="BASE_URL+ theme.thumbnail" alt="">
-    </div>
-    <div class="article_info_container">
-      <h1 class="title">{{theme.title}}</h1>
-      <p class="channel">{{theme.channel_name}}</p>
-      <div class="article_tags_container">
-        <p class="tags">#html</p>
-        <p class="tags">#css</p>
-        <p class="tags">#tutorial</p>
-      </div>
-      <div class="article_teaser">
-        <p class="teaser">{{theme.teaser}} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias architecto dolorem non, quo sint ut. Ab ad alias deleniti distinctio et facere impedit minima numquam optio, quam quisquam quo.</p>
+        <p class="teaser">{{teaser}} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias architecto dolorem non, quo sint ut. Ab ad alias deleniti distinctio et facere impedit minima numquam optio, quam quisquam quo.</p>
       </div>
     </div>
   </div>

@@ -4,17 +4,20 @@
   flex-wrap: wrap;
 
   .article_card_container {
-    width: 30%;
-    margin: 1rem;
+    width: 100%;
     background-color: #1C1C24;
     border-radius: 1rem;
 
     .article_info_container {
-      padding-left: 0.5rem;
+      padding: 1rem;
 
       .title {
+        font-size: 1.4rem;
         margin: 0;
-        padding-top: 1rem;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
 
       .channel {
@@ -39,8 +42,18 @@
       img {
         border-radius: 1rem 1rem 0 0;
         width: 100%;
-        aspect-ratio: 5/1;
+        aspect-ratio: 3/1;
         object-fit: cover;
+      }
+    }
+
+    .article_teaser {
+
+      .teaser {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
       }
     }
   }

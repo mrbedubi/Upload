@@ -37,9 +37,8 @@
           display: flex;
 
           .video_tag {
-            margin: 0;
+            margin: 0 0.6rem 0 0;
             color: #1E75FF;
-            margin-right: 0.5%;
           }
         }
       }
@@ -52,6 +51,7 @@
         align-items: center;
         color: #92929D;
         cursor: pointer;
+        margin-right: 3rem;
 
         &:hover {
           color: #fff;
@@ -123,6 +123,7 @@
         align-items: center;
         font-size: 1.1rem;
         font-weight: 400;
+        margin-right: 4rem;
 
         .likes_container {
           width: 50%;

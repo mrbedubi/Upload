@@ -1,3 +1,11 @@
 #articles {
   margin-left: 13.5%;
+  display: flex;
+  flex-wrap: wrap;
+
+  .article {
+    width: 33%;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
 }

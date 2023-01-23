@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {UploadService} from "../upload.service";
+import {Theme} from "../interface";
 
 @Component({
   selector: 'app-article-list',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article-list.component.scss']
 })
 export class ArticleListComponent implements OnInit {
-
-  constructor() { }
+  themes: Theme[] = []
+  constructor(public service: UploadService) { }
 
   ngOnInit(): void {
+    this.service.getThemes().subscribe((theme)=>{
+      this.themes = theme
+    })
   }
 
 }

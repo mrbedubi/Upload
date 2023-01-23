@@ -20,7 +20,6 @@ export class NavbarComponent {
   ngOnInit():void {
     this.list.getTags().subscribe((tags) => {
       this.tags=tags
-      console.log(tags[1].id);
     })
 
   }
