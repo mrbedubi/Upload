@@ -92,8 +92,19 @@ export class UploadService {
     count = ids.split(",").length
     return count
   }
+  getToken(){
+    return this.http.get("https://dev-project-upskill2-grupo2.pantheonsite.io/session/token")
+  }
 
+token = this.getToken();
 
+headers = {'Accept': 'application/vnd.api+json', 'X-CSRF-Token': String(this.token)};
+
+postComments(body:{}){
+    return this.http.post("https://dev-project-upskill2-grupo2.pantheonsite.io/api/comments",
+      body,
+      {'headers':this.headers})
+}
   constructor(public http: HttpClient) {
 
   }

@@ -23,7 +23,9 @@ import { SearchComponent } from './search/search.component';
 import { TagsListComponent } from './tags-list/tags-list.component';
 import { ShareComponent } from './share/share.component';
 import { ArticleCardComponent } from './article-card/article-card.component';
-import { ArticleListComponent } from './article-list/article-list.component';
+import { FormsModule} from "@angular/forms";
+
+//import { ArticleListComponent } from './article-list/article-list.component';
 
 @NgModule({
   declarations: [
@@ -47,13 +49,14 @@ import { ArticleListComponent } from './article-list/article-list.component';
     TagsListComponent,
     ShareComponent,
     ArticleCardComponent,
-    ArticleListComponent
+    //ArticleListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

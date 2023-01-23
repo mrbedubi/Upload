@@ -74,5 +74,12 @@ interface NrVideosChannel{
   name:string
 }
 
-export {Video , Tag , Theme , Playlist, Channel , Category, NrVideosChannel};
+interface Comments {
+  avatar: string
+  name: string
+  email: string
+  body: string
+  date: string
+}
+export {Video , Tag , Theme , Playlist, Channel , Category, NrVideosChannel, Comments};
 
