@@ -7,16 +7,18 @@ import {Theme} from "../interface";
   templateUrl: './theme-suggestions.component.html',
   styleUrls: ['./theme-suggestions.component.scss']
 })
+
+
 export class ThemeSuggestionsComponent {
+theme!:Theme;
+BASEURL:string="https://dev-project-upskill2-grupo2.pantheonsite.io/"
 
-  themes: Theme[] = []
 
-  constructor(public service: UploadService) {
-  }
-
-  ngOnInit() {
-    this.service.getThemes().subscribe((theme) => {
-      this.themes = theme
+  constructor(public  service:UploadService) {
+    service.getThemes().subscribe((theme)=>{
+      this.theme=theme[0];
     })
   }
+
+
 }
