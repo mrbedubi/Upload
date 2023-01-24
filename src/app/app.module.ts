@@ -23,7 +23,8 @@ import { SearchComponent } from './search/search.component';
 import { TagsListComponent } from './tags-list/tags-list.component';
 import { ShareComponent } from './share/share.component';
 import { ArticleCardComponent } from './article-card/article-card.component';
-//import { ArticleListComponent } from './article-list/article-list.component';
+import { ArticleListComponent } from './article-list/article-list.component';
+import {SavedComponent} from "./saved/saved.component";
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { ArticleCardComponent } from './article-card/article-card.component';
     TagsListComponent,
     ShareComponent,
     ArticleCardComponent,
-    //ArticleListComponent
+    ArticleListComponent,
+    SavedComponent
   ],
   imports: [
     BrowserModule,
