@@ -1,0 +1,12 @@
+#saved_wrapper {
+  margin-left: 15%;
+  .content_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 33%;
+
+    app-video-card {
+      width: 100%;
+    }
+  }
+}

@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {UploadService} from "../upload.service";
 import {Theme, Video} from "../interface";
 import {ActivatedRoute} from "@angular/router";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-article-page',
@@ -17,10 +18,11 @@ export class ArticlePageComponent implements OnInit {
   BaseUrl: string="https://dev-project-upskill2-grupo2.pantheonsite.io"
 
   ids!: any
-  constructor(public service: UploadService, private route: ActivatedRoute) { }
+  constructor(public service: UploadService, private route: ActivatedRoute, private sanitizer: DomSanitizer) { }
 
 
   ngOnInit(): void {
+
     this.ids = this.route.snapshot.paramMap.get('id')
 
     this.service.getVideos().subscribe((videos) => {

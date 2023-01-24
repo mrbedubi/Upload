@@ -1,5 +1,5 @@
 <div id="articles">
-  <app-article-card class="article" *ngFor="let theme of themes"
+  <app-article-card class="article" *ngFor="let theme of themes" [routerLink]="['/article/', theme.id]"
                     [id]="theme.id"
                     [title]="theme.title"
                     [channel_name]="theme.channel_name"
@@ -8,7 +8,7 @@
                     [tag_id]="theme.tag_id"
   >
   </app-article-card>
-  <app-article-card class="article" *ngFor="let theme of themes"
+  <app-article-card class="article" *ngFor="let theme of themes" [routerLink]="['/article/', theme.id]"
                     [id]="theme.id"
                     [title]="theme.title"
                     [channel_name]="theme.channel_name"

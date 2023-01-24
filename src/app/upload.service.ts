@@ -109,11 +109,9 @@ export class UploadService {
     if (this.isSaved(id)) {
       //remover o id dos favoritos
       this.saved.splice(this.saved.indexOf(id), 1)
-      console.log(localStorage)
     } else
       //adicionar o id aos favoritos
       this.saved.push(id);
-      console.log(localStorage)
 
     // local storage - é uma caixa do browser para  guardar informação e esta so pode ser guardada como string
     localStorage.setItem("saved",JSON.stringify(this.saved))
