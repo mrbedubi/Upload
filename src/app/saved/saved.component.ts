@@ -11,16 +11,20 @@ export class SavedComponent implements OnInit {
   listaSaved: Video[] = [];
   BaseUrl: string="https://dev-project-upskill2-grupo2.pantheonsite.io"
 
+  savedList = this.uploadService.saved
+
 
   constructor(public uploadService: UploadService) {
   }
 
   ngOnInit(): void {
-    this.uploadService.getSaved().subscribe((saved: any) => {
-      this.listaSaved = saved.data;
 
-      for (let i = 0; i < this.listaSaved.length; i++) {
-
-      }
-    })
-  }}
+    for (let i = 0; i < this.savedList.length; i++) {
+      console.log(this.savedList)
+      this.uploadService.getVideosById(this.savedList[i]).subscribe((saved) => {
+        console.log(this.savedList[i])
+        this.listaSaved.push(saved[0])
+      })
+    }
+  }
+}

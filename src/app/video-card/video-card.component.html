@@ -16,13 +16,13 @@
   </div>
   <div class="info_bottom">
     <p class="data">{{published_date}}</p>
-    <div class="fav_button" (click)="list.toggleFavorite(id)">
+    <div class="fav_button" (click)="$event.stopPropagation(); list.toggleFavorite(id)">
       <i class="fa-regular fa-bookmark icon"></i>
-    <div class="share_button"(click)="$event.stopPropagation(); sharePopup()">
-      <i class="fa-solid fa-share-nodes icon"></i>
     </div>
+      <div class="share_button"(click)="$event.stopPropagation(); sharePopup()">
+        <i class="fa-solid fa-share-nodes icon"></i>
+      </div>
   </div>
-</div>
 
 <div class="popup"*ngIf="showPopup">
  <app-share></app-share>
