@@ -6,6 +6,7 @@
   cursor: pointer;
 
 
+
   .imagem {
     width: 100%;
     aspect-ratio: 1/0.20;
@@ -24,9 +25,9 @@
 
     .info_container{
       display: flex;
-      padding-left: 2rem;
+      padding: 1rem;
       width: 100%;
-
+      box-sizing: border-box;
       .info {
         width: 73%;
 
@@ -39,15 +40,19 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        max-height: 2rem;
         max-width: 70%;
-        margin-bottom: 0.5rem;
       }
 
       .categoria {
         color: #1E75FF;
-        font-weight: 200;
         margin: 0;
+        cursor: pointer;
+      &:hover{
+        text-decoration: underline;
+
+      }
+
+
       }
       .data {
         color: #92929D;
@@ -60,12 +65,14 @@
 .play_videos{
   display: flex;
   align-items: center;
+  justify-self: end;
   justify-content: space-between;
   font-size: 1.8rem;
 
 
 .nr_videos{
   padding-right: 10px;
+  margin: 0;
 }
 }
 
