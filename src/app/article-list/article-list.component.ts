@@ -13,7 +13,8 @@ export class ArticleListComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getThemes().subscribe((theme)=>{
-      this.themes = theme
+      this.themes = theme;
+      console.log(this.themes)
     })
   }
 
