@@ -2,16 +2,16 @@
 
   <img class="avatar" src="assets/avatar.png">
 
-  <form action="" method="post">
+  <!--<form [formControl]="" action="" method="post">-->
     <div class="name_email">
-    <input type="text" class="form" name="name" id="name"placeholder="Name">
+    <input type="text" class="form" name="name" id="name"placeholder="Name" formControlName="name">
     <input type="text" class="form" placeholder="Email">
 </div>
-    <input type="text" class="form" placeholder="Message" [(ngModel)]="comment">
+    <input type="text" class="form" placeholder="Message">
     <div class="button">
-      <button (click)="post()">Submit Comment</button>
+      <!--<button (click)="post()">Submit Comment</button>-->
     </div>
-  </form>
+
   <div *ngFor="let comments of postComment">
   <p>{{comments}}</p>
 

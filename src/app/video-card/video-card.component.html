@@ -16,8 +16,9 @@
   </div>
   <div class="info_bottom">
     <p class="data">{{published_date}}</p>
-    <div class="buttons_container"(click)="$event.stopPropagation(); sharePopup()">
+    <div class="fav_button" (click)="list.toggleFavorite(id)">
       <i class="fa-regular fa-bookmark icon"></i>
+    <div class="share_button"(click)="$event.stopPropagation(); sharePopup()">
       <i class="fa-solid fa-share-nodes icon"></i>
     </div>
   </div>
@@ -26,4 +27,4 @@
 <div class="popup"*ngIf="showPopup">
  <app-share></app-share>
 </div>
-
+</div>

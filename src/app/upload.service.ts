@@ -92,6 +92,32 @@ export class UploadService {
     count = ids.split(",").length
     return count
   }
+
+
+  getSaved() {
+    return this.http.get<Video[]>(BASE_URL + "videos/?ids=" + this.saved.join(","));
+  }
+  saved: number[]=JSON.parse(localStorage.getItem("saved") || "[]");
+
+  isSaved(id: number) {
+    return this.saved.includes(id);
+  }
+
+  toggleFavorite(id: number) {
+    if (this.isSaved(id)) {
+      //remover o id dos favoritos
+      this.saved.splice(this.saved.indexOf(id), 1)
+    } else {
+      //adicionar o id aos favoritos
+      this.saved.push(id);
+    }
+
+    // local storage - é uma caixa do browser para  guardar informação e esta so pode ser guardada como string
+    localStorage.setItem("favoritos",JSON.stringify(this.saved))
+  }
+
+
+
   getToken(){
     return this.http.get("https://dev-project-upskill2-grupo2.pantheonsite.io/session/token")
   }
@@ -108,5 +134,6 @@ postComments(body:{}){
   constructor(public http: HttpClient) {
 
   }
+
 
 }

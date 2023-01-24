@@ -1,0 +1,21 @@
+<div id="saved_wrapper">
+  <div class="main_content_wrapper">
+    <p>Saved</p>
+
+    <div class="content_wrapper" *ngFor="let video of listaSaved">
+
+      <app-video-card
+        [id]="video.id"
+        [channelId]="video.channel_id"
+        [channel_name]="video.channel_name"
+        card="homepage"
+        [title]="video.title"
+        [published_date]="video.published_date"
+        [duration]="video.duration"
+        [thumbnail]="this.uploadService.getThumbnail(video.thumbnail, video.video_url)"
+        [channel_avatar]="this.BaseUrl + video.channel_picture">
+
+      </app-video-card>
+    </div>
+  </div>
+</div>
