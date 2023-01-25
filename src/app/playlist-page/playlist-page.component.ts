@@ -3,6 +3,7 @@ import {UploadService} from "../upload.service";
 import {DomSanitizer} from "@angular/platform-browser";
 import {Playlist, Video} from "../interface";
 import {isPlatformWorkerUi} from "@angular/common";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-playlist-page',
@@ -15,27 +16,26 @@ export class PlaylistPageComponent implements OnInit {
   videosById: Video[] = []
   videosByTag: Video[] = []
   videoIds!: string[]
-  BaseUrl:string="https://dev-project-upskill2-grupo2.pantheonsite.io";
+  BaseUrl:string = "https://dev-project-upskill2-grupo2.pantheonsite.io"
+  ids: any
 
-
-  constructor(public service: UploadService, public sanitizer: DomSanitizer) {
+  constructor(public service: UploadService, public route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.ids = this.route.snapshot.paramMap.get('id')
 
-    this.service.getPlaylistById(10).subscribe((playlist)=> {
+    this.service.getPlaylistById(this.ids).subscribe((playlist)=> {
       this.videoIds = Object.values(playlist)[0].videos.split(",")
       this.playlist = Object.values(playlist)[0]
       console.log(Object.values(playlist)[0])
 
       this.service.getVideosById(parseInt(this.videoIds[0])).subscribe((video) => {
         this.video = video[0]
-        console.log(video[0].tags)
 
         this.service.getVideosByTag(video[0].tags).subscribe((video)=>{
           this.videosByTag = video
         })
-
       })
 
       for (let video in this.videoIds){

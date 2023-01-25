@@ -25,7 +25,7 @@ const routes: Routes = [
   {path: 'article/:id', component: ArticlePageComponent},
   {path: 'channels', component: ChannelListComponent},
   {path: 'playlists', component: PlaylistListComponent},
-  {path: 'playlist', component: PlaylistPageComponent},
+  {path: 'playlist/:id', component: PlaylistPageComponent},
   {path: 'share', component: ShareComponent},
   {path: 'card', component: VideoCardComponent},
   {path: 'saved', component: SavedComponent}

@@ -10,7 +10,6 @@ const BASE_URL = "https://dev-project-upskill2-grupo2.pantheonsite.io/api/";
 })
 export class UploadService {
   // Get Videos
-
   saved: number[]=JSON.parse(localStorage.getItem("saved") || "[]");
 
   getVideos() {
@@ -102,7 +101,7 @@ export class UploadService {
 
 
   isSaved(id: any) {
-      return this.saved.includes(id);
+     return this.saved.includes(id)
   }
 
   toggleFavorite(id: any) {
@@ -112,6 +111,7 @@ export class UploadService {
     } else
       //adicionar o id aos favoritos
       this.saved.push(id);
+
 
     // local storage - é uma caixa do browser para  guardar informação e esta so pode ser guardada como string
     localStorage.setItem("saved",JSON.stringify(this.saved))
@@ -140,7 +140,6 @@ giveLike(body:{}){
 reportVideo(){
 
 }
-
 
   constructor(public http: HttpClient) {
 

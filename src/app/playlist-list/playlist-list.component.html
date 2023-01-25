@@ -3,6 +3,7 @@
     <p>Playlists</p>
     <div class="content_wrapper">
       <app-playlist-card class="playlist_card" *ngFor="let playlist of playlists"
+                         [playlist_id]="playlist.playlist_id"
                          [title]="playlist.title"
                          [category]="playlist.category_name"
                          [image]="playlist.image"
