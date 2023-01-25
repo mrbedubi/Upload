@@ -1,30 +1,33 @@
 <div class="video_card_container" [ngClass]="card" [routerLink]="['/video/', id]">
-  <div class="imagem" >
+  <div class="imagem">
     <img src="{{thumbnail}}" alt="...">
     <div class="time">
       <p>{{duration}}</p>
     </div>
   </div>
-    <div class="avatar"  *ngIf="card=='homepage'|| card=='videopage'" style="background-image: url({{channel_avatar}})" [routerLink]="['/channel/',channelId]"></div>
+  <div class="avatar" *ngIf="card=='homepage'|| card=='videopage'" style="background-image: url({{channel_avatar}})"
+       [routerLink]="['/channel/',channelId]"></div>
   <div class="info">
-    <p class="canal" *ngIf="card=='homepage'|| card=='videopage'" [routerLink]="['/channel/',channelId]" >{{channel_name}}</p>
+    <p class="canal" *ngIf="card=='homepage'|| card=='videopage'"
+       [routerLink]="['/channel/',channelId]">{{channel_name}}</p>
     <div class="tags" *ngIf="card=='channelpage'">
-      <a class="tag" href="" *ngFor=" let tag of tags" [routerLink]="['/search/tag/',tag.id]" >#{{tag.name}}</a>
+      <a class="tag" href="" *ngFor=" let tag of tags" [routerLink]="['/search/tag/',tag.id]">#{{tag.name}}</a>
     </div>
 
     <p class="titulo">{{title}}</p>
   </div>
   <div class="info_bottom">
     <p class="data">{{published_date}}</p>
-    <div class="fav_button" (click)="$event.stopPropagation(); list.toggleFavorite(id)">
-      <i class="fa-regular fa-bookmark icon" ></i>
-    </div>
-      <div class="share_button"(click)="$event.stopPropagation(); sharePopup()">
-        <i class="fa-solid fa-share-nodes icon" ></i>
+    <div class="buttons">
+      <div class="fav_button" (click)="$event.stopPropagation(); list.toggleFavorite(id)">
+        <i class="fa-regular fa-bookmark icon"></i>
       </div>
+      <div class="share_button" (click)="$event.stopPropagation(); sharePopup()">
+        <i class="fa-solid fa-share-nodes icon"></i>
+      </div>
+    </div>
   </div>
-
-<div class="popup"*ngIf="showPopup">
- <app-share></app-share>
-</div>
+  <div class="popup" *ngIf="showPopup">
+    <app-share></app-share>
+  </div>
 </div>
