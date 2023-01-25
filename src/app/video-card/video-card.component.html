@@ -16,7 +16,7 @@
 
     <p class="titulo">{{title}}</p>
   </div>
-  <div class="info_bottom">
+  <div class="info_bottom" *ngIf="card == 'homepage'">
     <p class="data">{{published_date}}</p>
     <div class="buttons">
       <div class="fav_button" (click)="$event.stopPropagation(); list.toggleFavorite(id)">

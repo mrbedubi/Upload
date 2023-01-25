@@ -1,122 +1,124 @@
 #home_wrapper {
-
   height: 100vh;
   color: #fff;
-  padding-bottom: 5%;
   display: flex;
   padding-left: 13.5%;
 
-}
-
-.playlist_wrapper {
-  width: 72%;
-  height: 100%;
-
-}
-
-p {
-  padding-left: 2.5rem;
-  font-size: 1.7rem;
-  font-weight: 600;
-  margin: 0;
-}
-
-#video_container {
-  width: 90%;
-  height: 65%;
-  padding: 3% 0 0 3%;
-
-  iframe {
-    border-radius: 25px;
-    width: 100%;
+  .playlist_wrapper {
+    width: 65%;
     height: 100%;
+
+    p {
+      padding-left: 2.5rem;
+      font-size: 1.7rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    #video_container {
+      width: 95%;
+      height: 65%;
+      padding: 3% 0 0 3%;
+
+      iframe {
+        border-radius: 25px;
+        width: 100%;
+        height: 100%;
+      }
+
+    }
+
+    #channel_wrapper {
+      width: 100%;
+      height: 6%;
+      padding: 3% 0 3% 3%;
+      display: flex;
+
+    }
+
+    .playlist_information {
+      width: 73%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 2%;
+
+    }
+
+    .channel_logo_container {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .playlist_logo {
+        width: 100%;
+
+      }
+
+    }
+  }
+
+  .right_menu {
+    width: 32%;
+
+    .playlist_card_wrapper {
+      width: 100%;
+      height: fit-content;
+      background-color: #1C1C24;
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      margin-top: 62px;
+      padding: 20px;
+
+      .nome_playlist {
+        color: white;
+        font-size: 1.3rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-height: 2rem;
+        max-width: 70%;
+        margin: 0;
+
+      }
+
+      .categoria {
+        color: #1E75FF;
+        font-weight: 400;
+        font-size: 1rem;
+        padding-bottom: 10px;
+        border-bottom: 1.5px solid #292932;
+        margin: 0;
+      }
+
+    }
+
+    .more_videos {
+      border-radius: 20px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 30px;
+
+    }
   }
 
 }
 
-#channel_wrapper {
-  width: 100%;
-  height: 6%;
-  padding: 3% 0 3% 3%;
-  display: flex;
-
-}
-
-.playlist_information {
-  width: 73%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 2%;
-
-}
-
-.channel_logo_container {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  .playlist_logo {
-    width: 100%;
-
-  }
-
-}
-
-.right_menu {
-
-  width: 30%;
-
-}
-
-.playlist_card_wrapper {
-  width: 80%;
-  height: fit-content;
-  background-color: #1C1C24;
-  border-radius: 20px;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  margin-top: 62px;
-  padding: 20px;
 
 
-  .nome_playlist {
-    color: white;
-    font-size: 1.3rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-height: 2rem;
-    max-width: 70%;
-    margin: 0;
-
-  }
 
 
-  .categoria {
-    color: #1E75FF;
-    font-weight: 400;
-    font-size: 1rem;
-    padding-bottom: 10px;
-    border-bottom: 1.5px solid #292932;
-    margin: 0;
-  }
-
-}
-
-.more_videos {
-  border-radius: 20px;
-  cursor: pointer;
-  width: 100%;
-  margin-top: 30px;
 
 
-}
+
+
+
 

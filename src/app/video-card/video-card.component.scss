@@ -6,7 +6,116 @@
   cursor: pointer;
 
   &.homepage {
+    .imagem {
+      width: 100%;
+      aspect-ratio: 1/0.47;
+      border-radius: 20px 20px 0 0;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
+      img {
+        width: 100%;
+
+
+      }
+
+      .time {
+        position: absolute;
+        background-color: #171725;
+        border-radius: 5px;
+        color: white;
+        padding: 2px 10px;
+        bottom: 14px;
+        left: 20px;
+        font-size: 0.85rem;
+
+        p {
+          margin: 0;
+        }
+      }
+
+    }
+    .canal {
+      color: #1E75FF;
+      font-weight: 200;
+      margin: 0;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .titulo {
+      color: white;
+      font-size: 1.3rem;
+      margin: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-height: 2rem;
+      max-width: 70%;
+      margin-bottom: 0.5rem;
+    }
+
+    .data {
+      color: #92929D;
+      font-weight: 200;
+      margin: 0;
+
+    }
+
+    .avatar {
+      width: 70px;
+      aspect-ratio: 1/1;
+      border: 2px solid #FFFFFF;
+      border-radius: 50%;
+      overflow: hidden;
+      position: absolute;
+      right: 30px;
+      bottom: 80px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .info {
+      padding-left: 20px;
+      padding-top: 20px;
+
+    }
+
+    .info_bottom {
+      display: flex;
+      justify-content: space-between;
+      padding-right: 20px;
+      padding-left: 20px;
+      padding-bottom: 20px;
+      position: relative;
+
+    }
+
+  .buttons{
+    display: flex;
+
+  }
+
+.fav_button{
+  padding-right: 20px;
+}
+
+    .buttons_container {
+      color: #92929D;
+      font-size: 1.5rem;
+      position: absolute;
+      right: 38px;
+      bottom: 20px;
+
+      .icon:last-child {
+        margin-left: 20px;
+      }
+    }
   }
 
   &.videopage {
@@ -19,126 +128,9 @@
     border-bottom: 1.5px solid #292932;
     width: 100%;
 
-
   }
 
-  //&:hover{
-  //transform: scale(1.2);
-  //transition: 0.5s ease-in-out;
-  //}
 
-  .imagem {
-    width: 100%;
-    aspect-ratio: 1/0.47;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    img {
-      width: 100%;
-
-    }
-
-    .time {
-      position: absolute;
-      background-color: #171725;
-      border-radius: 5px;
-      color: white;
-      padding: 2px 10px;
-      bottom: 14px;
-      left: 20px;
-      font-size: 0.85rem;
-
-      p {
-        margin: 0;
-      }
-    }
-
-  }
-
-  .canal {
-    color: #1E75FF;
-    font-weight: 200;
-    margin: 0;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  .titulo {
-    color: white;
-    font-size: 1.3rem;
-    margin: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-height: 2rem;
-    max-width: 70%;
-    margin-bottom: 0.5rem;
-  }
-
-  .data {
-    color: #92929D;
-    font-weight: 200;
-    margin: 0;
-
-  }
-
-  .avatar {
-    width: 70px;
-    aspect-ratio: 1/1;
-    border: 2px solid #FFFFFF;
-    border-radius: 50%;
-    overflow: hidden;
-    position: absolute;
-    right: 30px;
-    bottom: 80px;
-    background-size: cover;
-    background-position: center;
-  }
-
-  .info {
-    padding-left: 20px;
-    padding-top: 20px;
-
-  }
-
-  .info_bottom {
-    display: flex;
-    justify-content: space-between;
-    padding-right: 20px;
-    padding-left: 20px;
-    padding-bottom: 20px;
-    position: relative;
-
-  }
-
-  .buttons{
-    display: flex;
-
-  }
-
-.fav_button{
-  padding-right: 20px;
-}
-
-  .buttons_container {
-    color: #92929D;
-    font-size: 1.5rem;
-    position: absolute;
-    right: 38px;
-    bottom: 20px;
-
-
-    .icon:last-child {
-      margin-left: 20px;
-
-    }
-
-  }
 }
 
 
