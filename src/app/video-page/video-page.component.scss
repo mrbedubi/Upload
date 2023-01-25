@@ -62,9 +62,10 @@
 
     //main video properties
     #video_container {
-      width: 97%;
+      width: 100%;
       height: 65%;
-      padding:  1rem 0 0 1rem;
+      padding: 1rem 0  0 1rem;
+      box-sizing: border-box;
 
       iframe {
         border-radius: 25px;

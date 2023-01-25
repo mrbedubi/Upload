@@ -1,0 +1,22 @@
+#saved_wrapper {
+  margin-left: 15%;
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .main_content_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+
+    .content_wrapper {
+      width: 33%;
+      padding: 1rem;
+      box-sizing: border-box;
+
+      app-video-card {
+        width: 100%;
+      }
+    }
+  }
+}

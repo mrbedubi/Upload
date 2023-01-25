@@ -17,17 +17,15 @@ body = {
 
 constructor(public service: UploadService){
   this.service.postComments({
-
-    "entity_id":[{"target_id":2}],
-    "entity_type":[{"value":"node"}],
-    "comment_type":[{"target_id":"comment"}],
-    "field_comment_name":[{"value":"Hernani"}],
-    "field_name":[{"value":""}],
+    "entity_id":[{"target_id":11}],
+    "entity_type":[{"value":"media"}],
+    "field_name":[{"value":"field_comments_"}],
+    "comment_type":[{"target_id":"video_comments"}],
+    "comment_body":[{"value":"See you later!","format":"plain_text"}],
     "field_email":[{"value":"hernaniborgesdefreitas@gmail.com"}],
-    "subject":[{"value":"Hello World"}],
-    "comment_body":[
-      {"value":"<p>See you later!</p>","format":"plain_text"}
-    ]
+    "field_user_avatar":[{"value":"jkh"}],
+    "field_username":[{"value":"Ola"}]
+
 
   })
 

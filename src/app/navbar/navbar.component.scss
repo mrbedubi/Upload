@@ -42,6 +42,12 @@
         transition: 0.3s ease-in;
       }
 
+      &.activated {
+        border-left-color: #fff;
+        color: #fff;
+        transition: 0.3s ease-in;
+      }
+
       &:active {
         border-left-color: #fff;
         color: #fff;

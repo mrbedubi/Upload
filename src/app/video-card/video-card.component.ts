@@ -3,7 +3,6 @@ import {UploadService} from "../upload.service";
 import {Tag} from "../interface";
 import {Router} from "@angular/router";
 
-//import {UploadService} from "../../upload.service";
 
 @Component({
   selector: 'app-video-card',

@@ -109,11 +109,9 @@ export class UploadService {
     if (this.isSaved(id)) {
       //remover o id dos favoritos
       this.saved.splice(this.saved.indexOf(id), 1)
-      console.log(localStorage)
     } else
       //adicionar o id aos favoritos
       this.saved.push(id);
-      console.log(localStorage)
 
     // local storage - é uma caixa do browser para  guardar informação e esta so pode ser guardada como string
     localStorage.setItem("saved",JSON.stringify(this.saved))
@@ -128,10 +126,22 @@ token = this.getToken();
 headers = {'Accept': 'application/vnd.api+json', 'X-CSRF-Token': String(this.token)};
 
 postComments(body:{}){
-    return this.http.post("https://dev-project-upskill2-grupo2.pantheonsite.io/api/comments",
+    return this.http.post("https://dev-project-upskill2-grupo2.pantheonsite.io/comment",
       body,
       {'headers':this.headers})
 }
+
+giveLike(body:{}){
+  return this.http.post("https://dev-project-upskill2-grupo2.pantheonsite.io/comment",
+    body,
+    {'headers':this.headers})
+}
+
+reportVideo(){
+
+}
+
+
   constructor(public http: HttpClient) {
 
   }
