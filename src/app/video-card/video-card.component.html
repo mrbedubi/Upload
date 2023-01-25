@@ -8,7 +8,7 @@
   <div class="avatar" *ngIf="card=='homepage'|| card=='videopage'" style="background-image: url({{channel_avatar}})"
        [routerLink]="['/channel/',channelId]"></div>
   <div class="info">
-    <p class="canal" *ngIf="card=='homepage'|| card=='videopage'"
+    <p class="canal" *ngIf="card=='homepage'|| card=='videopage' || card == 'playlistpage'"
        [routerLink]="['/channel/',channelId]">{{channel_name}}</p>
     <div class="tags" *ngIf="card=='channelpage'">
       <a class="tag" href="" *ngFor=" let tag of tags" [routerLink]="['/search/tag/',tag.id]">#{{tag.name}}</a>

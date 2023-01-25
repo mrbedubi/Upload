@@ -57,7 +57,7 @@
 
 
     <div class="more_videos">
-      <app-video-card
+      <app-video-card class="suggested_videos" *ngFor="let video of videosByTag"
         [id]="video.id"
         [channelId]="video.channel_id"
         [channel_name]="video.channel_name"
@@ -68,6 +68,7 @@
         [thumbnail]="this.service.getThumbnail(video.thumbnail, video.video_url)"
         [channel_avatar]="this.BaseUrl + video.channel_picture">
       </app-video-card>
+
     </div>
   </div>
 

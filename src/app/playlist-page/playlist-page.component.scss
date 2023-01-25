@@ -65,10 +65,10 @@
   }
 
   .right_menu {
-    width: 32%;
+    width: 35%;
 
     .playlist_card_wrapper {
-      width: 100%;
+      width: 90%;
       height: fit-content;
       background-color: #1C1C24;
       border-radius: 20px;
@@ -104,9 +104,11 @@
     .more_videos {
       border-radius: 20px;
       cursor: pointer;
-      width: 100%;
-      margin-top: 30px;
+      width: 97%;
 
+      .suggested_videos {
+        margin: 0.5rem;
+      }
     }
   }
 

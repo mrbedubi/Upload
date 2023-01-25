@@ -19,7 +19,6 @@
       img {
         width: 100%;
 
-
       }
 
       .time {
@@ -38,6 +37,7 @@
       }
 
     }
+
     .canal {
       color: #1E75FF;
       font-weight: 200;
@@ -57,7 +57,6 @@
       white-space: nowrap;
       max-height: 2rem;
       max-width: 70%;
-      margin-bottom: 0.5rem;
     }
 
     .data {
@@ -101,9 +100,9 @@
 
   }
 
-.fav_button{
-  padding-right: 20px;
-}
+    .fav_button{
+      padding-right: 20px;
+    }
 
     .buttons_container {
       color: #92929D;
@@ -123,16 +122,73 @@
   }
 
   &.playlistpage {
-    margin-top: 40px;
-    margin-bottom: 20px;
-    border-bottom: 1.5px solid #292932;
-    width: 100%;
+    display: flex;
+    padding: 0.5rem;
+    border-radius: 20px;
 
+    &:hover {
+      background-color: #13131A;
+    }
+
+    .imagem {
+      width: 50%;
+      aspect-ratio: 1/0.5;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 100%;
+      }
+
+    }
+
+    .time {
+      position: absolute;
+      background-color: #171725;
+      border-radius: 5px;
+      color: white;
+      padding: 0.15rem 0.5rem;
+      bottom: 1rem;
+      left: 1rem;
+      font-size: 0.85rem;
+
+      p {
+        margin: 0;
+      }
+    }
+
+    .info {
+      width: 50%;
+      padding: 0 0 0 1rem;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: center;
+
+      .canal {
+        color: #92929D;
+        font-weight: 200;
+        margin: 0;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .titulo {
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-height: 2rem;
+      }
+    }
   }
-
-
 }
-
 
 .channelpage {
 

@@ -13,6 +13,7 @@ export class PlaylistPageComponent implements OnInit {
   playlist!: Playlist
   video!: Video
   videosById: Video[] = []
+  videosByTag: Video[] = []
   videoIds!: string[]
   BaseUrl:string="https://dev-project-upskill2-grupo2.pantheonsite.io";
 
@@ -29,16 +30,23 @@ export class PlaylistPageComponent implements OnInit {
 
       this.service.getVideosById(parseInt(this.videoIds[0])).subscribe((video) => {
         this.video = video[0]
+        console.log(video[0].tags)
+
+        this.service.getVideosByTag(video[0].tags).subscribe((video)=>{
+          this.videosByTag = video
+        })
+
       })
 
-for (let video in this.videoIds){
-      this.service.getVideosById(parseInt(this.videoIds[video])).subscribe((playlist) => {
-
-        this.videosById.push(playlist[0])
-      })
-
-    }
+      for (let video in this.videoIds){
+        this.service.getVideosById(parseInt(this.videoIds[video])).subscribe((playlist) => {
+          this.videosById.push(playlist[0])
+        })
+      }
     })
+
+
+
   }
 
   public VideoId(url: string) {
