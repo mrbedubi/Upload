@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {UploadService} from "../upload.service";
-import {Tag, Theme} from "../interface";
+import {Tag} from "../interface";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-article-card',
@@ -10,7 +11,7 @@ import {Tag, Theme} from "../interface";
 export class ArticleCardComponent implements OnInit {
   tags: Tag[] = []
   BASE_URL = "https://dev-project-upskill2-grupo2.pantheonsite.io/";
-  constructor(public service: UploadService) { }
+  constructor(public service: UploadService, public router: Router) { }
 
   ngOnInit(): void {
     this.service.getTagsById(this.tag_id).subscribe((tag)=> {
@@ -18,7 +19,7 @@ export class ArticleCardComponent implements OnInit {
     })
   }
 
-  @Input() id!: number
+  @Input() id?: number
   @Input() title!: string
   @Input() teaser!: string
   @Input() body!: string

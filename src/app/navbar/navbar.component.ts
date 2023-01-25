@@ -1,7 +1,7 @@
 import {Component, ViewContainerRef} from '@angular/core';
 import {Tag, Video} from "../interface";
 import {UploadService} from "../upload.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {TagsListComponent} from "../tags-list/tags-list.component";
 
 @Component({
@@ -14,11 +14,11 @@ export class NavbarComponent {
   tagModal:Boolean=false;
 
 
-  constructor( public list:UploadService ,public router: Router ){
+  constructor( public service:UploadService, public router: Router, public activatedRouter: ActivatedRoute){
 
   }
   ngOnInit():void {
-    this.list.getTags().subscribe((tags) => {
+    this.service.getTags().subscribe((tags) => {
       this.tags=tags
     })
 

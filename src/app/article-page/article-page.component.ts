@@ -33,6 +33,7 @@ export class ArticlePageComponent implements OnInit {
     this.service.getThemeById(this.ids).subscribe((theme) => {
       this.videoIds = Object.values(theme)[0].video_id.split(", ")
       this.theme = Object.values(theme)
+      console.log(theme)
 
       for (let video in this.videoIds) {
         this.service.getVideosById(parseInt(this.videoIds[video])).subscribe((videosById)=>{
