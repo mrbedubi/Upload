@@ -12,6 +12,7 @@ import {ShareComponent} from "./share/share.component";
 import {ArticleListComponent} from "./article-list/article-list.component";
 import {ArticleCardComponent} from "./article-card/article-card.component";
 import {SavedComponent} from "./saved/saved.component";
+import {VideoCardComponent} from "./video-card/video-card.component";
 
 
 const routes: Routes = [
@@ -25,7 +26,7 @@ const routes: Routes = [
   {path: 'playlists', component: PlaylistListComponent},
   {path: 'playlist', component: PlaylistPageComponent},
   {path: 'share', component: ShareComponent},
-  {path: 'card', component: ArticleCardComponent},
+  {path: 'card', component: VideoCardComponent},
   {path: 'saved', component: SavedComponent},
 ];
 

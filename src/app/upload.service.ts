@@ -85,7 +85,7 @@ export class UploadService {
   }
 
   getPlaylistById(id: number) {
-    return this.http.get<Playlist[]>(BASE_URL + "playlist/" + id);
+    return this.http.get<Playlist>(BASE_URL + "playlist/" + id);
   }
 
 
@@ -118,8 +118,6 @@ export class UploadService {
     // local storage - é uma caixa do browser para  guardar informação e esta so pode ser guardada como string
     localStorage.setItem("saved",JSON.stringify(this.saved))
   }
-
-
 
   getToken(){
     return this.http.get("https://dev-project-upskill2-grupo2.pantheonsite.io/session/token")

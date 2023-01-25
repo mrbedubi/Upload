@@ -44,7 +44,6 @@ showPopup: boolean=false
   }}
 
 
-
 sharePopup(){
 if (this.showPopup) this.showPopup=false;
   else this.showPopup=true;
