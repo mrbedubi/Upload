@@ -20,8 +20,8 @@
     <p class="data">{{published_date}}</p>
     <div class="buttons">
       <div class="fav_button" (click)="$event.stopPropagation(); list.toggleFavorite(id)">
-        <i class="fa-regular fa-bookmark icon" *ngIf="this.list.savedVideo"></i>
-        <i class="fa-solid fa-bookmark" *ngIf="!this.list.savedVideo"></i>
+        <span *ngIf="this.list.isSaved(id)"><i class="fa-regular fa-bookmark icon"></i></span>
+        <span *ngIf="!this.list.isSaved(id)"><i class="fa-solid fa-bookmark"></i></span>
       </div>
       <div class="share_button" (click)="$event.stopPropagation(); sharePopup()">
         <i class="fa-solid fa-share-nodes icon"></i>
