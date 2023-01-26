@@ -18,25 +18,11 @@ export class HomepageComponent {
   }
 
   ngOnInit(): void {
-
     this.list.getVideos().subscribe((videos) => {
       this.videos = videos
     })
 
   }
-
-/*
-  public getChannelInfo(id: number) {
-    let channels!:Channel[];
-     this.list.getChanelsById(id).subscribe((channel) => {
-      channels = channel
-
-    })
-console.log(channels[0].name);
-    return channels[0]
-
-  }
-*/
 
 
 }

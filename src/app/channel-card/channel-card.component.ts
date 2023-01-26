@@ -17,7 +17,7 @@ export class ChannelCardComponent implements OnInit {
   @Input() description?: string;
   @Input() profile_picture?: string;
   @Input() nr_videos?: number;
-
+  @Input() tag_id?: number
 
   constructor(public service:UploadService) { }
 

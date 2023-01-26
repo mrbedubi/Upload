@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./video-card.component.scss']
 })
 export class VideoCardComponent implements OnInit {
-tags!:Tag[];
+  tags!:Tag[];
 
   @Input() id?: number;
   @Input() channelId?: number;
@@ -34,9 +34,9 @@ showPopup: boolean=false
 
 //public uploadService: UploadService
   ngOnInit(): void {
-
     if(this.tag!=undefined){
       this.list.getTagsById(this.tag).subscribe( (tags)=>{
+        console.log(tags)
         this.tags=tags;
       });
 

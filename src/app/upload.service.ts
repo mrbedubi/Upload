@@ -63,7 +63,6 @@ export class UploadService {
   }
 
   getTagsById(id: string | number) {
-    console.log(id)
     return this.http.get<Tag[]>(BASE_URL + "tags/" + id);
   }
 
