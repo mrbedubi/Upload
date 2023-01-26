@@ -1,16 +1,31 @@
-<div class="card_channel_container" routerLink="/channel/{{id}}">
-  <div class="imagem">
-    <img [src]="BASE_URL+cover_image" alt="...">
+
+  <div class="card_channel_container batata" routerLink="/channel/{{id}}">
+    <div class="cartão">
+      <div class="imagem">
+        <img [src]="BASE_URL+cover_image" alt="...">
+      </div>
+
+      <div class="info_container">
+        <div class="avatar_container">
+          <img class="avatar" [src]="BASE_URL+profile_picture" alt="...">
+        </div>
+        <div class="info">
+          <p class="canal">{{name}}</p>
+          <p class="tag">#yoga #foco #cenas</p>
+          <p class="nr_videos">{{nr_videos}} videos</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="descrição">
+      <h3>About</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel leo fringilla, consequat eros vel, tincidunt
+        elit. Morbi porttitor ex efficitur sem scelerisque, vel ultricies augue ornare.</p>
+    </div>
   </div>
 
-  <div class="info_container">
-  <div class="avatar_container">
-    <img class="avatar" [src]="BASE_URL+profile_picture" alt="...">
-  </div>
-<div class="info">
-  <p class="canal">{{name}}</p>
-  <p class="tag">#yoga #foco #cenas</p>
-  <p class="nr_videos">{{nr_videos}} videos</p>
-</div>
-  </div>
-</div>
+
+<!-- [ngClass]="type" (mouseenter)="hoverDescription()" (mouseout)="hoverDescription()" -->
+<!-- ngclass para mudar entre cartão e descrição e funções referentes-->
+
+

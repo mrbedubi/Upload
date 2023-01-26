@@ -8,73 +8,98 @@
   cursor: pointer;
 
 
-  .imagem {
+
+  .descrição {
     width: 100%;
-    aspect-ratio: 1/0.20;
+    max-width: 600px;
+    background-color: #1C1C24;
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
     overflow: hidden;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    cursor: pointer;
+    z-index: 2;
+    visibility: hidden;
+  }
 
-    img {
-      width: 100%;
-
+  &:hover {
+    .descrição{
+      visibility: visible;
+    }
+    .cartão {
+      visibility: hidden;
     }
   }
 
-  .info_container {
-    display: flex;
-
-    .avatar_container {
-      width: 27%;
+  .cartão {
+    .imagem {
+      width: 100%;
+      aspect-ratio: 1/0.20;
+      overflow: hidden;
+      position: relative;
       display: flex;
       justify-content: center;
-      position: relative;
+      align-items: center;
 
-      .avatar {
-        position: absolute;
-        width: 70px;
-        top: -35px;
-        aspect-ratio: 1/1;
-        border: 2px solid #FFFFFF;
-        border-radius: 50%;
-        overflow: hidden;
-        background-size: cover;
-        background-position: center;
-      }
-
-    }
-
-
-    .info {
-      width: 73%;
-      padding: 0.5rem;
-
-      .canal {
-        color: white;
-        font-size: 1.3rem;
-        margin: 0;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-
-      .tag {
-        color: #1E75FF;
-        margin: 0;
-      }
-
-      .nr_videos {
-        color: #92929D;
-        font-weight: 200;
-        margin: 0;
+      img {
+        width: 100%;
 
       }
     }
 
+    .info_container {
+      display: flex;
 
+      .avatar_container {
+        width: 27%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+
+        .avatar {
+          position: absolute;
+          width: 70px;
+          top: -35px;
+          aspect-ratio: 1/1;
+          border: 2px solid #FFFFFF;
+          border-radius: 50%;
+          overflow: hidden;
+          background-size: cover;
+          background-position: center;
+        }
+
+      }
+
+
+      .info {
+        width: 73%;
+        padding: 0.5rem;
+
+        .canal {
+          color: white;
+          font-size: 1.3rem;
+          margin: 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .tag {
+          color: #1E75FF;
+          margin: 0;
+        }
+
+        .nr_videos {
+          color: #92929D;
+          font-weight: 200;
+          margin: 0;
+
+        }
+      }
+
+    }
   }
 
-
 }
+
+

@@ -17,7 +17,9 @@ export class ChannelCardComponent implements OnInit {
   @Input() description?: string;
   @Input() profile_picture?: string;
   @Input() nr_videos?: number;
+  @Input() type!: 'card' | 'description'
 
+  //showDescription: boolean=false
 
   constructor(public service:UploadService) { }
 
@@ -25,4 +27,9 @@ export class ChannelCardComponent implements OnInit {
 
   }
 
+
+ /* hoverDescription(){
+    this.showDescription = !this.showDescription
+    this.showDescription ? this.type = 'description' : this.type = 'card'
+  }*/
 }

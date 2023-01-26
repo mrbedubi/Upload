@@ -94,33 +94,42 @@
     .info_bottom {
       display: flex;
       justify-content: space-between;
-      padding-right: 20px;
-      padding-left: 20px;
-      padding-bottom: 20px;
+      padding-right: 3rem;
+      padding-left: 1.5rem;
+      padding-bottom: 1.5rem;
       position: relative;
 
     }
 
-  .buttons{
-    display: flex;
+    .buttons {
+      display: flex;
 
-  }
+      .share_button {
+        max-width: 200px;
+        background-color: #1C1C24;
+        border-radius: 10px;
+        cursor: pointer;
 
-    .fav_button{
-      padding-right: 20px;
-    }
+        .icon {
+          color: #fff;
+          cursor: pointer;
+          font-size: 1.5rem;
+          padding-bottom: 0.5rem;
+          padding-top: 0.5rem;
+        }
 
-    .buttons_container {
-      color: #92929D;
-      font-size: 1.5rem;
-      position: absolute;
-      right: 38px;
-      bottom: 20px;
-
-      .icon:last-child {
-        margin-left: 20px;
       }
+
+    .fav_button {
+      padding-right: 1rem;
+      font-size: 1.5rem;
+
+       .icon {
+        padding-bottom: 0.7rem;
+         color: #fff;
+       }
     }
+  }
   }
 
   &.videopage {
@@ -225,33 +234,6 @@
     }
   }
 
-
-}
-
-.share_container {
-  max-width: 200px;
-  background-color: #1C1C24;
-  border-radius: 10px;
-  cursor: pointer;
-
-  .info {
-    display: flex;
-    justify-content: space-between;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  .icon {
-    color: #B5B5BE;
-    cursor: pointer;
-    font-size: 2rem;
-    padding-bottom: 20px;
-    padding-top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-  }
 
 }
 

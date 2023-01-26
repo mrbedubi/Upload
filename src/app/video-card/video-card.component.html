@@ -20,11 +20,11 @@
     <p class="data">{{published_date}}</p>
     <div class="buttons">
       <div class="fav_button" (click)="$event.stopPropagation(); list.toggleFavorite(id)">
-        <span *ngIf="this.list.isSaved(id)"><i class="fa-regular fa-bookmark icon"></i></span>
-        <span *ngIf="!this.list.isSaved(id)"><i class="fa-solid fa-bookmark"></i></span>
+        <fa-icon *ngIf="this.list.isSaved(id)" [icon] = "savedIcon" class="icon"></fa-icon>
+        <fa-icon *ngIf="!this.list.isSaved(id)" [icon] = "notSavedIcon" class="icon"></fa-icon>
       </div>
-      <div class="share_button" (click)="$event.stopPropagation(); sharePopup()">
-        <i class="fa-solid fa-share-nodes icon"></i>
+      <div class="share_button" (click)="sharePopup($event)">
+        <fa-icon [icon] = "faShareAlt" class="icon"></fa-icon>
       </div>
     </div>
   </div>
