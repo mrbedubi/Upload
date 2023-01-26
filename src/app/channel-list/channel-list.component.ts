@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Channel, NrVideosChannel, Tag, Video} from "../interface";
 import {UploadService} from "../upload.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {parse} from "@fortawesome/fontawesome-svg-core";
 
 @Component({
   selector: 'app-channel-list',
@@ -15,7 +16,8 @@ export class ChannelListComponent implements OnInit {
   } = {};
   videos: Video[] = []
   tags: Tag[] = []
-  tagsByChannel: Tag[] = []
+  public tagsByChannel: Tag[] = []
+
   constructor(public service: UploadService) {
   }
 
@@ -24,26 +26,6 @@ export class ChannelListComponent implements OnInit {
   ngOnInit(): void {
     this.service.getChannels().subscribe((channel) => {
       this.channels = channel;
-
-      for(let chnl in this.channels) {
-        this.service.getVideosByChannel(this.channels[chnl].channel_id).subscribe((videos) => {
-          this.videos = videos
-          console.log(videos)
-
-          for(let tag in this.videos) {
-            this.service.getTagsById(this.videos[tag].tags).subscribe((tags) => {
-              this.tags = tags
-              console.log(tags)
-              for (let tag in tags) {
-                if(!this.tagsByChannel.includes(tags[tag])) {
-                  this.tagsByChannel.push(tags[tag])
-                  console.log(this.tagsByChannel)
-                }
-              }
-            })
-          }
-        })
-      }
     })
     this.service.getNrVideosChannel().subscribe((channel) => {
       channel.forEach(c=>{
@@ -54,3 +36,17 @@ export class ChannelListComponent implements OnInit {
   }
 }
 
+/* for(let tag in this.videos) {
+            this.service.getTagsById(this.videos[tag].tags).subscribe((tags) => {
+              this.tags = tags
+              for (let tag in tags) {
+                console.log(this.savedIds.includes(tags[tag].id))
+                if (!this.savedIds.includes(tags[tag].id) && !this.tagsByChannel.includes(tags[tag]) ) {
+                  console.log(this.savedIds)
+                  this.savedIds.push(tags[tag].id)
+                  this.tagsByChannel.push(tags[tag])
+                  console.log(this.tagsByChannel)
+                }
+              }
+            })
+          }*/

@@ -1,5 +1,5 @@
 
-  <div class="card_channel_container batata" routerLink="/channel/{{id}}">
+  <div class="card_channel_container" routerLink="/channel/{{id}}">
     <div class="cartão">
       <div class="imagem">
         <img [src]="BASE_URL+cover_image" alt="...">
@@ -11,7 +11,9 @@
         </div>
         <div class="info">
           <p class="canal">{{name}}</p>
-          <p class="tag">#yoga #foco #cenas</p>
+          <div class="tags_container">
+            <p class="tag" *ngFor="let tag of tagsByChannel | slice:0:2">#{{tag.name}}</p>
+          </div>
           <p class="nr_videos">{{nr_videos}} videos</p>
         </div>
       </div>

@@ -16,14 +16,14 @@
 
     <p class="titulo">{{title}}</p>
   </div>
-  <div class="info_bottom" *ngIf="card == 'homepage'">
+  <div class="info_bottom" *ngIf="card == 'homepage'" (click)="$event.stopPropagation()">
     <p class="data">{{published_date}}</p>
     <div class="buttons">
-      <div class="fav_button" (click)="$event.stopPropagation(); list.toggleFavorite(id)">
+      <div class="fav_button" (click)="list.toggleFavorite(id)">
         <fa-icon *ngIf="this.list.isSaved(id)" [icon] = "savedIcon" class="icon"></fa-icon>
         <fa-icon *ngIf="!this.list.isSaved(id)" [icon] = "notSavedIcon" class="icon"></fa-icon>
       </div>
-      <div class="share_button" (click)="sharePopup($event)">
+      <div class="share_button" (click)="sharePopup()">
         <fa-icon [icon] = "faShareAlt" class="icon"></fa-icon>
       </div>
     </div>
