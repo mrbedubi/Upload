@@ -3,6 +3,10 @@ import {Tag, Video} from "../interface";
 import {UploadService} from "../upload.service";
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from "@angular/router";
+import {faFlag} from "@fortawesome/free-solid-svg-icons";
+import {faBookmark as saved} from "@fortawesome/free-solid-svg-icons";
+import {faBookmark as notSaved} from "@fortawesome/free-regular-svg-icons";
+import {faShareAlt} from "@fortawesome/free-solid-svg-icons";
 
 
 @Component({
@@ -16,6 +20,10 @@ export class VideoPageComponent {
   videosByTag: Video[] = []
   tags:Tag[]=[]
   ids!: any
+  faFlag = faFlag
+  savedIcon = saved
+  notSavedIcon = notSaved
+  faShareAlt = faShareAlt
 
   constructor(public service:UploadService, public sanitizer: DomSanitizer, private route: ActivatedRoute, private router: Router){
 

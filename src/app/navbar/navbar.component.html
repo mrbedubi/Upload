@@ -5,19 +5,20 @@
 
   <div id="menu_wrapper">
     <div class="menu_item" routerLink="/home" routerLinkActive="activated">
-      <i class="fa-solid fa-house"></i>
+      <fa-icon [icon] = "faHome" class="icon"></fa-icon>
       <p>Início</p>
     </div>
     <div class="menu_item" routerLink="/channels" routerLinkActive="activated">
-      <i class="fa-solid fa-bars-staggered"></i>
+      <fa-icon [icon] = "faStream" class="icon"></fa-icon>
+
       <p>Canais</p>
     </div>
       <div class="menu_item" routerLink="/articles" routerLinkActive="activated">
-        <i class="fa-solid fa-clapperboard"></i>
+        <fa-icon [icon] = "faFilm" class="icon"></fa-icon>
         <p>Temáticas</p>
       </div>
       <div class="menu_item" routerLink="/playlists" routerLinkActive="activated">
-        <i class="fa-solid fa-play"></i>
+        <fa-icon [icon] = "faPlay" class="icon"></fa-icon>
         <p>Playlists</p>
       </div>
       <div class="menu_item" routerLink="/saved" routerLinkActive="activated">

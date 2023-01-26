@@ -14,8 +14,8 @@ import * as events from "events";
   styleUrls: ['./video-card.component.scss']
 })
 export class VideoCardComponent implements OnInit {
-tags!:Tag[];
-savedIcon = saved
+  tags!: Tag[];
+  savedIcon = saved
   notSavedIcon = notSaved
   faShareAlt = faShareAlt
 
@@ -30,12 +30,12 @@ savedIcon = saved
   @Input() thumbnail?: string
   @Input() channel_name?: string
   @Input() channel_avatar?: string
-  @Input() tag!: string|number
+  @Input() tag!: string | number
   @Input() card!: "homepage" | "channelpage" | "videopage" | "playlistpage"
 
-showPopup: boolean=false
 
-  constructor(public list: UploadService,public router: Router) {
+
+  constructor(public list: UploadService, public router: Router) {
 
   }
 
@@ -43,20 +43,19 @@ showPopup: boolean=false
 //public uploadService: UploadService
   ngOnInit(): void {
 
-    if(this.tag!=undefined){
-      this.list.getTagsById(this.tag).subscribe( (tags)=>{
-        this.tags=tags;
+    if (this.tag != undefined) {
+      this.list.getTagsById(this.tag).subscribe((tags) => {
+        this.tags = tags;
       });
 
-  }}
+
+    }
 
 
-sharePopup( e:any){
-  e.stopPropagation();
+  }
 
-  if (this.showPopup) this.showPopup=false;
-  else this.showPopup=true;
-}
+
+
 
 }
 

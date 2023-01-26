@@ -141,6 +141,15 @@ reportVideo(){
 
 }
 
+  showPopup: boolean = false
+
+  sharePopup(e: any) {
+    e.stopPropagation();
+
+    if (this.showPopup) this.showPopup = false;
+    else this.showPopup = true;
+  }
+
   constructor(public http: HttpClient) {
 
   }

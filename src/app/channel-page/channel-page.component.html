@@ -19,7 +19,7 @@
   <div class="container_vid">
     <app-video-card class="video_card" *ngFor=" let video of video" routerLink="/video/{{video.id}}"
                     [id]="video.id"
-                    card="channelpage"
+                    card="homepage"
                     [tag]="video.tags"
                     [title]="video.title"
                     [published_date]="video.published_date"
