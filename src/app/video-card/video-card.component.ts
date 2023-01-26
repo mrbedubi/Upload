@@ -2,6 +2,10 @@ import {Component, Input, OnInit} from '@angular/core';
 import {UploadService} from "../upload.service";
 import {Tag} from "../interface";
 import {Router} from "@angular/router";
+import {faBookmark as saved} from "@fortawesome/free-solid-svg-icons";
+import {faBookmark as notSaved} from "@fortawesome/free-regular-svg-icons";
+import {faShareAlt} from "@fortawesome/free-solid-svg-icons";
+import * as events from "events";
 
 
 @Component({
@@ -10,7 +14,11 @@ import {Router} from "@angular/router";
   styleUrls: ['./video-card.component.scss']
 })
 export class VideoCardComponent implements OnInit {
-  tags!:Tag[];
+tags!:Tag[];
+savedIcon = saved
+  notSavedIcon = notSaved
+  faShareAlt = faShareAlt
+
 
   @Input() id?: number;
   @Input() channelId?: number;
@@ -34,9 +42,9 @@ showPopup: boolean=false
 
 //public uploadService: UploadService
   ngOnInit(): void {
+
     if(this.tag!=undefined){
       this.list.getTagsById(this.tag).subscribe( (tags)=>{
-        console.log(tags)
         this.tags=tags;
       });
 
