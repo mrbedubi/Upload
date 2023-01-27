@@ -7,13 +7,29 @@
           <a class="video_tag" *ngFor="let tag of tags" [routerLink]="['/search/tag/',tag.id]">#{{tag.name}}</a>
         </div>
       </div>
-      <div class="report_container">
-        <i class="fa-solid fa-flag"></i>
+      <div class="buttons">
+        <div class="fav_button" (click)="service.toggleFavorite(video.id)">
+          <fa-icon *ngIf="this.service.isSaved(video.id)" [icon]="savedIcon" class="icon"></fa-icon>
+          <fa-icon *ngIf="!this.service.isSaved(video.id)" [icon]="notSavedIcon" class="icon"></fa-icon>
+        </div>
+        <div class="share_button" (click)="this.service.sharePopup($event)">
+          <fa-icon [icon]="faShareAlt" class="icon"></fa-icon>
+        </div>
+        <div class="popup" *ngIf="this.service.showPopup">
+          <app-share></app-share>
+        </div>
+        <div class="report_container">
+          <fa-icon [icon]="faFlag" class="icon"></fa-icon>
+        </div>
       </div>
     </div>
 
+
     <div id="video_container">
-      <iframe width="560" height="315" [src]="this.VideoId(this.video.video_url) | safeUrl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <iframe width="560" height="315" [src]="this.VideoId(this.video.video_url) | safeUrl" title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
     </div>
 
     <div id="channel_wrapper">
