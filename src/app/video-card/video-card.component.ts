@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {faBookmark as saved} from "@fortawesome/free-solid-svg-icons";
 import {faBookmark as notSaved} from "@fortawesome/free-regular-svg-icons";
 import {faShareAlt} from "@fortawesome/free-solid-svg-icons";
+import {faPlay} from "@fortawesome/free-solid-svg-icons";
 import * as events from "events";
 
 
@@ -18,7 +19,7 @@ export class VideoCardComponent implements OnInit {
   savedIcon = saved
   notSavedIcon = notSaved
   faShareAlt = faShareAlt
-
+  faPlay = faPlay
 
   @Input() id?: number;
   @Input() channelId?: number;
