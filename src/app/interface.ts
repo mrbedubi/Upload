@@ -82,5 +82,9 @@ interface Comments {
   date: string
 }
 
-export {Video , Tag , Theme , Playlist, Channel , Category, NrVideosChannel, Comments};
+interface Rating {
+  count: number
+}
+
+export {Video , Tag , Theme , Playlist, Channel , Category, NrVideosChannel, Comments, Rating};
 

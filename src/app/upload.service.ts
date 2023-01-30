@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Channel, NrVideosChannel, Playlist, Tag, Theme, Video} from "./interface"
+import {Channel, NrVideosChannel, Playlist, Rating, Tag, Theme, Video} from "./interface"
 
 
 const BASE_URL = "https://dev-project-upskill2-grupo2.pantheonsite.io/api/";
@@ -28,12 +28,6 @@ export class UploadService {
     return this.http.get<Theme>(BASE_URL + "themes/" + id)
   }
 
-  //Acho que não precisamos disto - ts
-  getEmbedUrl(url: string) {
-    const urlParts = url.split("=");
-    return "https://www.youtube.com/embed/" + urlParts;
-  }
-
   getVideosByChannel(id: number) {
     return this.http.get<Video[]>(BASE_URL + "channels/" + id + "/videos");
   }
@@ -56,7 +50,13 @@ export class UploadService {
     return this.http.get<Channel[]>(BASE_URL + "channels/" + id);
   }
 
-  // Get Tags
+  getLikesByVideoId(id: number) {
+    return this.http.get<Rating>(BASE_URL + 'videos/' + id + '/likes')
+  }
+
+  getDislikesByVideoId(id: number) {
+    return this.http.get<Rating>(BASE_URL + 'videos/' + id + '/dislikes')
+  }
 
   getTags() {
     return this.http.get<Tag[]>(BASE_URL + "tags");
