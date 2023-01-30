@@ -17,6 +17,7 @@ BASEURL:string="https://dev-project-upskill2-grupo2.pantheonsite.io/"
   constructor(public  service:UploadService) {
     service.getThemes().subscribe((theme)=>{
       this.theme=theme[0];
+      console.log(this.theme.id)
     })
   }
 

@@ -19,12 +19,11 @@
     cursor: pointer;
     z-index: 2;
     visibility: hidden;
-
   }
 
-h3{
-  padding-left: 10px ;
-}
+  h3{
+    padding-left: 10px ;
+  }
 
   .desc{
     padding-right: 10px;
@@ -32,6 +31,7 @@ h3{
   }
 
   &:hover {
+
     .descrição{
       visibility: visible;
     }
@@ -41,6 +41,7 @@ h3{
   }
 
   .cartão {
+
     .imagem {
       width: 100%;
       aspect-ratio: 1/0.20;

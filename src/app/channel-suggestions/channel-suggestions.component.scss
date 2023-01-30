@@ -26,6 +26,10 @@
       align-items: center;
       padding: 0.5rem 0 0.5rem 1rem;
 
+      &:hover {
+        background: #13131A;
+      }
+
       p {
         padding-left: 1rem;
       }
@@ -51,6 +55,10 @@
       margin: 0;
       background-color: rgba(146, 146, 157, 0.1);
       mix-blend-mode: normal;
+
+        &:hover {
+          background: #13131A;
+        }
     }
   }
 }
