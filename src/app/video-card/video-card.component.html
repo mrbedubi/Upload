@@ -1,4 +1,6 @@
-<div class="video_card_container" [ngClass]="card" [routerLink]="['/video/', id]">
+<!-- tem que ter uma função que faz os routing em vez do routerlink para controlar o comportamento do click qd estamos na playlist page-->
+
+<div class="video_card_container" [ngClass]="card" [routerLink]="['/video/', id]"(click)="navigate()">
   <div class="imagem">
     <img src="{{thumbnail}}" alt="...">
     <div class="time">

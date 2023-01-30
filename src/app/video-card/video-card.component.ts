@@ -41,6 +41,7 @@ export class VideoCardComponent implements OnInit {
   }
 
 
+
 //public uploadService: UploadService
   ngOnInit(): void {
 
@@ -48,16 +49,17 @@ export class VideoCardComponent implements OnInit {
       this.list.getTagsById(this.tag).subscribe((tags) => {
         this.tags = tags;
       });
-
-
     }
-
-
   }
 
-
-
-
+  navigate(){
+    if (this.card = "playlistpage"){
+//criar a logica
+    }
+    else {
+      this.router.navigate(['/', 'video/'+ this.id])
+    }
+  }
 }
 
 
