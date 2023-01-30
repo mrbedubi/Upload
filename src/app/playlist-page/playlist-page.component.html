@@ -36,37 +36,37 @@
 
 
   <div class="right_menu">
-  <div class="playlist_card_wrapper">
-    <h2 class="nome_playlist">{{playlist.title}}</h2>
-    <h4 class="categoria">#{{playlist.category_name}}</h4>
-    <app-video-card *ngFor="let video of videosById"
-                    [id]="video.id"
-                    [channelId]="video.channel_id"
-                    [channel_name]="video.channel_name"
-                    [video_url]="video.video_url"
-                    card="playlistpage"
-                    [title]="video.title"
-                    [published_date]="video.published_date"
-                    [duration]="video.duration"
-                    [thumbnail]="this.service.getThumbnail(video.thumbnail, video.video_url)"
-                    [channel_avatar]="this.BaseUrl + video.channel_picture">
+    <div class="playlist_card_wrapper">
+      <h2 class="nome_playlist">{{playlist.title}}</h2>
+      <h4 class="categoria">#{{playlist.category_name}}</h4>
+      <app-video-card *ngFor="let video of videosById"
+                      [id]="video.id"
+                      [channelId]="video.channel_id"
+                      [channel_name]="video.channel_name"
+                      [video_url]="video.video_url"
+                      card="playlistpage"
+                      [title]="video.title"
+                      [published_date]="video.published_date"
+                      [duration]="video.duration"
+                      [thumbnail]="this.service.getThumbnail(video.thumbnail, video.video_url)"
+                      [channel_avatar]="this.BaseUrl + video.channel_picture">
+                      <!--(click)="changeActiveVideo(video.id)"-->
 
-    </app-video-card>
-  </div>
-
+      </app-video-card>
+    </div>
 
 
     <div class="more_videos">
       <app-video-card class="suggested_videos" *ngFor="let video of videosByTag"
-        [id]="video.id"
-        [channelId]="video.channel_id"
-        [channel_name]="video.channel_name"
-        [title]="video.title"
-        card="homepage"
-        [published_date]="video.published_date"
-        [duration]="video.duration"
-        [thumbnail]="this.service.getThumbnail(video.thumbnail, video.video_url)"
-        [channel_avatar]="this.BaseUrl + video.channel_picture">
+                      [id]="video.id"
+                      [channelId]="video.channel_id"
+                      [channel_name]="video.channel_name"
+                      [title]="video.title"
+                      card="homepage"
+                      [published_date]="video.published_date"
+                      [duration]="video.duration"
+                      [thumbnail]="this.service.getThumbnail(video.thumbnail, video.video_url)"
+                      [channel_avatar]="this.BaseUrl + video.channel_picture">
       </app-video-card>
 
     </div>

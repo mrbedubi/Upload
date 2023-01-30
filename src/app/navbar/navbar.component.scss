@@ -73,7 +73,8 @@
     .tag_container {
       display: flex;
       flex-wrap: wrap;
-      position:relative ;
+      position: relative;
+
       .tag {
         width: fit-content;
         color: #fff;
@@ -89,21 +90,22 @@
         }
       }
 
-      }
-      .tagPopUp{
-        width: 500%;
-        position: absolute;
-        left:115%;
-      }
+    }
 
-    .show_more_tags{
+    .tagPopUp {
+      width: 500%;
+      position: absolute;
+      left: 115%;
+    }
+
+    .show_more_tags {
       cursor: pointer;
-      &:hover{
+
+      &:hover {
         text-decoration: underline;
       }
 
     }
 
-  }
 
-}
+  }}
