@@ -1,9 +1,30 @@
 <div class="share_container">
   <div class="info">
-    <p>Share</p>
-    <p>X</p>
+    <h3>Partilhar Vídeo</h3>
+    <img class="x" (click)="this.card.showShare=false" src="assets/closeBtn.svg" >
   </div>
-  <div class="icon">
-    <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
+  <p>Partilhar via</p>
+  <div class="icons">
+    <div class="icon">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank">
+        <fa-icon [icon]="faFacebook" class="icon"></fa-icon>
+      </a>
+    </div>
+    <div class="icon">
+      <a href="https://twitter.com/intent/tweet" target="_blank">
+        <fa-icon [icon]="faTwitter" class="icon"></fa-icon>
+      </a>
+    </div>
+    <div class="icon">
+      <a href="whatsapp://send?text=The text to share!" target="_blank">
+        <fa-icon [icon]="faWhatsapp" class="icon"></fa-icon>
+      </a>
+    </div>
+  </div>
+  <p>Ou copiar o link</p>
+  <div class="field">
+    <fa-icon [icon]="faLink"></fa-icon>
+    <p>{{url}}</p>
+    <button (click)="copyLink()">Copiar</button>
   </div>
 </div>

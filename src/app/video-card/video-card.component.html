@@ -25,17 +25,19 @@
         <fa-icon *ngIf="this.list.isSaved(id)" [icon] = "savedIcon" class="icon"></fa-icon>
         <fa-icon *ngIf="!this.list.isSaved(id)" [icon] = "notSavedIcon" class="icon"></fa-icon>
       </div>
-      <div class="share_button" (click)="this.list.sharePopup($event)">
+      <div class="share_button" (click)="this.togglePopUp()" >
         <fa-icon [icon] = "faShareAlt" class="icon"></fa-icon>
       </div>
     </div>
   </div>
-  <div class="popup" *ngIf="this.list.showPopup">
-    <app-share></app-share>
-  </div>
+
 
   <div class="play_video">
     <p>Play</p>
     <fa-icon [icon]= "faPlay"></fa-icon>
   </div>
+</div>
+
+<div class="popup" *ngIf="this.showShare">
+  <app-share [video_url]="'/video/'+id"></app-share>
 </div>
