@@ -4,28 +4,32 @@ p {
   font-weight: 600;
   margin: 0;
 }
-#channel_list_wrapper{
-  padding-left:14%;
+
+#channel_list_wrapper {
+  padding-left: 14%;
 }
-.content_wrapper{
+
+.content_wrapper {
   width: 100%;
   display: flex;
 
-  .card{
+  .card {
     padding: 15px;
     width: 33%;
   }
 
 }
-#channel_list_wrapper{
-  padding-left:14%;
+
+#channel_list_wrapper {
+  padding-left: 14%;
 }
-.content_wrapper{
+
+.content_wrapper {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
 
-  .card{
+  .card {
     padding: 1rem;
     box-sizing: border-box;
     width: 33%;
