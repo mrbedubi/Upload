@@ -1,19 +1,54 @@
 <div class="comment_box">
 
-  <img class="avatar" src="assets/avatar.png">
 
-  <!--<form [formControl]="" action="" method="post">-->
+  <form  class="form" [formGroup]="postComment" (ngSubmit)="onSubmit()" novalidate>
     <div class="name_email">
-    <input type="text" class="form" name="name" id="name"placeholder="Name" formControlName="name">
-    <input type="text" class="form" placeholder="Email">
-</div>
-    <input type="text" class="form" placeholder="Message">
-    <div class="button">
-      <!--<button (click)="post()">Submit Comment</button>-->
+
+      <div class="input_controler">
+      <input type="text" class="form_name" formControlName="name" placeholder="Name" [ngClass]="{'is_invalid': submitted && (postComment.hasError('required','name').valueOf() || postComment.hasError('maxlength', 'name ').valueOf() )}">
+        <small *ngIf="postComment.controls['name'].dirty && postComment.hasError('required','name')">Name is required</small>
+        <small *ngIf="postComment.controls['name'].dirty && postComment.hasError('maxlength','name')">Chose a shorter name, less that 100 charaters</small>
+      </div>
+
+      <div class="input_controler">
+      <input type="email" class="form_email" formControlName="email" placeholder="Email" [ngClass]="{'is_invalid': submitted && (postComment.hasError('required','email').valueOf() || postComment.hasError('email','email').valueOf() || postComment.hasError('maxlength','email').valueOf())}" >
+        <small *ngIf="postComment.controls['email'].dirty && postComment.hasError('required','email')" email>Email is required</small>
+        <small  *ngIf="postComment.controls['email'].dirty && postComment.hasError('email','email')">Write a valid e-mail</small>
+        <small *ngIf="postComment.controls['name'].dirty && postComment.hasError('maxlength','name')">the email should have less that 100 charaters</small>
+      </div>
+
+    </div>
+    <div class="input_controler">
+    <input  type="text" class="form_message" formControlName="message" placeholder="Message" [ngClass]="{'is_invalid': submitted && ( postComment.hasError('required','message').valueOf() || postComment.hasError('maxlength','message').valueOf())}">
+    <small *ngIf="postComment.controls['message'].dirty && postComment.hasError('required','message')">The message can't be empty</small>
+    <small *ngIf="postComment.controls['message'].dirty && postComment.hasError('maxlength','message')">the charater limit is 500 you have </small>
+    </div>
+    <div class="container_button">
+      <button id="submit"  >Submit Comment</button>
     </div>
 
+  </form>
+
+
+  <div class="comment_warper">
+    <div class="comment_header"><h3 class="result">3</h3><h3>Comentários:</h3></div>
+    <div class="comment_item">
+      <div class="avatar" style="background-image: url('{{this.service.getGravatar('diogo.azv97@gmail.com')}}'), url('{{this.service.getRandomAvatart('diogo.azv97@gmail.com')}}')  "></div>
+    <div class="details">
+      <div class="details_header">
+    <div class="name">Fernando</div>
+    <div class="publish_date">há 20 min</div>
+      </div>
+      <div class="comment_body">ddfsfsf</div>
+    </div>
+
+    </div>
+  </div>
+<!--
   <div *ngFor="let comments of postComment">
   <p>{{comments}}</p>
+  </div>
+  -->
 
 </div>
-</div>
+

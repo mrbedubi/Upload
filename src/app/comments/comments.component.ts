@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UploadService} from "../upload.service";
+import { FormGroup, FormControl, Validators , FormBuilder} from '@angular/forms';
+
 
 @Component({
   selector: 'app-comments',
@@ -8,32 +10,51 @@ import {UploadService} from "../upload.service";
 })
 export class CommentsComponent implements OnInit {
 
-comment = "";
-postComment = [""];
-body = {
-}
+submitted=false;
+postComment!:FormGroup;
+constructor(public service: UploadService , private  fb:FormBuilder){
 
-
-
-constructor(public service: UploadService){
-  this.service.postComments({
-    "entity_id":[{"target_id":11}],
-    "entity_type":[{"value":"media"}],
-    "field_name":[{"value":"field_comments_"}],
-    "comment_type":[{"target_id":"video_comments"}],
-    "comment_body":[{"value":"See you later!","format":"plain_text"}],
-    "field_email":[{"value":"hernaniborgesdefreitas@gmail.com"}],
-    "field_user_avatar":[{"value":"jkh"}],
-    "field_username":[{"value":"Ola"}]
-
-
-  })
 
 }
 
 
+ngOnInit():void{
+  this.postComment = this.fb.group({
+    name:['',[Validators.required , Validators.maxLength(100)]],
+    email:['',[Validators.required , Validators.email , Validators.maxLength(100)] ],
+    message: ['',[Validators.required, Validators.maxLength(500)] ]
+  },
+    {  updateOn: 'submit' }
+    );
 
-  ngOnInit() {
 
-  }
+}
+
+
+
+
+
+  onSubmit(){
+  this.submitted=true;
+    console.log(this.postComment.hasError('required','message').valueOf())
+if(this.postComment.valid){
+  // send message to drupal
+
+}else{
+  // throw errors on form
+  this.validateFormFields(this.postComment);
+}
+}
+
+private validateFormFields(form: FormGroup) {
+  Object.keys(form.controls).forEach(field => {
+    const control = form.get(field);
+    if (control instanceof FormControl) {
+      control.markAsDirty({onlySelf:true})
+    } else  if(control instanceof FormGroup){
+      this.validateFormFields(control);
+    }
+  });
+}
+
 }

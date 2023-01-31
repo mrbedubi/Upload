@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Channel, NrVideosChannel, Playlist, Rating, Tag, Theme, Video} from "./interface"
 
 
+
 const BASE_URL = "https://dev-project-upskill2-grupo2.pantheonsite.io/api/";
 
 @Injectable({
@@ -11,6 +12,7 @@ const BASE_URL = "https://dev-project-upskill2-grupo2.pantheonsite.io/api/";
 export class UploadService {
   // Get Videos
   saved: number[]=JSON.parse(localStorage.getItem("saved") || "[]");
+  md5= require("crypto-js/md5");
 
   getVideos() {
     return this.http.get<Video[]>(BASE_URL + "videos");
@@ -153,5 +155,22 @@ reportVideo(){
 
   }
 
+
+
+
+  getIP() {
+    this.http.get('https://api.ipify.org?format=json').subscribe(data => {
+      console.log(data);
+    });
+  }
+
+
+  getGravatar(email:string){
+     return  "https://www.gravatar.com/avatar/"+this.md5(email).toString()+"?d=404";
+  }
+
+  getRandomAvatart(email:string){
+  return ' https://robohash.org/set_set3/bgset_bg1/'+email+'?size=100x100';
+  }
 
 }
