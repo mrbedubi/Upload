@@ -2,6 +2,7 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  cursor: pointer;
 
   .article_card_container {
     width: 100%;
@@ -28,6 +29,10 @@
       .article_tags_container {
         display: flex;
         color: #1E75FF;
+        &:hover{
+          text-decoration: underline;
+
+        }
 
         p {
           margin: 0;
