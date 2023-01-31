@@ -6,7 +6,7 @@
   background-color: #1C1C24;
   height: 100vh;
   padding-top: -10px;
-  z-index: 2;
+  z-index: 5;
 
   //branding properties
   .brand_container {
@@ -64,6 +64,7 @@
   #tag_wrapper {
     padding-left: 5%;
     margin-top: 50%;
+    z-index: 4;
 
     h1 {
       font-size: 1.1em;
@@ -73,7 +74,7 @@
     .tag_container {
       display: flex;
       flex-wrap: wrap;
-      position: relative;
+      position:relative;
 
       .tag {
         width: fit-content;
@@ -90,22 +91,23 @@
         }
       }
 
-    }
+      }
 
-    .tagPopUp {
-      width: 500%;
-      position: absolute;
-      left: 115%;
-    }
+      .tagPopUp{
+        width: 500%;
+        position: absolute;
+        left:115%;
+      }
 
-    .show_more_tags {
+    .show_more_tags{
       cursor: pointer;
 
-      &:hover {
+      &:hover{
         text-decoration: underline;
       }
 
     }
 
+  }
 
-  }}
+}

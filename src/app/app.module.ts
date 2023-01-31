@@ -25,6 +25,7 @@ import { ShareComponent } from './share/share.component';
 import { ArticleCardComponent } from './article-card/article-card.component';
 import { ArticleListComponent } from './article-list/article-list.component';
 import {SavedComponent} from "./saved/saved.component";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -51,12 +52,13 @@ import {SavedComponent} from "./saved/saved.component";
     ArticleListComponent,
     SavedComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FontAwesomeModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FontAwesomeModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

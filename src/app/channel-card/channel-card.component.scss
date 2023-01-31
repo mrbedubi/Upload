@@ -94,10 +94,14 @@
           text-overflow: ellipsis;
           white-space: nowrap;
         }
+        .tags_container {
+          display: flex;
 
-        .tag {
-          color: #1E75FF;
-          margin: 0;
+          .tag {
+            color: #1E75FF;
+            padding-right: 0.5rem;
+            margin: 0;
+          }
         }
 
         .nr_videos {

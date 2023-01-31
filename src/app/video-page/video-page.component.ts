@@ -1,5 +1,5 @@
 import {Component, SecurityContext} from '@angular/core';
-import {Tag, Video} from "../interface";
+import {Rating, Tag, Video} from "../interface";
 import {UploadService} from "../upload.service";
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from "@angular/router";
@@ -7,6 +7,7 @@ import {faFlag} from "@fortawesome/free-solid-svg-icons";
 import {faBookmark as saved} from "@fortawesome/free-solid-svg-icons";
 import {faBookmark as notSaved} from "@fortawesome/free-regular-svg-icons";
 import {faShareAlt} from "@fortawesome/free-solid-svg-icons";
+import {logMessages} from "@angular-devkit/build-angular/src/builders/browser-esbuild/esbuild";
 
 
 @Component({
@@ -24,12 +25,22 @@ export class VideoPageComponent {
   savedIcon = saved
   notSavedIcon = notSaved
   faShareAlt = faShareAlt
+  likes!: Rating
+  dislikes!: Rating
 
   constructor(public service:UploadService, public sanitizer: DomSanitizer, private route: ActivatedRoute, private router: Router){
 
   }
   ngOnInit():void {
     this.ids = this.route.snapshot.paramMap.get('id')
+
+    this.service.getLikesByVideoId(this.ids).subscribe((likes) => {
+      Object.values(likes)[0] != undefined ? this.likes = Object.values(likes)[0] : this.likes = {count: 0}
+    })
+
+    this.service.getDislikesByVideoId(this.ids).subscribe((dislikes) => {
+     Object.values(dislikes)[0] != undefined ? this.dislikes = Object.values(dislikes)[0] : this.dislikes = {count: 0}
+    })
 
     this.service.getVideosById(this.ids).subscribe((videos) => {
       this.video=videos[0]
