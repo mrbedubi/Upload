@@ -1,20 +1,24 @@
-<div id="articles">
-  <app-article-card class="article" *ngFor="let theme of themes" [routerLink]="['/article/', theme.id]"
-                    [id]="theme.id"
-                    [title]="theme.title"
-                    [channel_name]="theme.channel_name"
-                    [teaser]="theme.teaser"
-                    [thumbnail]="theme.thumbnail"
-                    [tag_id]="theme.tag_id"
-  >
-  </app-article-card>
-  <app-article-card class="article" *ngFor="let theme of themes" [routerLink]="['/article/', theme.id]"
-                    [id]="theme.id"
-                    [title]="theme.title"
-                    [channel_name]="theme.channel_name"
-                    [teaser]="theme.teaser"
-                    [thumbnail]="theme.thumbnail"
-                    [tag_id]="theme.tag_id"
-  >
-  </app-article-card>
-</div>
+<div id="saved_wrapper">
+    <h1>Temáticas</h1>
+    <div id="articles">
+
+      <app-article-card class="article" *ngFor="let theme of themes" [routerLink]="['/article/', theme.id]"
+                        [id]="theme.id"
+                        [title]="theme.title"
+                        [channel_name]="theme.channel_name"
+                        [teaser]="theme.teaser"
+                        [thumbnail]="theme.thumbnail"
+                        [tag_id]="theme.tag_id"
+      >
+      </app-article-card>
+      <app-article-card class="article" *ngFor="let theme of themes" [routerLink]="['/article/', theme.id]"
+                        [id]="theme.id"
+                        [title]="theme.title"
+                        [channel_name]="theme.channel_name"
+                        [teaser]="theme.teaser"
+                        [thumbnail]="theme.thumbnail"
+                        [tag_id]="theme.tag_id"
+      >
+      </app-article-card>
+    </div>
+  </div>

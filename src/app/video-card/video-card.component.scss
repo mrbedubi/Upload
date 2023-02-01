@@ -24,6 +24,7 @@
       font-size: 3rem;
     }
 
+
     fa-icon {
       font-size: 2.7rem;
       padding-left: 0.5rem;
@@ -149,16 +150,16 @@
 
       }
 
-    .fav_button {
-      padding-right: 1rem;
-      font-size: 1.5rem;
+      .fav_button {
+        padding-right: 1rem;
+        font-size: 1.5rem;
 
-       .icon {
-        padding-bottom: 0.7rem;
-         color: #fff;
-       }
+        .icon {
+          padding-bottom: 0.7rem;
+          color: #fff;
+        }
+      }
     }
-  }
   }
 
   &.videopage {
@@ -261,6 +262,7 @@
 
       }
     }
+
   }
 
 
@@ -272,4 +274,16 @@
 
 .invisible {
   display: none;
+}
+
+.overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  background: rgba(98, 95, 95, 0.6);
+  z-index:5;
+  width:100%;
+  height:100%;
+  display:block;
+  opacity: 90%;
 }

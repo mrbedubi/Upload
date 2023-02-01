@@ -154,8 +154,7 @@ reportVideo(){
   constructor(public http: HttpClient) {
 
   }
-
-
+  
 
 
   getIP() {

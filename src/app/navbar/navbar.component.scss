@@ -109,5 +109,29 @@
     }
 
   }
+.language{
+  display: flex;
+  color: #92929D;
+  width: fit-content;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 4rem;
+  margin-top: 2rem;
+  padding-left: 5%;
+  padding-right: 5%;
 
+}
+
+  .pt{
+    &:hover {
+      color: #FFFFFF;
+    }
+  }
+  .en{
+    padding-left: 0.2rem;
+
+    &:hover {
+      color: #FFFFFF;
+    }
+  }
 }

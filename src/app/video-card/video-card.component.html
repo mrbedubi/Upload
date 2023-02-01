@@ -39,5 +39,8 @@
 </div>
 
 <div class="popup" *ngIf="this.showShare">
+
+  <div class="overlay">
+  </div>
   <app-share [video_url]="'/video/'+id"></app-share>
 </div>

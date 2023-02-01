@@ -2,6 +2,9 @@
   <h1>Guardados</h1>
   <div class="main_content_wrapper">
 
+    <ng-container *ngIf="listaSaved.length === 0;">
+      <p>Ainda não há videos guardados! :(</p>
+    </ng-container>
     <div class="content_wrapper" *ngFor="let video of listaSaved">
 
       <app-video-card

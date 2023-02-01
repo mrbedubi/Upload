@@ -1,11 +1,19 @@
-#articles {
-  margin-left: 13.5%;
-  display: flex;
-  flex-wrap: wrap;
+#saved_wrapper {
+  margin-left: 15%;
 
-  .article {
-    width: 33%;
-    padding: 1rem;
-    box-sizing: border-box;
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  #articles {
+
+    display: flex;
+    flex-wrap: wrap;
+
+    .article {
+      width: 33%;
+      padding: 1rem;
+      box-sizing: border-box;
+    }
   }
 }
