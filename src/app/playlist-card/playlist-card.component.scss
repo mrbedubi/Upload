@@ -5,8 +5,6 @@
   position: relative;
   cursor: pointer;
 
-
-
   .imagem {
     width: 100%;
     aspect-ratio: 1/0.20;
@@ -14,85 +12,87 @@
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    border-radius: 20px 20px 0 0;
 
     img {
       width: 100%;
-
     }
   }
 
 
     .info_container{
       display: flex;
-      padding: 1rem;
+      padding: 1rem 0 1rem 1rem;
       width: 100%;
       box-sizing: border-box;
+
       .info {
         width: 73%;
+        padding-left: 1rem;
 
-      }
+        .nome {
+          color: white;
+          font-size: 1.3rem;
+          margin: 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          max-width: 70%;
+        }
 
-      .nome {
-        color: white;
-        font-size: 1.3rem;
-        margin: 0;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        max-width: 70%;
-      }
+        .categoria {
+          color: #1E75FF;
+          margin: 0;
+          cursor: pointer;
 
-      .categoria {
-        color: #1E75FF;
-        margin: 0;
-        cursor: pointer;
-      &:hover{
-        text-decoration: underline;
+          &:hover{
+            text-decoration: underline;
 
-      }
+          }
 
 
-      }
-      .data {
-        color: #92929D;
-        font-weight: 200;
-        margin: 0;
+        }
+        .data {
+          color: #92929D;
+          font-weight: 200;
+          margin: 0;
 
+        }
       }
     }
 
   .play_all{
     display: block;
+
+    .batata {
+
+      p {
+        margin: 0;
+      }
+    }
+
+    .play_videos{
+      display: flex;
+      align-items: center;
+      justify-self: end;
+      justify-content: space-between;
+      font-size: 1.8rem;
+
+      .icon{
+        &:hover {
+          color: #ffff;
+          transition: 0.3s ease-in;
+          transform: scale(1.2);
+          margin: 0;
+        }
+      }
+      .nr_videos{
+        margin: 0;
+      }
+    }
   }
-
-
-
-.play_videos{
-  display: flex;
-  align-items: center;
-  justify-self: end;
-  justify-content: space-between;
-  font-size: 1.8rem;
-
-
-.icon{
-
-  &:hover {
-
-    color: #ffff;
-    transition: 0.3s ease-in;
-    transform: scale(1.5);
-  }
-
 }
-.nr_videos{
-  padding-right: 10px;
-  margin: 0;
-}
-}
-
-  }
 
 
 

@@ -5,9 +5,8 @@ import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from "@angular/router";
 import {faFlag} from "@fortawesome/free-solid-svg-icons";
 import {faBookmark as saved} from "@fortawesome/free-solid-svg-icons";
-import {faBookmark as notSaved} from "@fortawesome/free-regular-svg-icons";
-import {faShareAlt} from "@fortawesome/free-solid-svg-icons";
-import {logMessages} from "@angular-devkit/build-angular/src/builders/browser-esbuild/esbuild";
+import {faBookmark as notSaved, faThumbsUp as notLiked, faThumbsDown as notDisliked} from "@fortawesome/free-regular-svg-icons";
+import {faShareAlt, faThumbsUp as liked, faThumbsDown as disliked} from "@fortawesome/free-solid-svg-icons";
 
 
 @Component({
@@ -21,12 +20,19 @@ export class VideoPageComponent {
   videosByTag: Video[] = []
   tags:Tag[]=[]
   ids!: any
+  likes!: Rating
+  dislikes!: Rating
+
+  //FA icons
   faFlag = faFlag
   savedIcon = saved
   notSavedIcon = notSaved
   faShareAlt = faShareAlt
-  likes!: Rating
-  dislikes!: Rating
+  liked = liked
+  notLiked = notLiked
+  disliked = disliked
+  notDisliked = notDisliked
+
 
   constructor(public service:UploadService, public sanitizer: DomSanitizer, private route: ActivatedRoute, private router: Router){
 
