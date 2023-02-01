@@ -133,7 +133,7 @@ postComments(body:{}){
 }
 
 giveLike(body:{}){
-  return this.http.post("https://dev-project-upskill2-grupo2.pantheonsite.io/comment",
+  return this.http.post("https://dev-project-upskill2-grupo2.pantheonsite.io/entity/flagging",
     body,
     {'headers':this.headers})
 }
