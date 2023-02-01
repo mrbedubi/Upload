@@ -27,6 +27,7 @@ import { ArticleListComponent } from './article-list/article-list.component';
 import {SavedComponent} from "./saved/saved.component";
 import {ReactiveFormsModule} from "@angular/forms";
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +51,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     ShareComponent,
     ArticleCardComponent,
     ArticleListComponent,
-    SavedComponent
+    SavedComponent,
+
   ],
     imports: [
         BrowserModule,

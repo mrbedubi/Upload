@@ -24,7 +24,7 @@ export class PlaylistCardComponent implements OnInit {
   constructor(public service:UploadService) { }
 
   ngOnInit(): void {
-    console.log(this.category)
+    console.log(this.BASE_URL+this.image)
   }
 
 }

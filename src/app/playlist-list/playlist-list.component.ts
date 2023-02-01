@@ -17,7 +17,7 @@ export class PlaylistListComponent implements OnInit {
 
     this.service.getPlaylist().subscribe((playlist) => {
       this.playlists = playlist
-      console.log(playlist[0].title)
+      console.log(playlist[0].image)
     })
 
   }
