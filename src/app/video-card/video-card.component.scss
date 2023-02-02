@@ -6,40 +6,8 @@
   cursor: pointer;
   transition: 0.3s ease-in;
 
-  .play_video {
-    width: 100%;
-    aspect-ratio: 1/0.47;
-    visibility: hidden;
-    background: #92929D;
-    opacity: 0.8;
-    position: absolute;
-    top: 0;
-    z-index: 2;
-    border-radius: 20px 20px 0 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    p {
-      font-size: 3rem;
-    }
-
-
-    fa-icon {
-      font-size: 2.7rem;
-      padding-left: 0.5rem;
-    }
-  }
-
-  &:hover {
-    transition: 0.3s;
-
-    .play_video {
-      visibility: visible;
-    }
-  }
-
   &.homepage {
+
     .imagem {
       width: 100%;
       aspect-ratio: 1/0.47;
@@ -70,36 +38,8 @@
           margin: 0;
         }
       }
-
     }
 
-    .canal {
-      color: #1E75FF;
-      font-weight: 200;
-      margin: 0;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    .titulo {
-      color: white;
-      font-size: 1.3rem;
-      margin: 0;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      max-height: 2rem;
-      max-width: 70%;
-    }
-
-    .data {
-      color: #92929D;
-      font-weight: 200;
-      margin: 0;
-
-    }
 
     .avatar {
       width: 70px;
@@ -119,6 +59,26 @@
       padding-left: 20px;
       padding-top: 20px;
 
+      .canal {
+        color: #1E75FF;
+        font-weight: 200;
+        margin: 0;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .titulo {
+        color: white;
+        font-size: 1.3rem;
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-height: 2rem;
+        max-width: 70%;
+      }
     }
 
     .info_bottom {
@@ -128,6 +88,13 @@
       padding-left: 1.5rem;
       padding-bottom: 1.5rem;
       position: relative;
+
+      .data {
+        color: #92929D;
+        font-weight: 200;
+        margin: 0;
+
+      }
 
     }
 
@@ -166,19 +133,12 @@
 
   }
 
-  &.playlistpage {
-    display: flex;
-    padding: 0.5rem;
-    border-radius: 20px;
-
-    &:hover {
-      background-color: #13131A;
-    }
+  &.channelpage {
 
     .imagem {
-      width: 50%;
-      aspect-ratio: 1/0.5;
-      border-radius: 20px;
+      width: 100%;
+      aspect-ratio: 1/0.47;
+      border-radius: 20px 20px 0 0;
       overflow: hidden;
       position: relative;
       display: flex;
@@ -187,35 +147,44 @@
 
       img {
         width: 100%;
+
       }
 
-    }
+      .time {
+        position: absolute;
+        background-color: #171725;
+        border-radius: 5px;
+        color: white;
+        padding: 2px 10px;
+        bottom: 14px;
+        left: 20px;
+        font-size: 0.85rem;
+        z-index: 3;
 
-    .time {
-      position: absolute;
-      background-color: #171725;
-      border-radius: 5px;
-      color: white;
-      padding: 0.15rem 0.5rem;
-      bottom: 1rem;
-      left: 1rem;
-      font-size: 0.85rem;
-
-      p {
-        margin: 0;
+        p {
+          margin: 0;
+        }
       }
+
     }
 
     .info {
-      width: 50%;
-      padding: 0 0 0 1rem;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column-reverse;
-      justify-content: center;
+      padding-left: 20px;
+      padding-top: 20px;
+
+      .tags {
+        display: flex;
+
+        .tag {
+          color: #1E75FF;
+          font-weight: 200;
+          margin: 0;
+          padding-right: 0.4rem;
+        }
+      }
 
       .canal {
-        color: #92929D;
+        color: #1E75FF;
         font-weight: 200;
         margin: 0;
 
@@ -225,65 +194,154 @@
       }
 
       .titulo {
+        color: white;
+        font-size: 1.3rem;
         margin: 0;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
         max-height: 2rem;
+        max-width: 70%;
+      }
+    }
+
+    .info_bottom {
+      display: flex;
+      justify-content: space-between;
+      padding-right: 3rem;
+      padding-left: 1.5rem;
+      padding-bottom: 1.5rem;
+      position: relative;
+
+      .data {
+        color: #92929D;
+        font-weight: 200;
+        margin: 0;
+
       }
     }
   }
-}
 
-.channelpage {
-
-  .avatar {
-    display: none;
-  }
-
-  .canal {
-    display: none;
-  }
-
-  .tags {
-    display: flex;
-    width: 100%;
-    column-gap: 0.5rem;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 0;
-
-    .tag {
-      font-weight: 400;
-      color: #1E75FF;
+    &.playlistpage {
+      display: flex;
+      padding: 0.5rem;
+      border-radius: 20px;
 
       &:hover {
-        text-decoration: underline;
+        background-color: #13131A;
+      }
 
+      .imagem {
+        width: 50%;
+        aspect-ratio: 1/0.5;
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 100%;
+        }
+
+      }
+
+      .time {
+        position: absolute;
+        background-color: #171725;
+        border-radius: 5px;
+        color: white;
+        padding: 0.15rem 0.5rem;
+        bottom: 1rem;
+        left: 1rem;
+        font-size: 0.85rem;
+
+        p {
+          margin: 0;
+        }
+      }
+
+      .info {
+        width: 50%;
+        padding: 0 0 0 1rem;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+
+        .canal {
+          color: #92929D;
+          font-weight: 200;
+          margin: 0;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        .titulo {
+          margin: 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          max-height: 2rem;
+        }
       }
     }
 
+
+  .play_video {
+    width: 100%;
+    aspect-ratio: 1/0.47;
+    visibility: hidden;
+    background: #92929D;
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      font-size: 3rem;
+    }
+
+
+    fa-icon {
+      font-size: 2.7rem;
+      padding-left: 0.5rem;
+    }
   }
 
+  &:hover {
+    transition: 0.3s;
 
+    .play_video {
+      visibility: visible;
+    }
+  }
 }
 
-.visible {
-  display: block;
-}
 
-.invisible {
-  display: none;
-}
+  .visible {
+    display: block;
+  }
 
-.overlay{
-  position:fixed;
-  top:0;
-  left:0;
-  background: rgba(98, 95, 95, 0.6);
-  z-index:5;
-  width:100%;
-  height:100%;
-  display:block;
-  opacity: 90%;
-}
+  .invisible {
+    display: none;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(98, 95, 95, 0.6);
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+

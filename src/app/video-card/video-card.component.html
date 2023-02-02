@@ -13,34 +13,31 @@
     <p class="canal" *ngIf="card=='homepage'|| card=='videopage' || card == 'playlistpage'"
        [routerLink]="['/channel/',channelId]">{{channel_name}}</p>
     <div class="tags" *ngIf="card=='channelpage'">
-      <a class="tag" href="" *ngFor=" let tag of tags" [routerLink]="['/search/tag/',tag.id]">#{{tag.name}}</a>
+      <p class="tag" *ngFor=" let tag of tags" [routerLink]="['/search/tag/',tag.id]">#{{tag.name}}</p>
     </div>
-
     <p class="titulo">{{title}}</p>
   </div>
-  <div class="info_bottom" (click)="$event.stopPropagation() "*ngIf="card == 'homepage'">
+  <div class="info_bottom" (click)="$event.stopPropagation() "*ngIf="card == 'homepage' || 'channelpage'">
     <p class="data">{{published_date}}</p>
     <div class="buttons">
-      <div class="fav_button"  (click) ="list.toggleFavorite(id)">
+      <div class="fav_button" (click) ="list.toggleFavorite(id)" *ngIf="card == 'homepage'">
         <fa-icon *ngIf="this.list.isSaved(id)" [icon] = "savedIcon" class="icon"></fa-icon>
         <fa-icon *ngIf="!this.list.isSaved(id)" [icon] = "notSavedIcon" class="icon"></fa-icon>
       </div>
-      <div class="share_button" (click)="this.togglePopUp()" >
+      <div class="share_button" (click)="this.togglePopUp()" *ngIf="card == 'homepage'">
         <fa-icon [icon] = "faShareAlt" class="icon"></fa-icon>
       </div>
     </div>
   </div>
 
 
-  <div class="play_video">
+  <div class="play_video" *ngIf="card == 'homepage' || 'channelpage'">
     <p>Play</p>
     <fa-icon [icon]= "faPlay"></fa-icon>
   </div>
 </div>
 
 <div class="popup" *ngIf="this.showShare">
-
-  <div class="overlay">
-  </div>
+  <div class="overlay"></div>
   <app-share [video_url]="'/video/'+id"></app-share>
 </div>

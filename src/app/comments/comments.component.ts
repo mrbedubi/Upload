@@ -63,30 +63,20 @@ export class CommentsComponent implements OnInit {
   }
 
 
-
   toggleReport() {
     this.showReport = !this.showReport
-
   }
-
-  toggleReportSent(){
-    this.reportSent = !this.reportSent
-    console.log('teste1')
-  }
-
-
 
   sendReport() {
     this.showReport = false
     this.reportSent = true
-    setTimeout(this.batata, 3000)
+    let start = 1000;
 
+    setTimeout( () => {
+      this.reportSent = !this.reportSent
+      console.log('a')
+    }, start);
 
 
   }
-  batata(){
-    this.toggleReportSent()
-    console.log('teste')
-  }
-
 }
