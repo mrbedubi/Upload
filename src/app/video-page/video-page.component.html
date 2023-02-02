@@ -41,14 +41,14 @@
         <div class="publishing_date">{{video.published_date}}</div>
       </div>
       <div class="rating_container">
-        <div class="likes_container">
-          <fa-icon [icon]="notLiked" class="like"></fa-icon>
-          <fa-icon [icon]="liked" class="like"></fa-icon>
+        <div class="likes_container" (click)="postLike(video.id)" [ngClass]="likeType">
+          <fa-icon *ngIf="likeType == 'notLiked'" [icon]="notLiked" class="like"></fa-icon>
+          <fa-icon *ngIf="likeType == 'liked'" [icon]="liked" class="like"></fa-icon>
           {{likes.count}}
         </div>
-        <div class="dislikes_container">
-          <fa-icon [icon]="notDisliked" class="dislike"></fa-icon>
-          <fa-icon [icon]="disliked" class="dislike"></fa-icon>
+        <div class="dislikes_container" (click)="postDislike(video.id)" [ngClass]="dislikeType">
+          <fa-icon *ngIf="dislikeType == 'notDisliked'" [icon]="notDisliked" class="dislike"></fa-icon>
+          <fa-icon *ngIf="dislikeType == 'disliked'" [icon]="disliked" class="dislike"></fa-icon>
           {{dislikes.count}}
         </div>
       </div>

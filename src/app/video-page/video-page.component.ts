@@ -1,4 +1,4 @@
-import {Component, SecurityContext} from '@angular/core';
+import {Component, Input, SecurityContext} from '@angular/core';
 import {Rating, Tag, Video} from "../interface";
 import {UploadService} from "../upload.service";
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
@@ -22,6 +22,7 @@ export class VideoPageComponent {
   ids!: any
   likes!: Rating
   dislikes!: Rating
+
 
   //FA icons
   faFlag = faFlag
@@ -69,5 +70,32 @@ export class VideoPageComponent {
     const videoId = urlParts[urlParts.length - 1];
     return "https://www.youtube.com/embed/"+videoId+"?&autoplay=1"
   }
+
+  public postLike(id: number) {
+    let body = {
+      "entity_id": [id],
+      "entity_type": ["media"],
+      "flag_id": "likes",
+      "uid":["0"]
+    }
+    this.service.giveRating(body)
+    this.likes.count++
+    this.likeType = 'notLiked' ? this.likeType = 'liked' : this.likeType = 'notLiked'
+  }
+
+  public postDislike(id: number) {
+    let body = {
+      "entity_id": [id],
+      "entity_type": ["media"],
+      "flag_id": "dislikes",
+      "uid":["0"]
+    }
+    this.service.giveRating(body)
+    this.dislikes.count++
+    this.dislikeType = 'notDisliked' ? this.dislikeType = 'disliked' : this.dislikeType = 'notDisliked'
+  }
+
+  @Input() likeType: 'liked' | 'notLiked' = 'notLiked'
+  @Input() dislikeType: 'disliked' | 'notDisliked' = 'notDisliked'
 }
 

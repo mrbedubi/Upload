@@ -29,14 +29,15 @@
       .article_tags_container {
         display: flex;
         color: #1E75FF;
-        &:hover{
-          text-decoration: underline;
 
-        }
 
         p {
           margin: 0;
           padding-right: 0.5rem;
+
+          &:hover{
+          text-decoration: underline;
+          }
         }
       }
     }

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Channel, NrVideosChannel, Playlist, Rating, Tag, Theme, Video} from "./interface"
 
 
@@ -129,13 +129,18 @@ headers = {'Accept': 'application/vnd.api+json', 'X-CSRF-Token': String(this.tok
 postComments(body:{}){
     return this.http.post("https://dev-project-upskill2-grupo2.pantheonsite.io/comment",
       body,
-      {'headers':this.headers})
+      {'headers':this.headers}).subscribe()
 }
 
-giveLike(body:{}){
+giveRating(body:{
+  "entity_id": number[],
+  "entity_type": string[],
+  "flag_id": string,
+  "uid": string[]
+  }){
   return this.http.post("https://dev-project-upskill2-grupo2.pantheonsite.io/entity/flagging",
     body,
-    {'headers':this.headers})
+    {headers: this.headers}).subscribe()
 }
 
 reportVideo(){
@@ -154,7 +159,7 @@ reportVideo(){
   constructor(public http: HttpClient) {
 
   }
-  
+
 
 
   getIP() {
