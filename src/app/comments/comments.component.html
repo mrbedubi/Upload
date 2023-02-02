@@ -57,15 +57,15 @@
 
     <div class="report_container">
       <div>
-        <fa-icon [icon]="faEllipsisV" class="icon" (click)="toggleReport()"></fa-icon>
+        <fa-icon [icon]="faFlag" class="icon" (click)="toggleReport()"></fa-icon>
       </div>
 
-      <div class="report1" *ngIf="showReport1" (click)="toggleReport2()">
+      <!--<div class="report1" *ngIf="showReport1" (click)="toggleReport2()">
         <fa-icon [icon]="faFlag" class="icon"></fa-icon>
         <span>Report</span>
-      </div>
+      </div>-->
 
-        <div class="options" *ngIf="showReport2">
+        <div class="options" *ngIf="showReport">
           <span>Choose your option</span><br>
           <input type="radio" id="hateSpeech" value="HateSpeech">
           <label for="hateSpeech">Hate Speech</label><br>

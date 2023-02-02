@@ -16,8 +16,7 @@ export class CommentsComponent implements OnInit {
 
   submitted = false;
   postComment!: FormGroup;
-  showReport1 = false
-  showReport2 = false
+  showReport = false
   reportSent = false
 
 
@@ -64,20 +63,30 @@ export class CommentsComponent implements OnInit {
   }
 
 
+
   toggleReport() {
-this.showReport1 = !this.showReport1
-
-}
-  toggleReport2() {
-    this.showReport2 = !this.showReport2
+    this.showReport = !this.showReport
 
   }
 
-  sendReport(){
-    this.showReport1 = false
-    this.showReport2 = false
+  toggleReportSent(){
+    this.reportSent = !this.reportSent
+    console.log('teste1')
+  }
+
+
+
+  sendReport() {
+    this.showReport = false
     this.reportSent = true
-  }
+    setTimeout(this.batata, 3000)
 
+
+
+  }
+  batata(){
+    this.toggleReportSent()
+    console.log('teste')
+  }
 
 }
