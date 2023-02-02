@@ -12,7 +12,7 @@
 
     <div  class="arrow"  id="lef_arrow"><</div>
     <div class="tag_container">
-      <div  *ngFor="let tag of tags" class="tag" (click)="select(tag.id)" [ngClass]=" isSelected(tag.id)  ? 'select': '' " >{{tag.name}}</div>
+      <div *ngFor="let tag of tags" class="tag" (click)="select(tag.id)" [ngClass]=" isSelected(tag.id)  ? 'select': '' ">{{tag.name}}</div>
     </div>
     <div class="arrow"  id="right_arrow">></div>
   </div>

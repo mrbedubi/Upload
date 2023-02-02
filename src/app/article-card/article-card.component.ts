@@ -19,6 +19,8 @@ export class ArticleCardComponent implements OnInit {
     })
   }
 
+
+
   @Input() id?: number
   @Input() title!: string
   @Input() teaser!: string

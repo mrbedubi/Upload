@@ -155,7 +155,8 @@
         .likes_container {
           width: 50%;
           display: flex;
-          align-items: end;
+          align-items: center;
+          cursor: pointer;
 
           .like {
             font-size: 1.8rem;
@@ -168,8 +169,10 @@
           width: 50%;
           display: flex;
           justify-content: flex-end;
-          align-items: end;
+          align-items: center;
           border-left: 3px solid #fff;
+          cursor: pointer;
+
 
           .dislike {
             font-size: 1.8rem;
