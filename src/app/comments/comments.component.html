@@ -53,29 +53,34 @@
         </div>
         <div class="comment_body">ddfsfsf</div>
       </div>
+    </div>
+
+    <div class="report_container">
       <div>
         <fa-icon [icon]="faEllipsisV" class="icon" (click)="toggleReport()"></fa-icon>
-        <div class="report1" *ngIf="showReport1" (click)="toggleReport2()">
-          <fa-icon [icon]="faFlag" class="icon"></fa-icon>
+      </div>
 
-          <span>Report</span>
+      <div class="report1" *ngIf="showReport1" (click)="toggleReport2()">
+        <fa-icon [icon]="faFlag" class="icon"></fa-icon>
+        <span>Report</span>
+      </div>
 
-          <div class="options" *ngIf="showReport2">
-            <input type="radio" id="hateSpeech" value="HateSpeech">
-            <label for="hateSpeech">Hate Speech</label><br>
-            <input type="radio" id="sexual" value="sexual">
-            <label for="sexual">Sexual explicit material</label><br>
-            <input type="radio" id="spam" value="spam">
-            <label for="spam">Spam</label><br>
-            <input type="radio" id="other" value="other">
-            <label for="other">Other</label><br>
-            <input type="button" value="Send" (click)="sendReport()">
+        <div class="options" *ngIf="showReport2">
+          <span>Choose your option</span><br>
+          <input type="radio" id="hateSpeech" value="HateSpeech">
+          <label for="hateSpeech">Hate Speech</label><br>
+          <input type="radio" id="sexual" value="sexual">
+          <label for="sexual">Sexual explicit material</label><br>
+          <input type="radio" id="spam" value="spam">
+          <label for="spam">Spam</label><br>
+          <input type="radio" id="other" value="other">
+          <label for="other">Other</label><br>
+          <input type="button" value="Send" (click)="sendReport()">
 
-          </div>
-          <span *ngIf="reportSent">Thank you for your report!</span>
         </div>
 
-      </div>
+        <span *ngIf="reportSent">Thank you for your report!</span>
+
 
     </div>
   </div>
