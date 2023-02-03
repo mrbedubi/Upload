@@ -1,25 +1,55 @@
+#playlist_cover{
+  margin-left: calc(13.5% + 1rem);
+  margin-right: 1rem;
+  padding-top: 1rem;
+  border-radius: 30px 30px 0 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  .title_cover{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 10rem;
+    background: linear-gradient(180deg, rgba(19, 19, 26, 0) 0%, #13131A 99.98%, #000000 99.99%);
+    width: 100%;
+    padding-left: 1.5rem;
+    padding-bottom: 1rem;
+    h4{
+      font-weight: 100;
+      width: fit-content;
+      margin: 0;
+      padding: 0.5rem 1rem 0.5rem 1rem;
+      background-color: #34343d;
+      border-radius: 8px;
+      display: inline-block;
+  }
+    h2{
+      margin: 0;
+      font-weight: 600;
+    }
+  }
+}
+
+
 #home_wrapper {
   height: 100vh;
   color: #fff;
   display: flex;
   padding-left: 13.5%;
+  padding-right: 1rem;
 
   .playlist_wrapper {
     width: 65%;
     height: 100%;
 
-    p {
-      padding-left: 2.5rem;
-      font-size: 1.7rem;
-      font-weight: 600;
-      margin: 0;
-    }
 
     #video_container {
       width: 95%;
       height: 65%;
-      padding: 3% 0 0 3%;
-      margin-top: 2.5rem;
+      padding: 0 0 0 3%;
+      margin-top:1rem;
 
       iframe {
         border-radius: 25px;
@@ -63,6 +93,20 @@
       }
 
     }
+
+    #video_description_wrapper {
+      margin-left: 3%;
+      margin-right: 3%;
+      padding: 0.5% 2%;
+      background-color: #1C1C24;
+      border-radius: 15px;
+      font-weight: 200;
+    }
+
+    #comments{
+      margin-right: 3%;
+    }
+
   }
 
   .right_menu {
@@ -76,8 +120,11 @@
       position: relative;
       overflow: hidden;
       cursor: pointer;
-      margin-top: 62px;
+      margin-top: 1rem;
       padding: 20px;
+      max-height: 80%;
+      overflow-y: auto;
+      padding-right: 1rem;
 
       .nome_playlist {
         color: white;

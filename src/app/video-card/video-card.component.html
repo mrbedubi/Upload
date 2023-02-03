@@ -1,15 +1,19 @@
 <!-- tem que ter uma função que faz os routing em vez do routerlink para controlar o comportamento do click qd estamos na playlist page-->
 
-<div class="video_card_container" [ngClass]="card" [routerLink]="['/video/', id]"(click)="navigate()">
-  <div class="imagem">
+<div class="video_card_container" [ngClass]="card" [routerLink]="card=='playlistpage'? null : ['/video/', id]">
+  <div class="imagem" [ngClass]="selected ?'selected':'not_selected'">
     <img src="{{thumbnail}}" alt="...">
     <div class="time">
       <p>{{duration}}</p>
     </div>
+    <div class="play_video">
+      <p>Play</p>
+      <fa-icon [icon]= "faPlay"></fa-icon>
+    </div>
   </div>
   <div class="avatar" *ngIf="card=='homepage'|| card=='videopage'" style="background-image: url({{channel_avatar}})"
        [routerLink]="['/channel/',channelId]"></div>
-  <div class="info">
+  <div class="info" [ngClass]="selected? 'selected' :''">
     <p class="canal" *ngIf="card=='homepage'|| card=='videopage' || card == 'playlistpage'"
        [routerLink]="['/channel/',channelId]">{{channel_name}}</p>
     <div class="tags" *ngIf="card=='channelpage'">
@@ -17,7 +21,7 @@
     </div>
     <p class="titulo">{{title}}</p>
   </div>
-  <div class="info_bottom" (click)="$event.stopPropagation() "*ngIf="card == 'homepage' || 'channelpage'">
+  <div class="info_bottom" (click)="$event.stopPropagation() "*ngIf="card == 'homepage' || 'channelpage'"  >
     <p class="data">{{published_date}}</p>
     <div class="buttons">
       <div class="fav_button" (click) ="list.toggleFavorite(id)" *ngIf="card == 'homepage'">
@@ -30,10 +34,13 @@
     </div>
   </div>
 
-  <div class="play_video" *ngIf="card == 'homepage' || 'channelpage'">
+<!--
+  <div class="play_video">
     <p>Play</p>
     <fa-icon [icon]= "faPlay"></fa-icon>
   </div>
+
+  -->
 </div>
 
 <div class="popup" *ngIf="this.showShare">

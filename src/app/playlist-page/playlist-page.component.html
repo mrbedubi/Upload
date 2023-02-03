@@ -1,6 +1,12 @@
+<div id="playlist_cover" style='background-image: url({{service.pathSource + playlist.image}})'>
+  <div class="title_cover" >
+    <h4>Playlist</h4>
+    <h2>{{playlist.title}}</h2>
+  </div>
+</div>
 <div id="home_wrapper">
   <div class="playlist_wrapper">
-    <div id="video_container">
+    <div id="video_container" >
       <iframe width="560" height="315" [src]="this.VideoId(this.video.video_url) | safeUrl" title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -17,7 +23,7 @@
         <div class="publishing_date">{{video.published_date}}</div>
       </div>
       <div class="rating_container">
-        <div class="likes_container">
+        <div class="likes_container" (click)="changeUrl()">
           <i class="like fa-solid fa-thumbs-up"></i>
           100
         </div>
@@ -31,14 +37,17 @@
     <div id="video_description_wrapper">
       <p class="video_description">{{video.description}}</p>
     </div>
+
+    <app-comments [videoId]="video.id" type="video" id="comments"></app-comments>
   </div>
+
 
 
   <div class="right_menu">
     <div class="playlist_card_wrapper">
       <h2 class="nome_playlist">{{playlist.title}}</h2>
       <h4 class="categoria">#{{playlist.category_name}}</h4>
-      <app-video-card *ngFor="let video of videosById"
+      <app-video-card *ngFor="let video of videos_playlist"
                       [id]="video.id"
                       [channelId]="video.channel_id"
                       [channel_name]="video.channel_name"
@@ -48,7 +57,12 @@
                       [published_date]="video.published_date"
                       [duration]="video.duration"
                       [thumbnail]="this.service.getThumbnail(video.thumbnail, video.video_url)"
-                      [channel_avatar]="this.BaseUrl + video.channel_picture">
+                      [channel_avatar]="this.BaseUrl + video.channel_picture"
+                      [playlist]="id_playlist"
+                      [selected]="video.id == id_video"
+                      (click)="selectVideo( id_playlist, video.id)"
+
+      >
                       <!--(click)="changeActiveVideo(video.id)"-->
 
       </app-video-card>
@@ -56,7 +70,10 @@
 
 
     <div class="more_videos">
-      <app-video-card class="suggested_videos" *ngFor="let video of videosByTag"
+      <h3>Videos Semelhantes:</h3>
+
+      <div *ngFor="let video of videosByTag">
+      <app-video-card class="suggested_videos"   *ngIf="id_video!==video.id"
                       [id]="video.id"
                       [channelId]="video.channel_id"
                       [channel_name]="video.channel_name"
@@ -67,6 +84,7 @@
                       [thumbnail]="this.service.getThumbnail(video.thumbnail, video.video_url)"
                       [channel_avatar]="this.BaseUrl + video.channel_picture">
       </app-video-card>
+      </div>
 
     </div>
   </div>

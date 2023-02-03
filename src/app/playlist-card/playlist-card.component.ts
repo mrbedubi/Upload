@@ -9,6 +9,7 @@ import {faPlay} from "@fortawesome/free-solid-svg-icons";
 })
 export class PlaylistCardComponent implements OnInit {
   faPlay = faPlay
+  first_video!:string
 
 
   BASE_URL = "https://dev-project-upskill2-grupo2.pantheonsite.io";
@@ -24,7 +25,13 @@ export class PlaylistCardComponent implements OnInit {
   constructor(public service:UploadService) { }
 
   ngOnInit(): void {
-    console.log(this.BASE_URL+this.image)
+    console.log(this.category);
+    this.firstVideo(this.videosId);
+  }
+
+//get the first video of the playlist to pass as url paramenter
+  firstVideo(srt:string){
+    this.first_video= srt.split(',')[0];
   }
 
 }

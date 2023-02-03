@@ -86,5 +86,18 @@ interface Rating {
   count: number
 }
 
+interface PostMessage{
+  "entity_id":[{"target_id":number}],
+  "entity_type":[{"value":string}],
+  "field_name":[{"value":string}],
+  "comment_type":[{"target_id":string}],
+  "comment_body":[{"value":string ,"format":"plain_text"}],
+  "field_email":[{"value":"diog.azev97@gmail.com"}],
+  "field_user_avatar":[{"value":"jkh"}],
+  "field_username":[{"value":"Ola"}],
+  "langcode": [{"value": "en"} ]
+
+}
+
 export {Video , Tag , Theme , Playlist, Channel , Category, NrVideosChannel, Comments, Rating};
 

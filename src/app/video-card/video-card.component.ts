@@ -34,7 +34,8 @@ export class VideoCardComponent implements OnInit {
   @Input() channel_avatar?: string
   @Input() tag!: string | number
   @Input() card!: "homepage" | "channelpage" | "videopage" | "playlistpage"
-
+  @Input() playlist?: string | number ;
+  @Input() selected:boolean=false;
 
 
   constructor(public list: UploadService, public router: Router) {
@@ -53,6 +54,8 @@ export class VideoCardComponent implements OnInit {
     }
   }
 
+
+/*
   navigate(){
     if (this.card = "playlistpage"){
 //criar a logica
@@ -61,7 +64,7 @@ export class VideoCardComponent implements OnInit {
       this.router.navigate(['/', 'video/'+ this.id])
     }
   }
-
+*/
 
   togglePopUp(){
     if(this.showShare){

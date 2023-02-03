@@ -14,12 +14,13 @@ export class UploadService {
   // Get Videos
   saved: number[]=JSON.parse(localStorage.getItem("saved") || "[]");
   md5= require("crypto-js/md5");
+  pathSource="https://dev-project-upskill2-grupo2.pantheonsite.io";
 
   getVideos() {
     return this.http.get<Video[]>(BASE_URL + "videos");
   }
 
-  getVideosById(ids: number) {
+  getVideosById(ids: number | string) {
     return this.http.get<Video[]>(BASE_URL + "videos/" + ids);
   }
 
@@ -86,7 +87,7 @@ export class UploadService {
   }
 
   getPlaylistById(id: number) {
-    return this.http.get<Playlist>(BASE_URL + "playlist/" + id);
+    return this.http.get<Playlist[]>(BASE_URL + "playlist/" + id);
   }
 
 

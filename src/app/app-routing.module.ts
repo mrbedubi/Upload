@@ -24,7 +24,7 @@ const routes: Routes = [
   {path: 'article/:id', component: ArticlePageComponent},
   {path: 'channels', component: ChannelListComponent},
   {path: 'playlists', component: PlaylistListComponent},
-  {path: 'playlist/:id', component: PlaylistPageComponent},
+  {path: 'playlist/:id_playlist/video/:id_video', component: PlaylistPageComponent},
   {path: 'share', component: ShareComponent},
   {path: 'card', component: VideoCardComponent},
   {path: 'saved', component: SavedComponent}
@@ -37,3 +37,15 @@ const routes: Routes = [
 })
 
 export class AppRoutingModule { }
+
+
+/*
+
+
+{
+    path: 'playlist/:id_playlist',
+    children: [
+      {path: '**', component: PlaylistPageComponent}
+    ]
+  },
+ */

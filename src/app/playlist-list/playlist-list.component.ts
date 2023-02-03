@@ -9,6 +9,7 @@ import {UploadService} from "../upload.service";
 })
 export class PlaylistListComponent implements OnInit {
   playlists!: Playlist[];
+  firstVideo!: number;
 
   constructor(public service: UploadService) {
   }
@@ -17,7 +18,7 @@ export class PlaylistListComponent implements OnInit {
 
     this.service.getPlaylist().subscribe((playlist) => {
       this.playlists = playlist
-      console.log(playlist[0].image)
+
     })
 
   }
