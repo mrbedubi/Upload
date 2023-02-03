@@ -10,7 +10,7 @@
         <small *ngIf="postComment.controls['name'].dirty && postComment.hasError('required','name')">Name is
           required</small>
         <small *ngIf="postComment.controls['name'].dirty && postComment.hasError('maxlength','name')">Chose a shorter
-          name, less that 100 charaters</small>
+          name, less that 100 characters</small>
       </div>
 
       <div class="input_controler">
@@ -21,7 +21,7 @@
         <small *ngIf="postComment.controls['email'].dirty && postComment.hasError('email','email')">Write a valid
           e-mail</small>
         <small *ngIf="postComment.controls['name'].dirty && postComment.hasError('maxlength','name')">the email should
-          have less that 100 charaters</small>
+          have less that 100 characters</small>
       </div>
 
     </div>
@@ -30,7 +30,7 @@
              [ngClass]="{'is_invalid': submitted && ( postComment.hasError('required','message').valueOf() || postComment.hasError('maxlength','message').valueOf())}">
       <small *ngIf="postComment.controls['message'].dirty && postComment.hasError('required','message')">The message
         can't be empty</small>
-      <small *ngIf="postComment.controls['message'].dirty && postComment.hasError('maxlength','message')">the charater
+      <small *ngIf="postComment.controls['message'].dirty && postComment.hasError('maxlength','message')">the character
         limit is 500 you have </small>
     </div>
     <div class="container_button">

@@ -295,8 +295,8 @@
     width: 100%;
     aspect-ratio: 1/0.47;
     visibility: hidden;
-    background: #92929D;
-    opacity: 0.8;
+    background: rgba(146, 146, 157, 0.8);
+
     position: absolute;
     top: 0;
     z-index: 2;
@@ -307,6 +307,7 @@
 
     p {
       font-size: 3rem;
+      color: rgb(255, 255, 255);
     }
 
 

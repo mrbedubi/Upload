@@ -5,6 +5,7 @@ import {Channel, NrVideosChannel, Playlist, Rating, Tag, Theme, Video} from "./i
 
 
 const BASE_URL = "https://dev-project-upskill2-grupo2.pantheonsite.io/api/";
+const BASE_URL_PT = "https://dev-project-upskill2-grupo2.pantheonsite.io/pt-pt/api/";
 
 @Injectable({
   providedIn: 'root'

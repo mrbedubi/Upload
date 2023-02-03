@@ -13,7 +13,7 @@
     <p class="canal" *ngIf="card=='homepage'|| card=='videopage' || card == 'playlistpage'"
        [routerLink]="['/channel/',channelId]">{{channel_name}}</p>
     <div class="tags" *ngIf="card=='channelpage'">
-      <p class="tag" *ngFor=" let tag of tags" [routerLink]="['/search/tag/',tag.id]">#{{tag.name}}</p>
+      <p class="tag" *ngFor=" let tag of tags | slice: 0:3" [routerLink]="['/search/tag/',tag.id]">#{{tag.name}}</p>
     </div>
     <p class="titulo">{{title}}</p>
   </div>
@@ -29,7 +29,6 @@
       </div>
     </div>
   </div>
-
 
   <div class="play_video" *ngIf="card == 'homepage' || 'channelpage'">
     <p>Play</p>
