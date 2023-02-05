@@ -31,7 +31,7 @@ export class ChannelCardComponent implements OnInit {
       this.channels = channel;
       for(let chnl in this.channels) {
         this.service.getVideosByChannel(this.channels[chnl].channel_id).subscribe((videos) => {
-
+          console.log(videos)
           this.videos = videos
 
           this.service.getTagsById(videos[Math.round((videos.length-1)*Math.random())].tags).subscribe((tags) => {

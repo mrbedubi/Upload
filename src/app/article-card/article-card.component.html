@@ -7,7 +7,7 @@
       <h1 class="title">{{title}}</h1>
       <p class="channel">{{channel_name}}</p>
       <div class="article_tags_container">
-        <p class="tags" *ngFor="let tag of tags | slice: 0:2">#{{tag.name}}</p>
+        <p class="tags" *ngFor="let tag of tags">#{{tag.name}}</p>
       </div>
       <div class="article_teaser">
         <p class="teaser">{{teaser}} </p>
