@@ -3,6 +3,7 @@ import {UploadService} from "../upload.service";
 import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import {faEllipsisV} from "@fortawesome/free-solid-svg-icons";
 import {faFlag} from "@fortawesome/free-solid-svg-icons";
+import {Comments} from "../interface";
 
 
 @Component({
@@ -18,8 +19,10 @@ submitted=false;
 postComment!:FormGroup;
   @Input() videoId!:number;
   @Input() type!:'video'|'channel';
-  showReport = false
-  reportSent = false
+  showReport = false;
+  reportSent = false;
+  comments: Comments[]=[];
+  commentsNumber!:number
 constructor(public service: UploadService , private  fb:FormBuilder){
 
 
@@ -34,7 +37,7 @@ ngOnInit():void{
   },
     {  updateOn: 'submit' }
     );
-
+  this.getComments();
 
 }
 
@@ -50,7 +53,7 @@ if(this.postComment.valid){
 let name=this.postComment.get('name')?.value;
 let email=this.postComment.get('email')?.value;
 let message=this.postComment.get('message')?.value;
-
+let newComment:Comments;
   let comment ={
     "entity_id":[{"target_id":this.videoId}],
     "entity_type":[{"value":"media"}],
@@ -60,9 +63,20 @@ let message=this.postComment.get('message')?.value;
     "field_email":[{"value":email}],
     "field_username":[{"value":name}]
   }
+
+
+  this.service.postComments(comment);
+  newComment={
+    "comment": message,
+    "email": email,
+    "username": name,
+    "date": "just now",
+    "video_id": this.videoId
+  }
+  this.comments.unshift(newComment);
 this.submitted=false;
-  console.log(comment);
 this.postComment.reset();
+
   //this.service.postComments(comment);
 }
 else{
@@ -96,7 +110,15 @@ private validateFormFields(form: FormGroup) {
       this.reportSent = !this.reportSent
       console.log('a')
     }, start);
+  }
 
+
+  getComments(){
+  this.service.getComments(this.videoId , "video").subscribe((comments)=>{
+  this.comments=comments
+  })
 
   }
+
+
 }

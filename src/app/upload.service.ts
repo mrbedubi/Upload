@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Channel, NrVideosChannel, Playlist, Rating, Tag, Theme, Video} from "./interface"
+import {Channel, NrVideosChannel, Playlist, Rating, Tag, Theme,Video,  Comments} from "./interface"
 
 
 
@@ -15,6 +15,17 @@ export class UploadService {
   saved: number[]=JSON.parse(localStorage.getItem("saved") || "[]");
   md5= require("crypto-js/md5");
   pathSource="https://dev-project-upskill2-grupo2.pantheonsite.io";
+  token = this.getToken();
+  headers = {'Accept': 'application/vnd.api+json', 'X-CSRF-Token': String(this.token)};
+
+  getToken(){
+    return this.http.get("https://dev-project-upskill2-grupo2.pantheonsite.io/session/token")
+  }
+
+  async getVideoId(alias: string) {
+    const video = await this.http.get<any>(this.pathSource + alias + "?_format=json").toPromise();
+    return video;
+  }
 
   getVideos() {
     return this.http.get<Video[]>(BASE_URL + "videos");
@@ -120,13 +131,6 @@ export class UploadService {
     localStorage.setItem("saved",JSON.stringify(this.saved))
   }
 
-  getToken(){
-    return this.http.get("https://dev-project-upskill2-grupo2.pantheonsite.io/session/token")
-  }
-
-token = this.getToken();
-
-headers = {'Accept': 'application/vnd.api+json', 'X-CSRF-Token': String(this.token)};
 
 postComments(body:{}){
     return this.http.post("https://dev-project-upskill2-grupo2.pantheonsite.io/comment",
@@ -176,6 +180,15 @@ reportVideo(){
     });
   }
 
+  //Comments
+
+  getComments(id:number|string , type: "video" | "channel"){
+  if(type == "video"){
+
+  }else{
+  }
+    return this.http.get<Comments[]>(BASE_URL + "videos/"+id+"/comments")
+  }
 
   getGravatar(email:string){
      return  "https://www.gravatar.com/avatar/"+this.md5(email).toString()+"?d=404";
