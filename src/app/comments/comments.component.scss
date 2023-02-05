@@ -164,13 +164,31 @@
 
 
     }
-  .report_container{
-    display: flex;
-    justify-content: end;
+
+
 
   }
 
-.report1{
+.comment_report{
+  display: flex;
+  align-items: center;
+
+
+}
+
+.icon{
+  cursor: pointer;
+
+}
+
+.report_container{
+
+  justify-content: end;
+  display: flex;
+
+}
+
+.report{
   border: 0.89px solid #FAFAFB;
   border-radius: 4px;
   padding: 1rem 1rem 1rem 1rem;
@@ -179,13 +197,19 @@
 
 }
 
-  .options{
-    border: 0.89px solid #FAFAFB;
-    border-radius: 4px;
-    padding: 1rem 1rem 1rem 1rem;
-    color:#FAFAFB;
-    position: absolute;
-  }
+.options{
+  border: 0.89px solid #FAFAFB;
+  border-radius: 4px;
+  padding: 1rem 1rem 1rem 1rem;
+  color:#FAFAFB;
+  width: 200px;
+  position: absolute;
+  right: 28%;
 
-  }
+}
 
+
+.thanks{
+  position: absolute;
+  right: 28%;
+}

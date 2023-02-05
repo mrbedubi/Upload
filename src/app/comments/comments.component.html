@@ -40,18 +40,21 @@
   </form>
 
 
-  <div class="comment_warper">
-    <div class="comment_header"><h3 class="result">3</h3>
-      <h3>Comentários:</h3></div>
-    <div class="comment_item">
-      <div class="avatar"
-           style="background-image: url('{{this.service.getGravatar('diogo.azv97@gmail.com')}}'), url('{{this.service.getRandomAvatart('diogo.azv97@gmail.com')}}')  "></div>
-      <div class="details">
-        <div class="details_header">
-          <div class="name">Fernando</div>
-          <div class="publish_date">há 20 min</div>
+  <div class="comment_report">
+
+    <div class="comment_warper">
+      <div class="comment_header"><h3 class="result">3</h3>
+        <h3>Comentários:</h3></div>
+      <div class="comment_item">
+        <div class="avatar"
+             style="background-image: url('{{this.service.getGravatar('diogo.azv97@gmail.com')}}'), url('{{this.service.getRandomAvatart('diogo.azv97@gmail.com')}}')  "></div>
+        <div class="details">
+          <div class="details_header">
+            <div class="name">Fernando</div>
+            <div class="publish_date">há 20 min</div>
+          </div>
+          <div class="comment_body">ddfsfsf</div>
         </div>
-        <div class="comment_body">ddfsfsf</div>
       </div>
     </div>
 
@@ -60,30 +63,24 @@
         <fa-icon [icon]="faFlag" class="icon" (click)="toggleReport()"></fa-icon>
       </div>
 
-      <!--<div class="report1" *ngIf="showReport1" (click)="toggleReport2()">
-        <fa-icon [icon]="faFlag" class="icon"></fa-icon>
-        <span>Report</span>
-      </div>-->
+      <div class="options" *ngIf="showReport">
+        <span>Choose your option</span><br>
+        <input type="radio" id="hateSpeech" value="HateSpeech">
+        <label for="hateSpeech">Hate Speech</label><br>
+        <input type="radio" id="sexual" value="sexual">
+        <label for="sexual">Sexual explicit material</label><br>
+        <input type="radio" id="spam" value="spam">
+        <label for="spam">Spam</label><br>
+        <input type="radio" id="other" value="other">
+        <label for="other">Other</label><br>
+        <input type="button" value="send" (click)="sendReport()">
 
-        <div class="options" *ngIf="showReport">
-          <span>Choose your option</span><br>
-          <input type="radio" id="hateSpeech" value="HateSpeech">
-          <label for="hateSpeech">Hate Speech</label><br>
-          <input type="radio" id="sexual" value="sexual">
-          <label for="sexual">Sexual explicit material</label><br>
-          <input type="radio" id="spam" value="spam">
-          <label for="spam">Spam</label><br>
-          <input type="radio" id="other" value="other">
-          <label for="other">Other</label><br>
-          <input type="button" value="Send" (click)="sendReport()">
-
-        </div>
-
-        <span *ngIf="reportSent">Thank you for your report!</span>
-
+      </div>
+      <span class="thanks" *ngIf="reportSent">Thank you for your report!</span>
 
     </div>
   </div>
+
   <!--
     <div *ngFor="let comments of postComment">
     <p>{{comments}}</p>

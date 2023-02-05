@@ -158,6 +158,12 @@ reportVideo(){
     else this.showPopup = true;
   }
 
+
+  showShare: boolean = false
+
+
+
+
   constructor(public http: HttpClient) {
 
   }
