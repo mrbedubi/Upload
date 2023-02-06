@@ -20,7 +20,6 @@ export class VideoCardComponent implements OnInit {
   notSavedIcon = notSaved
   faShareAlt = faShareAlt
   faPlay = faPlay
-  showShare:boolean=false;
 
   @Input() id?: number;
   @Input() channelId?: number;
@@ -66,13 +65,7 @@ export class VideoCardComponent implements OnInit {
   }
 */
 
-  togglePopUp(){
-    if(this.showShare){
-       this.showShare=false;
-    }    else  {
-      this.showShare=true
-    }
-  }
+
 }
 
 

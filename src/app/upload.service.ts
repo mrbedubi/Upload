@@ -1,11 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Channel, NrVideosChannel, Playlist, Rating, Tag, Theme,Video,  Comments} from "./interface"
+import * as url from "url";
 
-
-
-const BASE_URL = "https://dev-project-upskill2-grupo2.pantheonsite.io/api/";
-const BASE_URL_PT = "https://dev-project-upskill2-grupo2.pantheonsite.io/pt-pt/api/";
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +13,8 @@ export class UploadService {
   md5= require("crypto-js/md5");
   pathSource="https://dev-project-upskill2-grupo2.pantheonsite.io";
   token = this.getToken();
+  lang = localStorage.getItem('lang') || 'pt';
+  BASE_URL: any;
   headers = {'Accept': 'application/vnd.api+json', 'X-CSRF-Token': String(this.token)};
 
   getToken(){
@@ -28,57 +27,57 @@ export class UploadService {
   }
 
   getVideos() {
-    return this.http.get<Video[]>(BASE_URL + "videos");
+    return this.http.get<Video[]>(this.BASE_URL + "videos");
   }
 
   getVideosById(ids: number | string) {
-    return this.http.get<Video[]>(BASE_URL + "videos/" + ids);
+    return this.http.get<Video[]>(this.BASE_URL + "videos/" + ids);
   }
 
   getThemes() {
-    return this.http.get<Theme[]>(BASE_URL + "themes")
+    return this.http.get<Theme[]>(this.BASE_URL + "themes")
   }
 
   getThemeById(id: number) {
-    return this.http.get<Theme>(BASE_URL + "themes/" + id)
+    return this.http.get<Theme>(this.BASE_URL + "themes/" + id)
   }
 
   getVideosByChannel(id: number) {
-    return this.http.get<Video[]>(BASE_URL + "channels/" + id + "/videos");
+    return this.http.get<Video[]>(this.BASE_URL + "channels/" + id + "/videos");
   }
 
   getVideosByTag(id: number | string) {
-    return this.http.get<Video[]>(BASE_URL + "tags/" + id + "/videos");
+    return this.http.get<Video[]>(this.BASE_URL + "tags/" + id + "/videos");
   }
 
   // Get Channels
 
   getChannels() {
-    return this.http.get<Channel[]>(BASE_URL + "channels");
+    return this.http.get<Channel[]>(this.BASE_URL + "channels");
   }
 
   getNrVideosChannel() {
-    return this.http.get<NrVideosChannel[]>(BASE_URL + "channels/all/nvideos")
+    return this.http.get<NrVideosChannel[]>(this.BASE_URL + "channels/all/nvideos")
   }
 
   getChannelsById(id: number) {
-    return this.http.get<Channel[]>(BASE_URL + "channels/" + id);
+    return this.http.get<Channel[]>(this.BASE_URL + "channels/" + id);
   }
 
   getLikesByVideoId(id: number) {
-    return this.http.get<Rating>(BASE_URL + 'videos/' + id + '/likes')
+    return this.http.get<Rating>(this.BASE_URL + 'videos/' + id + '/likes')
   }
 
   getDislikesByVideoId(id: number) {
-    return this.http.get<Rating>(BASE_URL + 'videos/' + id + '/dislikes')
+    return this.http.get<Rating>(this.BASE_URL + 'videos/' + id + '/dislikes')
   }
 
   getTags() {
-    return this.http.get<Tag[]>(BASE_URL + "tags");
+    return this.http.get<Tag[]>(this.BASE_URL + "tags");
   }
 
   getTagsById(id: string | number) {
-    return this.http.get<Tag[]>(BASE_URL + "tags/" + id);
+    return this.http.get<Tag[]>(this.BASE_URL + "tags/" + id);
   }
 
   getThumbnail(s: string, url: string) {
@@ -94,11 +93,11 @@ export class UploadService {
 //Get Playlist
 
   getPlaylist() {
-    return this.http.get<Playlist[]>(BASE_URL + "playlist");
+    return this.http.get<Playlist[]>(this.BASE_URL + "playlist");
   }
 
   getPlaylistById(id: number) {
-    return this.http.get<Playlist[]>(BASE_URL + "playlist/" + id);
+    return this.http.get<Playlist[]>(this.BASE_URL + "playlist/" + id);
   }
 
 
@@ -110,7 +109,7 @@ export class UploadService {
 
 
   getSaved() {
-    return this.http.get<Video[]>(BASE_URL + "videos/?ids=" + this.saved.join(","));
+    return this.http.get<Video[]>(this.BASE_URL + "videos/?ids=" + this.saved.join(","));
   }
 
 
@@ -153,20 +152,18 @@ reportVideo(){
 
 }
 
-  showPopup: boolean = false
-
-  sharePopup(e: any) {
-    e.stopPropagation();
-
-    if (this.showPopup) this.showPopup = false;
-    else this.showPopup = true;
-  }
-
-
   showShare: boolean = false
 
+  togglePopUp(){
 
-
+    if(this.showShare){
+      this.showShare=false;
+      console.log(this.showShare)
+    } else  {
+      this.showShare=true
+      console.log(this.showShare)
+    }
+  }
 
   constructor(public http: HttpClient) {
 
@@ -187,7 +184,7 @@ reportVideo(){
 
   }else{
   }
-    return this.http.get<Comments[]>(BASE_URL + "videos/"+id+"/comments")
+    return this.http.get<Comments[]>(this.BASE_URL + "videos/"+id+"/comments")
   }
 
   getGravatar(email:string){
