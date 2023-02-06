@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit , OnChanges} from '@angular/core';
 import {UploadService} from "../upload.service";
 import {FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import {faEllipsisV} from "@fortawesome/free-solid-svg-icons";
@@ -11,7 +11,7 @@ import {Comments} from "../interface";
   templateUrl: './comments.component.html',
   styleUrls: ['./comments.component.scss']
 })
-export class CommentsComponent implements OnInit {
+export class CommentsComponent implements OnChanges {
   faEllipsisV = faEllipsisV
   faFlag =faFlag
 
@@ -24,21 +24,19 @@ postComment!:FormGroup;
   comments: Comments[]=[];
   commentsNumber!:number
 constructor(public service: UploadService , private  fb:FormBuilder){
-
+  this.postComment = this.fb.group({
+      name:['',[Validators.required , Validators.maxLength(100)]],
+      email:['',[Validators.required , Validators.email , Validators.maxLength(100)] ],
+      message: ['',[Validators.required, Validators.maxLength(500)] ]
+    },
+    {  updateOn: 'submit' }
+  );
 
   }
 
 
-ngOnInit():void{
-  this.postComment = this.fb.group({
-    name:['',[Validators.required , Validators.maxLength(100)]],
-    email:['',[Validators.required , Validators.email , Validators.maxLength(100)] ],
-    message: ['',[Validators.required, Validators.maxLength(500)] ]
-  },
-    {  updateOn: 'submit' }
-    );
+ngOnChanges(){
   this.getComments();
-
 }
 
 

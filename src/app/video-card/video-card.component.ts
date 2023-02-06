@@ -21,7 +21,7 @@ export class VideoCardComponent implements OnInit {
   faShareAlt = faShareAlt
   faPlay = faPlay
 
-  @Input() id?: number;
+  @Input() id?: number | string ;
   @Input() channelId?: number;
   @Input() title?: string;
   @Input() published_date?: string;

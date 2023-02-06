@@ -21,9 +21,12 @@ export class UploadService {
     return this.http.get("https://dev-project-upskill2-grupo2.pantheonsite.io/session/token")
   }
 
-  async getVideoId(alias: string) {
-    const video = await this.http.get<any>(this.pathSource + alias + "?_format=json").toPromise();
-    return video;
+  getVideoId(alias: string) {
+  return this.http.get<any>(this.pathSource+ '/videos/' + alias + "?_format=json")
+  }
+
+  trimVideoAlias(alias: string | any ) {
+    return alias.split('/')[2];
   }
 
   getVideos() {
