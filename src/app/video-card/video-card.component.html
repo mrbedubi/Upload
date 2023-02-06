@@ -28,7 +28,7 @@
         <fa-icon *ngIf="this.list.isSaved(id)" [icon] = "savedIcon" class="icon"></fa-icon>
         <fa-icon *ngIf="!this.list.isSaved(id)" [icon] = "notSavedIcon" class="icon"></fa-icon>
       </div>
-      <div class="share_button" (click)="this.list.togglePopUp()" *ngIf="card == 'homepage'">
+      <div class="share_button" (click)="this.list.openPopUp()" *ngIf="card == 'homepage'">
         <fa-icon [icon] = "faShareAlt" class="icon"></fa-icon>
       </div>
     </div>

@@ -26,8 +26,8 @@ export class UploadService {
     return video;
   }
 
-  getVideos() {
-    return this.http.get<Video[]>(this.BASE_URL + "videos");
+  getVideos(page:number) {
+    return this.http.get<Video[]>(this.BASE_URL + "videos?page=" + page);
   }
 
   getVideosById(ids: number | string) {
@@ -154,15 +154,13 @@ reportVideo(){
 
   showShare: boolean = false
 
-  togglePopUp(){
-
-    if(this.showShare){
-      this.showShare=false;
-      console.log(this.showShare)
-    } else  {
+  openPopUp(){
       this.showShare=true
-      console.log(this.showShare)
-    }
+
+  }
+  closePopUp(){
+
+      this.showShare=false;
   }
 
   constructor(public http: HttpClient) {

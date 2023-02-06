@@ -11,18 +11,27 @@ import {Router} from "@angular/router";
 export class HomepageComponent {
   videos!: Video[];
   BaseUrl: string = "https://dev-project-upskill2-grupo2.pantheonsite.io"
-  paginaAtual = 1
+  paginaAtual = 0
 
 
   constructor(public list: UploadService) {
   }
 
   ngOnInit(): void {
-    this.list.getVideos().subscribe((videos) => {
+    this.list.getVideos(this.paginaAtual).subscribe((videos) => {
       this.videos = videos
     })
 
   }
 
+  nextPage(): void {
 
+    this.paginaAtual++;
+
+    this.list.getVideos(this.paginaAtual).subscribe((videos) => {
+      this.videos.push(...videos);
+      console.log(this.videos)
+    })
+
+  }
 }

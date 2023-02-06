@@ -12,7 +12,7 @@
           <fa-icon *ngIf="this.service.isSaved(video.id)" [icon]="savedIcon" class="icon"></fa-icon>
           <fa-icon *ngIf="!this.service.isSaved(video.id)" [icon]="notSavedIcon" class="icon"></fa-icon>
         </div>
-        <div class="share_button" (click)="this.service.togglePopUp()">
+        <div class="share_button" (click)="this.service.openPopUp()">
           <fa-icon [icon]="faShareAlt" class="icon"></fa-icon>
         </div>
         <div class="popup" *ngIf="this.service.showShare">
