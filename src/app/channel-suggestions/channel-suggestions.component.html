@@ -3,7 +3,7 @@
     <p>Canais Sugeridos</p>
   </div>
   <div class="channel_avatar_wrapper">
-    <div class="channel_avatar" *ngFor="let channel of channels.slice(0,5)" routerLink="/channel/{{channel.channel_id}}">
+    <div class="channel_avatar" *ngFor="let channel of channels.slice(0,4)" routerLink="/channel/{{channel.channel_id}}">
       <div class="channel_avatar_img" style="background-image:url({{this.BaseUrl+channel.profile_picture}})"></div>
       <p>{{channel.name}}</p>
     </div>

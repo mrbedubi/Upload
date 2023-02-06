@@ -33,6 +33,10 @@
           font-weight: 500;
         }
 
+        .video_title{
+          padding-right: 50px;
+        }
+
         .video_tag_container {
           display: flex;
 
@@ -46,6 +50,7 @@
 
       .buttons{
         display: flex;
+
 
         .fav_button{
           width: 20%;

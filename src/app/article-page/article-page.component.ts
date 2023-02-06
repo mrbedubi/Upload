@@ -28,7 +28,7 @@ export class ArticlePageComponent implements OnInit {
 
     this.ids = this.route.snapshot.paramMap.get('id')
 
-    this.service.getVideos().subscribe((videos) => {
+    this.service.getVideos(0).subscribe((videos) => {
       this.videos = videos
 
     })
