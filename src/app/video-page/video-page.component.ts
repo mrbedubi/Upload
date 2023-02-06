@@ -19,7 +19,7 @@ export class VideoPageComponent {
   video!:Video
   videosByTag: Video[] = []
   tags:Tag[]=[]
-  ids!: any
+  ids!: any;
   likes!: Rating
   dislikes!: Rating
 
@@ -39,14 +39,24 @@ export class VideoPageComponent {
 
   }
   ngOnInit():void {
-    this.ids = this.route.snapshot.paramMap.get('id')
+    this.ids = this.route.snapshot.paramMap.get('id');
+    this.service.getVideoId(this.ids).subscribe((video) => {
+      this.ids = video.mid[0].value;
+      this.initVideoPage();
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+
+    })
+
+  }
+
+  public initVideoPage(){
 
     this.service.getLikesByVideoId(this.ids).subscribe((likes) => {
       Object.values(likes)[0] != undefined ? this.likes = Object.values(likes)[0] : this.likes = {count: 0}
     })
 
     this.service.getDislikesByVideoId(this.ids).subscribe((dislikes) => {
-     Object.values(dislikes)[0] != undefined ? this.dislikes = Object.values(dislikes)[0] : this.dislikes = {count: 0}
+      Object.values(dislikes)[0] != undefined ? this.dislikes = Object.values(dislikes)[0] : this.dislikes = {count: 0}
     })
 
     this.service.getVideosById(this.ids).subscribe((videos) => {
@@ -60,9 +70,6 @@ export class VideoPageComponent {
         this.tags=tagbyId;
       });
     });
-
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-
   }
 
   public VideoId(url: string) {
