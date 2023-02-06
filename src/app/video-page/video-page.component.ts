@@ -71,6 +71,21 @@ export class VideoPageComponent {
     return "https://www.youtube.com/embed/"+videoId+"?&autoplay=1"
   }
 
+  public toggleLike() {
+    if (this.likeType == 'liked') {
+      this.likeType = 'notLiked'
+    } else if (this.likeType == 'notLiked') {
+      this.likeType = 'liked'
+    }
+  }
+  public toggleDislike() {
+    if (this.dislikeType == 'disliked') {
+      this.dislikeType = 'notDisliked'
+    } else if (this.dislikeType == 'notDisliked') {
+      this.dislikeType = 'disliked'
+    }
+  }
+
   public postLike(id: number) {
     let body = {
       "entity_id": [id],
@@ -80,7 +95,7 @@ export class VideoPageComponent {
     }
     this.service.giveRating(body)
     this.likes.count++
-    this.likeType = 'notLiked' ? this.likeType = 'liked' : this.likeType = 'notLiked'
+    this.toggleLike()
   }
 
   public postDislike(id: number) {
@@ -92,7 +107,7 @@ export class VideoPageComponent {
     }
     this.service.giveRating(body)
     this.dislikes.count++
-    this.dislikeType = 'notDisliked' ? this.dislikeType = 'disliked' : this.dislikeType = 'notDisliked'
+    this.toggleDislike()
   }
 
   @Input() likeType: 'liked' | 'notLiked' = 'notLiked'

@@ -40,21 +40,18 @@
   </form>
 
 
-  <div class="comment_report">
-
-    <div class="comment_warper">
-      <div class="comment_header"><h3 class="result">3</h3>
-        <h3>Comentários:</h3></div>
-      <div class="comment_item">
-        <div class="avatar"
-             style="background-image: url('{{this.service.getGravatar('diogo.azv97@gmail.com')}}'), url('{{this.service.getRandomAvatart('diogo.azv97@gmail.com')}}')  "></div>
-        <div class="details">
-          <div class="details_header">
-            <div class="name">Fernando</div>
-            <div class="publish_date">há 20 min</div>
-          </div>
-          <div class="comment_body">ddfsfsf</div>
+  <div class="comment_warper">
+    <div class="comment_header"><h3 class="result">{{comments.length}}</h3>
+      <h3>Comentários:</h3></div>
+    <div class="comment_item" *ngFor="let comment of this.comments">
+      <div class="avatar"
+           style="background-image: url('{{this.service.getGravatar(comment.email)}}'), url('{{this.service.getRandomAvatart(comment.email)}}')  "></div>
+      <div class="details">
+        <div class="details_header">
+          <div class="name">{{comment.username}}</div>
+          <div class="publish_date">{{comment.date}}</div>
         </div>
+        <div class="comment_body">{{comment.comment}}</div>
       </div>
     </div>
 

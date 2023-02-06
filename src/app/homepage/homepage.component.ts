@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 import {UploadService} from "../upload.service";
-import {Video, Channel, Tag} from "../interface";
+import {Video, Channel ,Tag} from "../interface";
 import {Router} from "@angular/router";
 
 @Component({
@@ -18,22 +18,11 @@ export class HomepageComponent {
   }
 
   ngOnInit(): void {
-    this.list.getVideos(this.paginaAtual).subscribe((videos) => {
+    this.list.getVideos().subscribe((videos) => {
       this.videos = videos
     })
 
-
   }
 
-  nextPage(): void {
 
-    this.paginaAtual++;
-
-    this.list.getVideos(this.paginaAtual).subscribe((videos) => {
-      this.videos.push(...videos);
-      console.log(this.videos)
-    })
-
-
-  }
 }

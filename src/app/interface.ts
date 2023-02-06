@@ -13,8 +13,11 @@ interface Video {
   thumbnail: string
   channel_name: string
   channel_picture: string
+  path:string
 
 }
+
+
 
 
 interface Channel {
@@ -75,11 +78,11 @@ interface NrVideosChannel{
 }
 
 interface Comments {
-  avatar: string
-  name: string
-  email: string
-  body: string
-  date: string
+  "comment": string,
+  "email": string,
+  "username": string,
+  "date": string,
+  "video_id": string |number
 }
 
 interface Rating {

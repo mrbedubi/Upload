@@ -1,75 +1,83 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Channel, NrVideosChannel, Playlist, Rating, Tag, Theme, Video} from "./interface"
+import {Channel, NrVideosChannel, Playlist, Rating, Tag, Theme,Video,  Comments} from "./interface"
+import * as url from "url";
 
-
-
-const BASE_URL = "https://dev-project-upskill2-grupo2.pantheonsite.io/api/";
-const BASE_URL_PT = "https://dev-project-upskill2-grupo2.pantheonsite.io/pt-pt/api/";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UploadService {
   // Get Videos
-  saved: number[] = JSON.parse(localStorage.getItem("saved") || "[]");
-  md5 = require("crypto-js/md5");
-  pathSource = "https://dev-project-upskill2-grupo2.pantheonsite.io";
+  saved: number[]=JSON.parse(localStorage.getItem("saved") || "[]");
+  md5= require("crypto-js/md5");
+  pathSource="https://dev-project-upskill2-grupo2.pantheonsite.io";
+  token = this.getToken();
+  lang = localStorage.getItem('lang') || 'pt';
+  BASE_URL: any;
+  headers = {'Accept': 'application/vnd.api+json', 'X-CSRF-Token': String(this.token)};
 
+  getToken(){
+    return this.http.get("https://dev-project-upskill2-grupo2.pantheonsite.io/session/token")
+  }
 
+  async getVideoId(alias: string) {
+    const video = await this.http.get<any>(this.pathSource + alias + "?_format=json").toPromise();
+    return video;
+  }
 
-  getVideos(page: number) {
-    return this.http.get<Video[]>(BASE_URL + "videos?page=" + page);
+  getVideos() {
+    return this.http.get<Video[]>(this.BASE_URL + "videos");
   }
 
   getVideosById(ids: number | string) {
-    return this.http.get<Video[]>(BASE_URL + "videos/" + ids);
+    return this.http.get<Video[]>(this.BASE_URL + "videos/" + ids);
   }
 
   getThemes() {
-    return this.http.get<Theme[]>(BASE_URL + "themes")
+    return this.http.get<Theme[]>(this.BASE_URL + "themes")
   }
 
   getThemeById(id: number) {
-    return this.http.get<Theme>(BASE_URL + "themes/" + id)
+    return this.http.get<Theme>(this.BASE_URL + "themes/" + id)
   }
 
   getVideosByChannel(id: number) {
-    return this.http.get<Video[]>(BASE_URL + "channels/" + id + "/videos");
+    return this.http.get<Video[]>(this.BASE_URL + "channels/" + id + "/videos");
   }
 
   getVideosByTag(id: number | string) {
-    return this.http.get<Video[]>(BASE_URL + "tags/" + id + "/videos");
+    return this.http.get<Video[]>(this.BASE_URL + "tags/" + id + "/videos");
   }
 
   // Get Channels
 
   getChannels() {
-    return this.http.get<Channel[]>(BASE_URL + "channels");
+    return this.http.get<Channel[]>(this.BASE_URL + "channels");
   }
 
   getNrVideosChannel() {
-    return this.http.get<NrVideosChannel[]>(BASE_URL + "channels/all/nvideos")
+    return this.http.get<NrVideosChannel[]>(this.BASE_URL + "channels/all/nvideos")
   }
 
   getChannelsById(id: number) {
-    return this.http.get<Channel[]>(BASE_URL + "channels/" + id);
+    return this.http.get<Channel[]>(this.BASE_URL + "channels/" + id);
   }
 
   getLikesByVideoId(id: number) {
-    return this.http.get<Rating>(BASE_URL + 'videos/' + id + '/likes')
+    return this.http.get<Rating>(this.BASE_URL + 'videos/' + id + '/likes')
   }
 
   getDislikesByVideoId(id: number) {
-    return this.http.get<Rating>(BASE_URL + 'videos/' + id + '/dislikes')
+    return this.http.get<Rating>(this.BASE_URL + 'videos/' + id + '/dislikes')
   }
 
   getTags() {
-    return this.http.get<Tag[]>(BASE_URL + "tags");
+    return this.http.get<Tag[]>(this.BASE_URL + "tags");
   }
 
   getTagsById(id: string | number) {
-    return this.http.get<Tag[]>(BASE_URL + "tags/" + id);
+    return this.http.get<Tag[]>(this.BASE_URL + "tags/" + id);
   }
 
   getThumbnail(s: string, url: string) {
@@ -85,11 +93,11 @@ export class UploadService {
 //Get Playlist
 
   getPlaylist() {
-    return this.http.get<Playlist[]>(BASE_URL + "playlist");
+    return this.http.get<Playlist[]>(this.BASE_URL + "playlist");
   }
 
   getPlaylistById(id: number) {
-    return this.http.get<Playlist[]>(BASE_URL + "playlist/" + id);
+    return this.http.get<Playlist[]>(this.BASE_URL + "playlist/" + id);
   }
 
 
@@ -101,12 +109,12 @@ export class UploadService {
 
 
   getSaved() {
-    return this.http.get<Video[]>(BASE_URL + "videos/?ids=" + this.saved.join(","));
+    return this.http.get<Video[]>(this.BASE_URL + "videos/?ids=" + this.saved.join(","));
   }
 
 
   isSaved(id: any) {
-    return this.saved.includes(id)
+     return this.saved.includes(id)
   }
 
   toggleFavorite(id: any) {
@@ -119,54 +127,48 @@ export class UploadService {
 
 
     // local storage - é uma caixa do browser para  guardar informação e esta so pode ser guardada como string
-    localStorage.setItem("saved", JSON.stringify(this.saved))
+    localStorage.setItem("saved",JSON.stringify(this.saved))
   }
 
-  getToken() {
-    return this.http.get("https://dev-project-upskill2-grupo2.pantheonsite.io/session/token")
-  }
 
-  token = this.getToken();
-
-  headers = {'Accept': 'application/vnd.api+json', 'X-CSRF-Token': String(this.token)};
-
-  postComments(body: {}) {
+postComments(body:{}){
     return this.http.post("https://dev-project-upskill2-grupo2.pantheonsite.io/comment",
       body,
-      {'headers': this.headers}).subscribe()
-  }
+      {'headers':this.headers}).subscribe()
+}
 
-  giveRating(body: {
-    "entity_id": number[],
-    "entity_type": string[],
-    "flag_id": string,
-    "uid": string[]
-  }) {
-    return this.http.post("https://dev-project-upskill2-grupo2.pantheonsite.io/entity/flagging",
-      body,
-      {headers: this.headers}).subscribe()
-  }
+giveRating(body:{
+  "entity_id": number[],
+  "entity_type": string[],
+  "flag_id": string,
+  "uid": string[]
+  }){
+  return this.http.post("https://dev-project-upskill2-grupo2.pantheonsite.io/entity/flagging",
+    body,
+    {headers: this.headers}).subscribe()
+}
 
-  reportVideo() {
+reportVideo(){
 
-  }
-
-  showPopup: boolean = false
-
-  sharePopup(e: any) {
-    e.stopPropagation();
-
-    if (this.showPopup) this.showPopup = false;
-    else this.showPopup = true;
-  }
-
+}
 
   showShare: boolean = false
 
+  togglePopUp(){
+
+    if(this.showShare){
+      this.showShare=false;
+      console.log(this.showShare)
+    } else  {
+      this.showShare=true
+      console.log(this.showShare)
+    }
+  }
 
   constructor(public http: HttpClient) {
 
   }
+
 
 
   getIP() {
@@ -175,13 +177,22 @@ export class UploadService {
     });
   }
 
+  //Comments
 
-  getGravatar(email: string) {
-    return "https://www.gravatar.com/avatar/" + this.md5(email).toString() + "?d=404";
+  getComments(id:number|string , type: "video" | "channel"){
+  if(type == "video"){
+
+  }else{
+  }
+    return this.http.get<Comments[]>(this.BASE_URL + "videos/"+id+"/comments")
   }
 
-  getRandomAvatart(email: string) {
-    return ' https://robohash.org/set_set3/bgset_bg1/' + email + '?size=100x100';
+  getGravatar(email:string){
+     return  "https://www.gravatar.com/avatar/"+this.md5(email).toString()+"?d=404";
+  }
+
+  getRandomAvatart(email:string){
+  return ' https://robohash.org/set_set3/bgset_bg1/'+email+'?size=100x100';
   }
 
 }

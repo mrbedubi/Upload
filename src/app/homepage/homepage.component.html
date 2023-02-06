@@ -5,23 +5,21 @@
      [scrollWindow]="true"
      (scrolled)="nextPage()">
   <div class="main_content_wrapper">
-
-
-    <p>Últimos Vídeos</p>
-    <div class="content_wrapper">
-      <app-video-card class="video_card" *ngFor=" let video of videos"
-                      [id]="video.id"
-                      [channelId]="video.channel_id"
-                      [channel_name]="video.channel_name"
-                      card="homepage"
-                      [title]="video.title"
-                      [published_date]="video.published_date"
-                      [duration]="video.duration"
-                      [thumbnail]="this.list.getThumbnail(video.thumbnail, video.video_url)"
-                      [channel_avatar]="this.BaseUrl + video.channel_picture"
-                      [tag]="video.tags">
-      </app-video-card>
-    </div>
+  <p>Últimos Vídeos</p>
+  <div class="content_wrapper" >
+    <app-video-card class="video_card" *ngFor=" let video of videos"
+                    [id]="video.id"
+                    [channelId]="video.channel_id"
+                    [channel_name]="video.channel_name"
+                    card="homepage"
+                    [title]="video.title"
+                    [published_date]="video.published_date"
+                    [duration]="video.duration"
+                    [thumbnail]="this.list.getThumbnail(video.thumbnail, video.video_url)"
+                    [channel_avatar]="this.BaseUrl + video.channel_picture"
+                    [tag] = "video.tags">
+    </app-video-card>
+  </div>
   </div>
   <div class="right_menu">
     <app-channel-suggestions>
@@ -29,6 +27,5 @@
     <app-theme-suggestions>
     </app-theme-suggestions>
   </div>
-
 </div>
 
