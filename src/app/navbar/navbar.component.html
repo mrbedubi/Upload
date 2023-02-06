@@ -1,5 +1,6 @@
 <nav id="nav_wrapper">
   <div class="brand_container" routerLink="/home">
+    <fa-icon [icon] = "faBars" class="hamburger"></fa-icon>
     <img src="assets/upload.svg" alt="UPload" class="brand_logo">
   </div>
 
@@ -25,12 +26,7 @@
         <i class="fa-solid fa-bookmark"></i>
         <p>{{'SAVED' | translate}}</p>
       </div>
-
-
     </div>
-
-
-
   <div id="tag_wrapper">
     <h1>{{'TAGS' | translate}}</h1>
     <div class="tag_container">
@@ -38,11 +34,10 @@
       <app-tags-list *ngIf="tagModal" class="tagPopUp"></app-tags-list>
     </div>
     <p (click)="tagModal=true" class="show_more_tags">{{'SHOWMORE' | translate}}</p>
-
   </div>
-<div class="language">
-  <h3 class="pt" (click)="switchLang('pt')">PT</h3>
-  <h3> | </h3>
-  <h3 class="en" (click)="switchLang('en')">EN</h3>
-</div>
+  <div class="language">
+    <h3 class="pt" (click)="switchLang('pt')">PT</h3>
+    <h3> | </h3>
+    <h3 class="en" (click)="switchLang('en')">EN</h3>
+  </div>
 </nav>

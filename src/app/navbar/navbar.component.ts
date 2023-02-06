@@ -6,6 +6,7 @@ import {faHome} from "@fortawesome/free-solid-svg-icons";
 import {faStream} from "@fortawesome/free-solid-svg-icons";
 import {faFilm} from "@fortawesome/free-solid-svg-icons";
 import {faPlay} from "@fortawesome/free-solid-svg-icons";
+import {faBars} from "@fortawesome/free-solid-svg-icons"
 import {TagsListComponent} from "../tags-list/tags-list.component";
 import {TranslateService} from "@ngx-translate/core";
 
@@ -21,10 +22,11 @@ export class NavbarComponent {
   faStream = faStream
   faFilm = faFilm
   faPlay = faPlay
+  faBars = faBars
   lang = localStorage.getItem('lang') || 'en';
 
   constructor(public service: UploadService, public router: Router, public activatedRouter: ActivatedRoute, private translate: TranslateService) {
-
+    translate.setDefaultLang('en')
   }
 
   ngOnInit(): void {
