@@ -1,6 +1,6 @@
 <div class="channel_sug_container">
   <div class="channel_sug_title">
-    <p>Canais Sugeridos</p>
+    <p>{{'CHANSUG' | translate}}</p>
   </div>
   <div class="channel_avatar_wrapper">
     <div class="channel_avatar" *ngFor="let channel of channels.slice(0,5)" routerLink="/channel/{{channel.channel_id}}">
@@ -10,7 +10,7 @@
 
   </div>
   <div class="show_more_container" routerLink="/channels">
-    <p>MOSTRAR MAIS</p>
+    <p>{{'SHOWMORE' | translate}}</p>
   </div>
 
 </div>

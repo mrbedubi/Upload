@@ -11,7 +11,7 @@ import { ChannelPageComponent } from './channel-page/channel-page.component';
 import { ChannelSuggestionsComponent } from './channel-suggestions/channel-suggestions.component';
 import { ThemeSuggestionsComponent } from './theme-suggestions/theme-suggestions.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { ChannelListComponent } from './channel-list/channel-list.component';
 import { ChannelCardComponent } from './channel-card/channel-card.component';
 import { SafeUrlPipe } from './safe-url.pipe';
@@ -26,7 +26,12 @@ import { ArticleCardComponent } from './article-card/article-card.component';
 import { ArticleListComponent } from './article-list/article-list.component';
 import {SavedComponent} from "./saved/saved.component";
 import {ReactiveFormsModule} from "@angular/forms";
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -59,7 +64,14 @@ import {ReactiveFormsModule} from "@angular/forms";
         AppRoutingModule,
         HttpClientModule,
         FontAwesomeModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        TranslateModule.forRoot({
+          loader: {
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
+          }
+        })
     ],
   providers: [],
   bootstrap: [AppComponent]

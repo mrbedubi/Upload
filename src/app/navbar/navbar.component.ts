@@ -7,6 +7,7 @@ import {faStream} from "@fortawesome/free-solid-svg-icons";
 import {faFilm} from "@fortawesome/free-solid-svg-icons";
 import {faPlay} from "@fortawesome/free-solid-svg-icons";
 import {TagsListComponent} from "../tags-list/tags-list.component";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-navbar',
@@ -20,27 +21,23 @@ export class NavbarComponent {
   faStream = faStream
   faFilm = faFilm
   faPlay = faPlay
-  lang: any;
-  constructor(public service: UploadService, public router: Router, public activatedRouter: ActivatedRoute) {
+  lang = localStorage.getItem('lang') || 'en';
+
+  constructor(public service: UploadService, public router: Router, public activatedRouter: ActivatedRoute, private translate: TranslateService) {
 
   }
 
   ngOnInit(): void {
-    this.lang = localStorage.getItem('lang') || 'en'
-    console.log(this.lang)
-
-    this.lang == 'pt' ? this.service.BASE_URL = "https://dev-project-upskill2-grupo2.pantheonsite.io/pt-pt/api/" : this.service.BASE_URL = "https://dev-project-upskill2-grupo2.pantheonsite.io/api/"
-    console.log(this.service.BASE_URL)
     this.service.getTags().subscribe((tags) => {
       this.tags = tags
     })
 
   }
 
-  changeLang(lang: any) {
+  switchLang(lang: string) {
     console.log(lang)
     localStorage.setItem('lang', lang)
-    window.location.reload()
+    this.translate.use(lang)
   }
 
   tagModalClick() {

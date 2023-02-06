@@ -1,6 +1,6 @@
 <div id="home_wrapper">
   <div class="main_content_wrapper">
-  <p>Últimos Vídeos</p>
+  <p>{{'LAST' | translate}}</p>
   <div class="content_wrapper" >
     <app-video-card class="video_card" *ngFor=" let video of videos"
                     [id]="video.id"

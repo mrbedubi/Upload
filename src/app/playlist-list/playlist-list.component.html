@@ -1,6 +1,6 @@
 <div id="playlist_list_wrapper">
   <div class="main_content_wrapper">
-    <p>Playlists</p>
+    <p>{{'PLAYLISTS' | translate}}</p>
     <div class="content_wrapper">
       <app-playlist-card class="playlist_card" *ngFor="let playlist of playlists"
                          [playlist_id]="playlist.playlist_id"

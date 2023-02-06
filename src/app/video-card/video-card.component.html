@@ -7,7 +7,7 @@
       <p>{{duration}}</p>
     </div>
     <div class="play_video">
-      <p>Play</p>
+      <p>{{'PLAY' | translate}}</p>
       <fa-icon [icon]= "faPlay"></fa-icon>
     </div>
   </div>
@@ -34,13 +34,6 @@
     </div>
   </div>
 
-<!--
-  <div class="play_video">
-    <p>Play</p>
-    <fa-icon [icon]= "faPlay"></fa-icon>
-  </div>
-
-  -->
 </div>
 
 <div class="popup" *ngIf="this.list.showShare">

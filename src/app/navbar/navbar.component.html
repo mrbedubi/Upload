@@ -6,24 +6,24 @@
   <div id="menu_wrapper">
     <div class="menu_item" routerLink="/home" routerLinkActive="activated">
       <fa-icon [icon] = "faHome" class="icon"></fa-icon>
-      <p>Início</p>
+      <p>{{'HOME' | translate}}</p>
     </div>
     <div class="menu_item" routerLink="/channels" routerLinkActive="activated">
       <fa-icon [icon] = "faStream" class="icon"></fa-icon>
 
-      <p>Canais</p>
+      <p>{{'CHANS' | translate}}</p>
     </div>
       <div class="menu_item" routerLink="/articles" routerLinkActive="activated">
         <fa-icon [icon] = "faFilm" class="icon"></fa-icon>
-        <p>Temáticas</p>
+        <p>{{'ARTS' | translate}}</p>
       </div>
       <div class="menu_item" routerLink="/playlists" routerLinkActive="activated">
         <fa-icon [icon] = "faPlay" class="icon"></fa-icon>
-        <p>Playlists</p>
+        <p>{{'PLAYLISTS' | translate}}</p>
       </div>
       <div class="menu_item" routerLink="/saved" routerLinkActive="activated">
         <i class="fa-solid fa-bookmark"></i>
-        <p>Guardados</p>
+        <p>{{'SAVED' | translate}}</p>
       </div>
 
 
@@ -32,17 +32,17 @@
 
 
   <div id="tag_wrapper">
-    <h1>TAGS</h1>
+    <h1>{{'TAGS' | translate}}</h1>
     <div class="tag_container">
       <div class="tag" *ngFor="let tag of tags" [routerLink]="['/search/tag/',tag.id]"> {{tag.name}}</div>
       <app-tags-list *ngIf="tagModal" class="tagPopUp"></app-tags-list>
     </div>
-    <p (click)="tagModal=true" class="show_more_tags">Mostar Mais </p>
+    <p (click)="tagModal=true" class="show_more_tags">{{'SHOWMORE' | translate}}</p>
 
   </div>
 <div class="language">
-  <h3 class="pt" (click)="changeLang('pt')">PT</h3>
+  <h3 class="pt" (click)="switchLang('pt')">PT</h3>
   <h3> | </h3>
-  <h3 class="en" (click)="changeLang('en')">EN</h3>
+  <h3 class="en" (click)="switchLang('en')">EN</h3>
 </div>
 </nav>

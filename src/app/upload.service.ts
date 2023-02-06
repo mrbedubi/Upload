@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Channel, NrVideosChannel, Playlist, Rating, Tag, Theme,Video,  Comments} from "./interface"
 import * as url from "url";
+import {TranslateService} from "@ngx-translate/core";
 
 
 @Injectable({
@@ -13,9 +14,17 @@ export class UploadService {
   md5= require("crypto-js/md5");
   pathSource="https://dev-project-upskill2-grupo2.pantheonsite.io";
   token = this.getToken();
-  lang = localStorage.getItem('lang') || 'pt';
-  BASE_URL: any;
+  lang = localStorage.getItem('lang') || 'en';
+  BASE_URL = this.getLang() || "https://dev-project-upskill2-grupo2.pantheonsite.io/api/"
   headers = {'Accept': 'application/vnd.api+json', 'X-CSRF-Token': String(this.token)};
+
+  getLang() {
+    if (this.lang == 'en') {
+      return "https://dev-project-upskill2-grupo2.pantheonsite.io/api/"
+    } else {
+      return "https://dev-project-upskill2-grupo2.pantheonsite.io/pt-pt/api/"
+    }
+  }
 
   getToken(){
     return this.http.get("https://dev-project-upskill2-grupo2.pantheonsite.io/session/token")
@@ -194,5 +203,7 @@ reportVideo(){
   getRandomAvatart(email:string){
   return ' https://robohash.org/set_set3/bgset_bg1/'+email+'?size=100x100';
   }
+
+
 
 }
