@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {UploadService} from "../upload.service";
 import {Video, Channel ,Tag} from "../interface";
-import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
