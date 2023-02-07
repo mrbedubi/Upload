@@ -12,7 +12,7 @@ export class ChannelPageComponent {
   channel!:Channel
   video:Video[]=[];
   BaseUrl: string="https://dev-project-upskill2-grupo2.pantheonsite.io"
-  ids!: any
+  channel_id!: string
 
 
   @Input() id?: number;
@@ -22,20 +22,25 @@ export class ChannelPageComponent {
   @Input() profile_picture?: string;
 
 
-  constructor( public list:UploadService, private activatedRoute: ActivatedRoute){
+  constructor( public service:UploadService,  private route: ActivatedRoute){
 
   }
   ngOnInit():void {
-    this.ids = this.activatedRoute.snapshot.paramMap.get('id')
+    let url =this.route.snapshot.url;
+    this.service.getId('channel',url[1].path).subscribe((channel) => {
 
+     this.channel_id = channel.nid[0].value;
 
-    this.list.getChannelsById(this.ids).subscribe((channel) => {
+    this.service.getChannelsById(this.channel_id).subscribe((channel) => {
       this.channel = channel[0];
 
     })
-    this.list.getVideosByChannel(this.ids).subscribe((video) => {
+    this.service.getVideosByChannel(this.channel_id).subscribe((video) => {
       this.video = video;
     })
+
+})
+
   }
 
 }

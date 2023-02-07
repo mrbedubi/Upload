@@ -20,9 +20,10 @@ export class VideoCardComponent implements OnInit {
   notSavedIcon = notSaved
   faShareAlt = faShareAlt
   faPlay = faPlay
-
-  @Input() id?: number | string ;
-  @Input() channelId?: number;
+  channelPath!:string;
+  video_id!:string |number;
+  @Input() id!:string;
+  @Input() channelId!: number |string;
   @Input() title?: string;
   @Input() published_date?: string;
   @Input() video_url?: string;
@@ -37,7 +38,7 @@ export class VideoCardComponent implements OnInit {
   @Input() selected:boolean=false;
 
 
-  constructor(public list: UploadService, public router: Router) {
+  constructor(public service: UploadService, public router: Router) {
 
   }
 
@@ -46,24 +47,23 @@ export class VideoCardComponent implements OnInit {
 //public uploadService: UploadService
   ngOnInit(): void {
 
+    this.service.getId('',this.id).subscribe((video)=>{
+      this.video_id=video.mid[0].value;
+    })
+
+    this.service.getChannelsById(this.channelId).subscribe((channel)=>{
+      this.channelId=channel[0].path
+    })
+
+
+
     if (this.tag != undefined) {
-      this.list.getTagsById(this.tag).subscribe((tags) => {
+      this.service.getTagsById(this.tag).subscribe((tags) => {
         this.tags = tags;
       });
     }
   }
 
-
-/*
-  navigate(){
-    if (this.card = "playlistpage"){
-//criar a logica
-    }
-    else {
-      this.router.navigate(['/', 'video/'+ this.id])
-    }
-  }
-*/
 
 
 }

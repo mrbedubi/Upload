@@ -17,8 +17,8 @@ export class ArticlePageComponent implements OnInit {
   videosById: Video[] = []
   tagsById: Tag[] = [];
   theme!: Theme[]
-  tags: Tag[] = []
   BaseUrl: string="https://dev-project-upskill2-grupo2.pantheonsite.io"
+  paginaAtual:number = 0
 
   ids!: any
   constructor(public service: UploadService, private route: ActivatedRoute, private sanitizer: DomSanitizer) { }
@@ -26,35 +26,43 @@ export class ArticlePageComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.ids = this.route.snapshot.paramMap.get('id')
+    let path = this.route.snapshot.url
+    console.log(path);
+    this.service.getId('article', path[1].path).subscribe((article) => {
+      this.ids = article.nid[0].value;
 
-    this.service.getVideos(0).subscribe((videos) => {
-      this.videos = videos
+      this.service.getVideos(this.paginaAtual).subscribe((videos) => {
+        this.videos = videos
+
+      })
+
+      this.service.getThemeById(this.ids).subscribe((theme) => {
+        this.videoIds = Object.values(theme)[0].video_id.split(", ")
+        this.tagsIds = Object.values(theme)[0].tag_id.split(", ")
+        this.theme = Object.values(theme)
+        console.log(this.tagsIds)
+        console.log(this.videoIds)
+
+
+        for (let video in this.videoIds) {
+          this.service.getVideosById(parseInt(this.videoIds[video])).subscribe((videosById)=>{
+            this.videosById.push(videosById[0])
+
+          })
+        }
+
+        for (let tag in this.tagsIds) {
+          this.service.getTagsById(parseInt(this.tagsIds[tag])).subscribe((tagsById) => {
+            this.tagsById.push(tagsById[0])
+            console.log(this.tagsById)
+          })
+        }
+      })
 
     })
 
-    this.service.getThemeById(this.ids).subscribe((theme) => {
-      this.videoIds = Object.values(theme)[0].video_id.split(", ")
-      this.tagsIds = Object.values(theme)[0].tag_id.split(", ")
-      this.theme = Object.values(theme)
-      console.log(this.tagsIds)
-      console.log(this.videoIds)
 
 
-      for (let video in this.videoIds) {
-        this.service.getVideosById(parseInt(this.videoIds[video])).subscribe((videosById)=>{
-          this.videosById.push(videosById[0])
-
-        })
-      }
-
-      for (let tag in this.tagsIds) {
-        this.service.getTagsById(parseInt(this.tagsIds[tag])).subscribe((tagsById) => {
-          this.tagsById.push(tagsById[0])
-          console.log(this.tagsById)
-        })
-      }
-    })
   }
 
   public VideoId(s: string, url: string) {

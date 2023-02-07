@@ -14,7 +14,7 @@ export class HomepageComponent {
   paginaAtual = 1
   vid_id!: any;
 
-  constructor(public service: UploadService, private translate: TranslateService) {
+  constructor(public service: UploadService) {
 
   }
 
