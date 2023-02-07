@@ -12,6 +12,25 @@
   "TAGS": "Tags",
   "PLAY": "Play",
   "NOTSAVED": "You haven't saved any video yet! :(",
-  "RESULT": "Results for"
+  "RESULT": "Results for",
+  "NAME": "Name",
+  "EMAIL": "E-mail",
+  "MSG": "Message",
+  "NREQUIRED" : "A name is required",
+  "NSHORT": "Choose a name shorter than 100 characters",
+  "EREQUIRED" : "An e-mail is required",
+  "EVALID": "Choose a valid e-mail",
+  "ESHORT": "Choose an e-mail shorter than 100 characters",
+  "MREQUIRED" : "The message can't be empty",
+  "MLONG": "The message should be shorter than 500 chracters",
+  "SUBMITC": "Submit Comment",
+  "COMMENTS": "Comments",
+  "ROPTION": "Choose your option",
+  "HSPEECH": "Hate speech",
+  "SEX": "Sexual explicit material",
+  "SPAM": "Spam",
+  "OTHER": "Other",
+  "TYREPORT": "Thank you for your report",
+  "SEND": "Send"
 }
 

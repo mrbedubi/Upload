@@ -5,36 +5,29 @@
     <div class="name_email">
 
       <div class="input_controler">
-        <input type="text" class="form_name" formControlName="name" placeholder="Name"
+        <input type="text" class="form_name" formControlName="name" placeholder="{{'NAME' | translate}}"
                [ngClass]="{'is_invalid': submitted && (postComment.hasError('required','name').valueOf() || postComment.hasError('maxlength', 'name ').valueOf() )}">
-        <small *ngIf="postComment.controls['name'].dirty && postComment.hasError('required','name')">Name is
-          required</small>
-        <small *ngIf="postComment.controls['name'].dirty && postComment.hasError('maxlength','name')">Chose a shorter
-          name, less that 100 characters</small>
+        <small *ngIf="postComment.controls['name'].dirty && postComment.hasError('required','name')">{{'NREQUIRED' | translate}}</small>
+        <small *ngIf="postComment.controls['name'].dirty && postComment.hasError('maxlength','name')">{{'NSHORT' | translate}}</small>
       </div>
 
       <div class="input_controler">
-        <input type="email" class="form_email" formControlName="email" placeholder="Email"
+        <input type="email" class="form_email" formControlName="email" placeholder="{{'EMAIL' | translate}}"
                [ngClass]="{'is_invalid': submitted && (postComment.hasError('required','email').valueOf() || postComment.hasError('email','email').valueOf() || postComment.hasError('maxlength','email').valueOf())}">
-        <small *ngIf="postComment.controls['email'].dirty && postComment.hasError('required','email')" email>Email is
-          required</small>
-        <small *ngIf="postComment.controls['email'].dirty && postComment.hasError('email','email')">Write a valid
-          e-mail</small>
-        <small *ngIf="postComment.controls['name'].dirty && postComment.hasError('maxlength','name')">the email should
-          have less that 100 characters</small>
+        <small *ngIf="postComment.controls['email'].dirty && postComment.hasError('required','email')" email>{{'EREQUIRED' | translate}}</small>
+        <small *ngIf="postComment.controls['email'].dirty && postComment.hasError('email','email')">{{'EVALID' | translate}}</small>
+        <small *ngIf="postComment.controls['name'].dirty && postComment.hasError('maxlength','name')">{{'ESHORT' | translate}}</small>
       </div>
 
     </div>
     <div class="input_controler">
-      <input type="text" class="form_message" formControlName="message" placeholder="Message"
+      <input type="text" class="form_message" formControlName="message" placeholder="{{'MSG' | translate}}"
              [ngClass]="{'is_invalid': submitted && ( postComment.hasError('required','message').valueOf() || postComment.hasError('maxlength','message').valueOf())}">
-      <small *ngIf="postComment.controls['message'].dirty && postComment.hasError('required','message')">The message
-        can't be empty</small>
-      <small *ngIf="postComment.controls['message'].dirty && postComment.hasError('maxlength','message')">the character
-        limit is 500 you have </small>
+      <small *ngIf="postComment.controls['message'].dirty && postComment.hasError('required','message')">{{'MREQUIRED' | translate}}</small>
+      <small *ngIf="postComment.controls['message'].dirty && postComment.hasError('maxlength','message')">{{'MLONG' | translate}}</small>
     </div>
     <div class="container_button">
-      <button id="submit">Submit Comment</button>
+      <button id="submit">{{'SUBMITC' | translate}}</button>
     </div>
 
   </form>
@@ -42,7 +35,7 @@
 
   <div class="comment_warper">
     <div class="comment_header"><h3 class="result">{{comments.length}}</h3>
-      <h3>Comentários:</h3></div>
+      <h3>{{'COMMENTS' | translate}}:</h3></div>
     <div class="comment_item" *ngFor="let comment of this.comments">
       <div class="avatar"
            style="background-image: url('{{this.service.getGravatar(comment.email)}}'), url('{{this.service.getRandomAvatart(comment.email)}}')  "></div>
@@ -61,28 +54,22 @@
       </div>
 
       <div class="options" *ngIf="showReport">
-        <span>Choose your option</span><br>
+        <span>{{'ROPTION' | translate}}</span><br>
         <input type="radio" id="hateSpeech" value="HateSpeech">
-        <label for="hateSpeech">Hate Speech</label><br>
+        <label for="hateSpeech">{{'HSPEECH' | translate}}</label><br>
         <input type="radio" id="sexual" value="sexual">
-        <label for="sexual">Sexual explicit material</label><br>
+        <label for="sexual">{{'SEX' | translate}}</label><br>
         <input type="radio" id="spam" value="spam">
-        <label for="spam">Spam</label><br>
+        <label for="spam">{{'SPAM' | translate}}</label><br>
         <input type="radio" id="other" value="other">
-        <label for="other">Other</label><br>
-        <input type="button" value="send" (click)="sendReport()">
+        <label for="other">{{'OTHER' | translate}}</label><br>
+        <input type="button" value="{{'SEND' | translate}}" (click)="sendReport()">
 
       </div>
-      <span class="thanks" *ngIf="reportSent">Thank you for your report!</span>
+      <span class="thanks" *ngIf="reportSent">{{'TYREPORT' | translate}}</span>
 
     </div>
   </div>
-
-  <!--
-    <div *ngFor="let comments of postComment">
-    <p>{{comments}}</p>
-    </div>
-    -->
 
 </div>
 
