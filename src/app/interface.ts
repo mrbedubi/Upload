@@ -26,6 +26,7 @@ interface Channel {
   cover_image: string
   description: string
   profile_picture: string
+  path:string
 
 }
 
@@ -42,6 +43,7 @@ interface Theme {
   channel_name: string
   channel_cover: string
   channel_picture: string
+  path:string
 
 }
 
@@ -66,6 +68,7 @@ interface Playlist{
   image:string
   date:string
   category_name:string
+  path:string
 
 
 

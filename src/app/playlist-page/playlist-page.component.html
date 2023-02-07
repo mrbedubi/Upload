@@ -23,7 +23,7 @@
         <div class="publishing_date">{{video.published_date}}</div>
       </div>
       <div class="rating_container">
-        <div class="likes_container" (click)="changeUrl()">
+        <div class="likes_container">
           <i class="like fa-solid fa-thumbs-up"></i>
           100
         </div>
@@ -48,7 +48,7 @@
       <h2 class="nome_playlist">{{playlist.title}}</h2>
       <h4 class="categoria">#{{playlist.category_name}}</h4>
       <app-video-card *ngFor="let video of videos_playlist"
-                      [id]="video.id"
+                      [id]="video.path"
                       [channelId]="video.channel_id"
                       [channel_name]="video.channel_name"
                       [video_url]="video.video_url"
@@ -60,7 +60,7 @@
                       [channel_avatar]="this.BaseUrl + video.channel_picture"
                       [playlist]="id_playlist"
                       [selected]="video.id == id_video"
-                      (click)="selectVideo( id_playlist, video.id)"
+                      (click)="selectVideo( playlist.path, video.path)"
 
       >
                       <!--(click)="changeActiveVideo(video.id)"-->
@@ -74,7 +74,7 @@
 
       <div *ngFor="let video of videosByTag">
       <app-video-card class="suggested_videos"   *ngIf="id_video!==video.id"
-                      [id]="video.id"
+                      [id]="video.path"
                       [channelId]="video.channel_id"
                       [channel_name]="video.channel_name"
                       [title]="video.title"

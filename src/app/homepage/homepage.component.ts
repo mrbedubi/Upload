@@ -23,7 +23,7 @@ export class HomepageComponent {
       this.videos = videos
     })
 
-    this.vid_id = this.service.getVideoId("/videos/plant-propagation-beginners-5-indoor-plants");
+
 
 
   }

@@ -9,8 +9,9 @@ import {faPlay} from "@fortawesome/free-solid-svg-icons";
 })
 export class PlaylistCardComponent implements OnInit {
   faPlay = faPlay
-  first_video!:string
-
+  first_video_id!:string
+  first_video_url!:string;
+  link_playlist_page!:string
 
   BASE_URL = "https://dev-project-upskill2-grupo2.pantheonsite.io";
   @Input() title?: string;
@@ -31,7 +32,12 @@ export class PlaylistCardComponent implements OnInit {
 
 //get the first video of the playlist to pass as url paramenter
   firstVideo(srt:string){
-    this.first_video= srt.split(',')[0];
+    this.first_video_id= srt.split(',')[0];
+    this.service.getVideosById(this.first_video_id).subscribe((video)=>{
+      this.first_video_url=video[0].path
+      this.link_playlist_page=this.playlist_id+this.first_video_url;
+    })
+
   }
 
 }
