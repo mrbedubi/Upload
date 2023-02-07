@@ -1,4 +1,4 @@
-import {Component, ViewContainerRef} from '@angular/core';
+import {Component, Input, ViewContainerRef} from '@angular/core';
 import {Tag, Video} from "../interface";
 import {UploadService} from "../upload.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -47,4 +47,10 @@ export class NavbarComponent {
       this.tagModal = false
     } else this.tagModal = true;
   }
+
+  switchMobile() {
+    this.menu == 'close' ? this.menu = 'open' : this.menu = 'close'
+  }
+
+  @Input() menu: 'open' | 'close' = 'close'
 }
