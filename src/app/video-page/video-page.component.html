@@ -38,7 +38,7 @@
       </div>
       <div class="channel_information">
         <div class="channel_name">{{video.channel_name}}</div>
-        <div class="publishing_date">{{video.published_date}}</div>
+        <div class="publishing_date">{{video.published_date}} {{'AGO' | translate}}</div>
       </div>
       <div class="rating_container">
         <div class="likes_container" (click)="postLike(video.id)" [ngClass]="likeType">
