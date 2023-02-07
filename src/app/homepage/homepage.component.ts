@@ -13,10 +13,9 @@ import { TranslateService } from '@ngx-translate/core';
 export class HomepageComponent {
   videos!: Video[];
   vid_id!: any;
-  lang = localStorage.getItem('lang') || 'en';
 
-  constructor(public service: UploadService, private translate: TranslateService) {
-    translate.use(this.lang)
+  constructor(public service: UploadService) {
+
   }
 
   ngOnInit(): void {

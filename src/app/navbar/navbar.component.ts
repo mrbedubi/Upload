@@ -26,7 +26,7 @@ export class NavbarComponent {
   lang = localStorage.getItem('lang') || 'en';
 
   constructor(public service: UploadService, public router: Router, public activatedRouter: ActivatedRoute, private translate: TranslateService) {
-    translate.setDefaultLang('en')
+    translate.setDefaultLang(this.service.lang)
   }
 
   ngOnInit(): void {
@@ -37,9 +37,9 @@ export class NavbarComponent {
   }
 
   switchLang(lang: string) {
-    console.log(lang)
     localStorage.setItem('lang', lang)
     this.translate.use(lang)
+    window.location.reload()
   }
 
   tagModalClick() {
