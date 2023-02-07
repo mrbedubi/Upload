@@ -1,6 +1,6 @@
 <div class="main_content_wrapper">
   <div class="results_info">
-    <p>Resultados para</p>
+    <p>{{'RESULT' | translate}}</p>
     <p class="tag_name" *ngFor=" let tag of tags" [routerLink]="['/search/tag/',tag.id]" >#{{tag.name}}</p>
   </div>
 

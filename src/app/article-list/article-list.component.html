@@ -1,5 +1,5 @@
 <div id="saved_wrapper">
-    <h1>Temáticas</h1>
+    <h1>{{'ARTS' | translate}}</h1>
     <div id="articles">
 
       <app-article-card class="article" *ngFor="let theme of themes" [routerLink]="['/article/', theme.id]"
