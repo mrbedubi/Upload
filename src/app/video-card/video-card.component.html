@@ -22,7 +22,7 @@
     <p class="titulo">{{title}}</p>
   </div>
   <div class="info_bottom" (click)="$event.stopPropagation() "*ngIf="card == 'homepage' || 'channelpage'"  >
-    <p class="data">{{published_date}}</p>
+    <p class="data">{{published_date}} {{'AGO' | translate}}</p>
     <div class="buttons">
       <div class="fav_button" (click) ="service.toggleFavorite(video_id)" *ngIf="card == 'homepage'">
         <fa-icon *ngIf="this.service.isSaved(video_id)" [icon] = "savedIcon" class="icon"></fa-icon>
