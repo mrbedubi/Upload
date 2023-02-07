@@ -11,7 +11,7 @@ import {ChannelPageComponent} from './channel-page/channel-page.component';
 import {ChannelSuggestionsComponent} from './channel-suggestions/channel-suggestions.component';
 import {ThemeSuggestionsComponent} from './theme-suggestions/theme-suggestions.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {ChannelListComponent} from './channel-list/channel-list.component';
 import {ChannelCardComponent} from './channel-card/channel-card.component';
 import {SafeUrlPipe} from './safe-url.pipe';
@@ -28,6 +28,12 @@ import {SavedComponent} from "./saved/saved.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 
 @NgModule({
@@ -57,15 +63,24 @@ import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FontAwesomeModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    InfiniteScrollModule,
+  BrowserModule,
+  AppRoutingModule,
+  HttpClientModule,
+  BrowserAnimationsModule,
+  InfiniteScrollModule,
+  FontAwesomeModule,
+  ReactiveFormsModule,
+  TranslateModule.forRoot({
+    loader: {
+      provide: TranslateLoader,
+      useFactory: HttpLoaderFactory,
+      deps: [HttpClient]
+    }
+  })
+],
 
-  ],
+
+
   providers: [],
   bootstrap: [AppComponent]
 })
