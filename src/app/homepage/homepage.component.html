@@ -15,8 +15,8 @@
                     [title]="video.title"
                     [published_date]="video.published_date"
                     [duration]="video.duration"
-                    [thumbnail]="this.list.getThumbnail(video.thumbnail, video.video_url)"
-                    [channel_avatar]="this.BaseUrl + video.channel_picture"
+                    [thumbnail]="this.service.getThumbnail(video.thumbnail, video.video_url)"
+                    [channel_avatar]="this.service.BASE_URL + video.channel_picture"
                     [tag] = "video.tags">
     </app-video-card>
   </div>

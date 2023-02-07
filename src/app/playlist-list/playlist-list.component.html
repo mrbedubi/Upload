@@ -3,7 +3,7 @@
     <p>{{'PLAYLISTS' | translate}}</p>
     <div class="content_wrapper">
       <app-playlist-card class="playlist_card" *ngFor="let playlist of playlists"
-                         [playlist_id]="playlist.playlist_id"
+                         [playlist_id]="playlist.path"
                          [title]="playlist.title"
                          [category]="playlist.category_name"
                          [image]="playlist.image"

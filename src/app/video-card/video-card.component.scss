@@ -93,7 +93,7 @@
       width: 70px;
       aspect-ratio: 1/1;
       border: 2px solid #FFFFFF;
-      border-radius: 50%;
+      border-radius: 3000rem;
       overflow: hidden;
       position: absolute;
       right: 30px;
@@ -316,6 +316,13 @@
       &.selected:last-of-type {
         margin-bottom: 0;
       }
+
+      .info{
+        &.selected{
+          width: 40%;
+        }
+      }
+
     }
 
       .time {
@@ -340,10 +347,6 @@
         display: flex;
         flex-direction: column-reverse;
         justify-content: center;
-
-        &.selected{
-          width: 40%;
-        }
 
 
         .canal {
@@ -371,13 +374,6 @@
       }
     }
 
-  .avatar {
-    display: none;
-  }
-
-  .canal {
-    display: none;
-  }
 
   .tags {
     display: flex;

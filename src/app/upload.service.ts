@@ -30,12 +30,18 @@ export class UploadService {
     return this.http.get("https://dev-project-upskill2-grupo2.pantheonsite.io/session/token")
   }
 
-  getVideoId(alias: string) {
-  return this.http.get<any>(this.pathSource+ '/videos/' + alias + "?_format=json")
+  getId(type:string,alias: string) {
+    console.log(this.pathSource+ type +alias + "?_format=json")
+  return this.http.get<any>(this.pathSource+"/"+type+"/"+alias + "?_format=json")
   }
 
   trimVideoAlias(alias: string | any ) {
-    return alias.split('/')[2];
+    let trim=alias.split('/');
+    if(trim[2]==('video' || 'channel' || 'playlist' || 'theme' || 'tag' || 'category' || '')){
+     return trim[3];
+    }else {
+      return trim[2]
+    }
   }
 
   getVideos(page:number) {

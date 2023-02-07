@@ -32,7 +32,7 @@ export class PlaylistPageComponent implements OnInit {
   @Input() category_name?: string
 
 
-  constructor(public service: UploadService, public route: ActivatedRoute, public router : Router , public cdr:ChangeDetectorRef ) {
+  constructor(public service: UploadService, public route: ActivatedRoute, public router : Router ) {
   }
 
 
@@ -41,27 +41,39 @@ export class PlaylistPageComponent implements OnInit {
 
     // get params from url  // playlist id  and Video Id
     this.route.params.subscribe(value => {
+      this.service.getId('playlist' , value['id_playlist']+'/').subscribe((playlist)=>{
+        this.id_playlist =playlist.nid[0].value;
+          this.service.getId('video', value['id_video']+'/').subscribe((video)=>{
+            this.id_video=video.mid[0].value;
 
-      this.id_playlist = value['id_playlist'];
-      this.id_video= value['id_video'];
-      // get the current video
-      this.currentVideo( this.id_video);
-      // get comments
-      this.cdr.detectChanges();
-
-    });
+            this.currentVideo( this.id_video);
 
 
-    this.service.getPlaylistById(this.id_playlist).subscribe((playlist)=>{
-      // get the id of the videos with in the playlist
-      this.playlist=playlist[0];
-      this.videoIds=playlist[0].videos;
-      console.log(this.videoIds);
-      this.service.getVideosById(this.videoIds).subscribe((videos) => {
-        this.videos_playlist= videos;
-        this.getSmilarVideos(videos);
+
+
+            this.service.getPlaylistById(this.id_playlist).subscribe((playlist)=>{
+              // get the id of the videos with in the playlist
+              this.playlist=playlist[0];
+              this.videoIds=playlist[0].videos;
+              console.log(this.videoIds);
+              this.service.getVideosById(this.videoIds).subscribe((videos) => {
+                this.videos_playlist= videos;
+                this.getSmilarVideos(videos);
+              });
+            });
+          })
+
       });
+
+      // get the current video
+
+      // get comments
+
+
     });
+
+
+
 
       // get the videos by the id
 
@@ -110,7 +122,8 @@ export class PlaylistPageComponent implements OnInit {
   // go to other video in the playlist
 
   selectVideo(playlist_id:any ,id:any){
-    this.router.navigate(['/playlist/'+playlist_id+'/video/'+id+'']);
+
+    this.router.navigate([playlist_id+id]);
   }
 
   // this function gets the current selected video
@@ -157,9 +170,6 @@ export class PlaylistPageComponent implements OnInit {
 
 
 
-  changeUrl() {
-    this.router.navigate(['/playlist/10/video/8']);
-  }
 
 }
 
