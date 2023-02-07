@@ -15,7 +15,7 @@
        [routerLink]="['/channel/',channelId]"></div>
   <div class="info" [ngClass]="selected? 'selected' :''">
     <p class="canal" *ngIf="card=='homepage'|| card=='videopage' || card == 'playlistpage'"
-       [routerLink]="['/channel/',channelId]">{{channel_name}}</p>
+       [routerLink]="[''+channelId]">{{channel_name}}</p>
     <div class="tags" *ngIf="card=='channelpage'">
       <p class="tag" *ngFor=" let tag of tags | slice: 0:3" [routerLink]="['/search/tag/',tag.id]">#{{tag.name}}</p>
     </div>
@@ -24,11 +24,11 @@
   <div class="info_bottom" (click)="$event.stopPropagation() "*ngIf="card == 'homepage' || 'channelpage'"  >
     <p class="data">{{published_date}}</p>
     <div class="buttons">
-      <div class="fav_button" (click) ="list.toggleFavorite(id)" *ngIf="card == 'homepage'">
-        <fa-icon *ngIf="this.list.isSaved(id)" [icon] = "savedIcon" class="icon"></fa-icon>
-        <fa-icon *ngIf="!this.list.isSaved(id)" [icon] = "notSavedIcon" class="icon"></fa-icon>
+      <div class="fav_button" (click) ="service.toggleFavorite(video_id)" *ngIf="card == 'homepage'">
+        <fa-icon *ngIf="this.service.isSaved(video_id)" [icon] = "savedIcon" class="icon"></fa-icon>
+        <fa-icon *ngIf="!this.service.isSaved(video_id)" [icon] = "notSavedIcon" class="icon"></fa-icon>
       </div>
-      <div class="share_button" (click)="this.list.togglePopUp()" *ngIf="card == 'homepage'">
+      <div class="share_button" (click)="this.service.togglePopUp()" *ngIf="card == 'homepage'">
         <fa-icon [icon] = "faShareAlt" class="icon"></fa-icon>
       </div>
     </div>
@@ -36,7 +36,7 @@
 
 </div>
 
-<div class="popup" *ngIf="this.list.showShare">
+<div class="popup" *ngIf="this.service.showShare">
   <div class="overlay"></div>
-  <app-share [video_url]="'/video/'+id"></app-share>
+  <app-share [video_url]="id"></app-share>
 </div>

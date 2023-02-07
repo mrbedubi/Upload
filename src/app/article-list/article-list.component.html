@@ -2,8 +2,9 @@
     <h1>{{'ARTS' | translate}}</h1>
     <div id="articles">
 
-      <app-article-card class="article" *ngFor="let theme of themes" [routerLink]="['/article/', theme.id]"
+      <app-article-card class="article" *ngFor="let theme of themes" [routerLink]="[theme.path]"
                         [id]="theme.id"
+                        [path]="theme.path"
                         [title]="theme.title"
                         [channel_name]="theme.channel_name"
                         [teaser]="theme.teaser"
