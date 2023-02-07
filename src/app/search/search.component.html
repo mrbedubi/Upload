@@ -6,7 +6,7 @@
 
   <div class="content_wrapper" >
     <app-video-card class="video_card" *ngFor=" let video of videos"
-                    [id]="video.id"
+                    [id]="video.path"
                     [channelId]="video.channel_id"
                     [channel_name]="video.channel_name"
                     card="homepage"

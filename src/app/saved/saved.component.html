@@ -8,7 +8,7 @@
     <div class="content_wrapper" *ngFor="let video of listaSaved">
 
       <app-video-card
-        [id]="video.id"
+        [id]="video.path"
         [channelId]="video.channel_id"
         [channel_name]="video.channel_name"
         card="homepage"

@@ -35,17 +35,8 @@ export class UploadService {
   return this.http.get<any>(this.pathSource+"/"+type+"/"+alias + "?_format=json")
   }
 
-  trimVideoAlias(alias: string | any ) {
-    let trim=alias.split('/');
-    if(trim[2]==('video' || 'channel' || 'playlist' || 'theme' || 'tag' || 'category' || '')){
-     return trim[3];
-    }else {
-      return trim[2]
-    }
-  }
-
-  getVideos(page:number) {
-    return this.http.get<Video[]>(this.BASE_URL + "videos?page=" + page);
+  getVideos() {
+    return this.http.get<Video[]>(this.BASE_URL + "videos");
   }
 
   getVideosById(ids: number | string) {
@@ -56,11 +47,11 @@ export class UploadService {
     return this.http.get<Theme[]>(this.BASE_URL + "themes")
   }
 
-  getThemeById(id: number) {
+  getThemeById(id: number | string) {
     return this.http.get<Theme>(this.BASE_URL + "themes/" + id)
   }
 
-  getVideosByChannel(id: number) {
+  getVideosByChannel(id: number | string) {
     return this.http.get<Video[]>(this.BASE_URL + "channels/" + id + "/videos");
   }
 
@@ -78,7 +69,7 @@ export class UploadService {
     return this.http.get<NrVideosChannel[]>(this.BASE_URL + "channels/all/nvideos")
   }
 
-  getChannelsById(id: number) {
+  getChannelsById(id: number | string) {
     return this.http.get<Channel[]>(this.BASE_URL + "channels/" + id);
   }
 

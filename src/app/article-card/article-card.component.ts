@@ -22,6 +22,7 @@ export class ArticleCardComponent implements OnInit {
 
 
   @Input() id?: number
+  @Input() path!:string
   @Input() title!: string
   @Input() teaser!: string
   @Input() body!: string
