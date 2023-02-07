@@ -17,6 +17,7 @@ export class ArticlePageComponent implements OnInit {
   videosById: Video[] = []
   tagsById: Tag[] = [];
   theme!: Theme[]
+  tags: Tag[] = []
   BaseUrl: string="https://dev-project-upskill2-grupo2.pantheonsite.io"
   paginaAtual:number = 0
 
