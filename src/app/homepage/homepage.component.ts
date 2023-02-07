@@ -10,21 +10,28 @@ import {Router} from "@angular/router";
 })
 export class HomepageComponent {
   videos!: Video[];
-vid_id!:any ;
+  BaseUrl: string = "https://dev-project-upskill2-grupo2.pantheonsite.io"
+  paginaAtual = 1
 
 
-  constructor(public service: UploadService) {
+  constructor(public list: UploadService) {
   }
 
   ngOnInit(): void {
-
-    this.service.getVideos().subscribe((videos) => {
+    this.list.getVideos(this.paginaAtual).subscribe((videos) => {
       this.videos = videos
     })
 
-    this.vid_id= this.service.getVideoId("/videos/plant-propagation-beginners-5-indoor-plants");
-
-
   }
 
+  nextPage(): void {
+
+    this.paginaAtual++;
+
+    this.list.getVideos(this.paginaAtual).subscribe((videos) => {
+      this.videos.push(...videos);
+      console.log(this.videos)
+    })
+
+  }
 }
