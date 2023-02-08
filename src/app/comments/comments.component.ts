@@ -23,6 +23,7 @@ postComment!:FormGroup;
   reportSent = false;
   comments: Comments[]=[];
   commentsNumber!:number
+
 constructor(public service: UploadService , private  fb:FormBuilder){
   this.postComment = this.fb.group({
       name:['',[Validators.required , Validators.maxLength(100)]],

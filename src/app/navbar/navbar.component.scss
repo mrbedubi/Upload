@@ -154,7 +154,7 @@
     width: 100%;
     min-width: 300px;
     font-size: 1.5rem;
-    height: 120px;
+    height: 90px;
 
     .brand_container {
       width: 100%;
@@ -165,14 +165,16 @@
 
       .hamburger {
         visibility: visible;
-        font-size: 2.5rem;
-        padding: 0 5rem 0 3rem;
+        font-size: 2rem;
+        padding: 0 3rem 0 3rem;
       }
 
       .brand_logo {
         width: 50%;
         height: 50%;
         margin: 0;
+        position: absolute;
+        left: 30%;
       }
     }
 
