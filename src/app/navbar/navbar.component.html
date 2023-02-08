@@ -5,24 +5,24 @@
   </div>
   <div id="menu_wrapper">
     <div id="menu_items_wrapper">
-      <div class="menu_item" [routerLink]="this.service.lang=='en'? '/home':'pt-pt/inicio'" routerLinkActive="activated">
+      <div class="menu_item" [routerLink]="this.service.lang=='en'? '/home':'/pt-pt/inicio'" routerLinkActive="activated">
         <fa-icon [icon]="faHome" class="icon"></fa-icon>
         <p>{{'HOME' | translate}}</p>
       </div>
-      <div class="menu_item" [routerLink]="this.service.lang=='en'? '/channels':'pt-pt/canais'" routerLinkActive="activated">
+      <div class="menu_item" [routerLink]="this.service.lang=='en'? '/channels':'/pt-pt/canais'" routerLinkActive="activated">
         <fa-icon [icon]="faStream" class="icon"></fa-icon>
 
         <p>{{'CHANS' | translate}}</p>
       </div>
-      <div class="menu_item" [routerLink]="this.service.lang=='en'? '/articles':'pt-pt/artigos'" routerLinkActive="activated">
+      <div class="menu_item" [routerLink]="this.service.lang=='en'? '/articles':'/pt-pt/artigos'" routerLinkActive="activated">
         <fa-icon [icon]="faFilm" class="icon"></fa-icon>
         <p>{{'ARTS' | translate}}</p>
       </div>
-      <div class="menu_item" [routerLink]="this.service.lang=='en'? '/playlists':'pt-pt/playlists'" routerLinkActive="activated">
+      <div class="menu_item" [routerLink]="this.service.lang=='en'? '/playlists':'/pt-pt/playlists'" routerLinkActive="activated">
         <fa-icon [icon]="faPlay" class="icon"></fa-icon>
         <p>{{'PLAYLISTS' | translate}}</p>
       </div>
-      <div class="menu_item" [routerLink]="this.service.lang=='en'? '/saved':'pt-pt/guardados'" routerLinkActive="activated">
+      <div class="menu_item" [routerLink]="this.service.lang=='en'? '/saved':'/pt-pt/guardados'" routerLinkActive="activated">
         <i class="fa-solid fa-bookmark"></i>
         <p>{{'SAVED' | translate}}</p>
       </div>
