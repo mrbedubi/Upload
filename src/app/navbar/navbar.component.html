@@ -30,7 +30,7 @@
     <div id="tag_wrapper">
       <h1>{{'TAGS' | translate}}</h1>
       <div class="tag_container">
-        <div class="tag" *ngFor="let tag of tags" [routerLink]="['/search/tag/',tag.id]"> {{tag.name}}</div>
+        <div class="tag" *ngFor="let tag of tags | slice: 0:7" [routerLink]="['/search/tag/',tag.id]"> {{tag.name}}</div>
         <app-tags-list *ngIf="tagModal" class="tagPopUp"></app-tags-list>
       </div>
       <p (click)="tagModal=true" class="show_more_tags">{{'SHOWMORE' | translate}}</p>

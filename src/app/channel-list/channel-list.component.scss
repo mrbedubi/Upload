@@ -1,27 +1,12 @@
 p {
-  padding-left: 2.5rem;
+  padding: 2rem 0 1rem 1rem;
   font-size: 1.7rem;
   font-weight: 600;
   margin: 0;
 }
 
 #channel_list_wrapper {
-  padding-left: 14%;
-}
-
-.content_wrapper {
-  width: 100%;
-  display: flex;
-
-  .card {
-    padding: 15px;
-    width: 33%;
-  }
-
-}
-
-#channel_list_wrapper {
-  padding-left: 14%;
+  padding-left: 13.5%;
 }
 
 .content_wrapper {
@@ -35,4 +20,24 @@ p {
     width: 33%;
   }
 
+}
+
+@media only screen and (max-width: 768px) {
+  #channel_list_wrapper {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  p {
+    padding: 10rem 0 0 1rem;
+  }
+  .content_wrapper {
+    display: block;
+    box-sizing: border-box;
+    padding: 0 1rem;
+
+    .card {
+      width: 100%;
+    }
+  }
 }

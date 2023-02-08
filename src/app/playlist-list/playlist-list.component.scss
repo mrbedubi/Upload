@@ -27,3 +27,24 @@
 }
 
 }
+
+@media only screen and (max-width: 768px) {
+  #playlist_list_wrapper {
+    padding: 10rem 1rem 0 1rem;
+
+    .main_content_wrapper {
+
+      p {
+        padding: 0 0 0 1rem;
+      }
+
+      .content_wrapper {
+        display: block;
+
+        .playlist_card {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

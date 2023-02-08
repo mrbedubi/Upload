@@ -49,3 +49,22 @@
 }
 
 
+
+@media only screen and (max-width: 768px) {
+  #home_wrapper {
+    padding: 10rem 0 0 0;
+
+    .main_content_wrapper {
+      width: 100%;
+
+      .content_wrapper {
+        padding: 0;
+
+        .video_card {
+          width: 100%;
+          padding: 1rem;
+        }
+      }
+    }
+  }
+}

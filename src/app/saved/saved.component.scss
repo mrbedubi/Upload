@@ -1,8 +1,9 @@
 #saved_wrapper {
-  margin-left: 15%;
+  padding-left: 13.5%;
 
   h1 {
     font-size: 1.8rem;
+    padding-left: 1rem;
   }
 
   .main_content_wrapper {
@@ -19,6 +20,26 @@
       }
 
 
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #saved_wrapper {
+    padding: 10rem 1rem 0 1rem;
+
+    .main_content_wrapper {
+      width: 100%;
+
+      .content_wrapper {
+        padding: 0;
+        width: 100%;
+        padding: 1rem;
+
+        app-video_card {
+          width: 100%;
+        }
+      }
     }
   }
 }

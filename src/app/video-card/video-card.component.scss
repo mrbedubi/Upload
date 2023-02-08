@@ -415,3 +415,12 @@
   background: rgba(45, 44, 44, 0.2);
 }
 
+
+@media only screen and (max-width: 768px) {
+  .video_card_container {
+
+    &.homepage {
+      width: 100%;
+    }
+  }
+}

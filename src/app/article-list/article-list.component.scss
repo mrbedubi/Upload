@@ -1,8 +1,9 @@
 #saved_wrapper {
-  margin-left: 15%;
+  padding-left: 13.5%;
 
   h1 {
     font-size: 1.8rem;
+    padding: 0 0 0 1rem;
   }
 
   #articles {
@@ -14,6 +15,24 @@
       width: 33%;
       padding: 1rem;
       box-sizing: border-box;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #saved_wrapper {
+    padding: 10rem 1rem 0 1rem;
+
+    h1 {
+      padding: 0;
+    }
+
+    #articles {
+      display: block;
+
+      .article {
+        width: 100%;
+      }
     }
   }
 }
