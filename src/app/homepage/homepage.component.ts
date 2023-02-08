@@ -11,7 +11,7 @@ import {Video, Channel ,Tag} from "../interface";
 
 export class HomepageComponent {
   videos!: Video[];
-  paginaAtual = 1
+  paginaAtual = 0;
   vid_id!: any;
 
   constructor(public service: UploadService) {

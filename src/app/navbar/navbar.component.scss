@@ -127,7 +127,10 @@
         padding-right: 0.2rem;
 
         &:hover {
-          color: #FFFFFF;
+          background: url("https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Portugal.svg");
+          background-size: cover;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
       }
 
@@ -135,7 +138,10 @@
         padding-left: 0.2rem;
 
         &:hover {
-          color: #FFFFFF;
+          background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/1200px-Flag_of_the_United_Kingdom_%281-2%29.svg.png");
+          background-size: cover;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
       }
     }
