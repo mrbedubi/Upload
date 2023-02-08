@@ -35,7 +35,7 @@ export class PlaylistCardComponent implements OnInit {
     this.first_video_id= srt.split(',')[0];
     this.service.getVideosById(this.first_video_id).subscribe((video)=>{
       this.first_video_url=video[0].path
-      this.link_playlist_page=this.playlist_id+this.first_video_url;
+      this.link_playlist_page=this.playlist_id+(this.first_video_url.replace("pt-pt",""));
     })
 
   }

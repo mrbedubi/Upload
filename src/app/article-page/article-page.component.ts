@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {UploadService} from "../upload.service";
 import {Tag, Theme, Video} from "../interface";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Route, Router} from "@angular/router";
 import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
@@ -22,14 +22,12 @@ export class ArticlePageComponent implements OnInit {
   paginaAtual:number = 0
 
   ids!: any
-  constructor(public service: UploadService, private route: ActivatedRoute, private sanitizer: DomSanitizer) { }
+  constructor(public service: UploadService, private route: ActivatedRoute, private sanitizer: DomSanitizer , private router:Router) { }
 
 
   ngOnInit(): void {
-
-    let path = this.route.snapshot.url
-    console.log(path);
-    this.service.getId('article', path[1].path).subscribe((article) => {
+    let url =this.router.url;
+    this.service.getId(url).subscribe((article) => {
       this.ids = article.nid[0].value;
 
       this.service.getVideos(this.paginaAtual).subscribe((videos) => {
@@ -41,8 +39,6 @@ export class ArticlePageComponent implements OnInit {
         this.videoIds = Object.values(theme)[0].video_id.split(", ")
         this.tagsIds = Object.values(theme)[0].tag_id.split(", ")
         this.theme = Object.values(theme)
-        console.log(this.tagsIds)
-        console.log(this.videoIds)
 
 
         for (let video in this.videoIds) {
@@ -55,7 +51,6 @@ export class ArticlePageComponent implements OnInit {
         for (let tag in this.tagsIds) {
           this.service.getTagsById(parseInt(this.tagsIds[tag])).subscribe((tagsById) => {
             this.tagsById.push(tagsById[0])
-            console.log(this.tagsById)
           })
         }
       })

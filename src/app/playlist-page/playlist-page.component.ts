@@ -41,11 +41,12 @@ export class PlaylistPageComponent implements OnInit {
 
     // get params from url  // playlist id  and Video Id
     this.route.params.subscribe(value => {
-      this.service.getId('playlist' , value['id_playlist']+'/').subscribe((playlist)=>{
+      let lang="";
+     if(this.service.lang == 'pt') lang='/pt-pt';
+      this.service.getId(lang+'/playlist/'+ value['id_playlist']+'/').subscribe((playlist)=>{
         this.id_playlist =playlist.nid[0].value;
-          this.service.getId('video', value['id_video']+'/').subscribe((video)=>{
+          this.service.getId(lang+'/video/'+ value['id_video']+'/').subscribe((video)=>{
             this.id_video=video.mid[0].value;
-
             this.currentVideo( this.id_video);
 
 
@@ -121,9 +122,9 @@ export class PlaylistPageComponent implements OnInit {
 
   // go to other video in the playlist
 
-  selectVideo(playlist_id:any ,id:any){
-
-    this.router.navigate([playlist_id+id]);
+  selectVideo(playlist_id:any ,video_id:any){
+video_id=video_id.replace('/pt-pt/','/');
+    this.router.navigate([playlist_id+video_id]);
   }
 
   // this function gets the current selected video

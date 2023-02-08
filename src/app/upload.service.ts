@@ -30,9 +30,9 @@ export class UploadService {
     return this.http.get("https://dev-project-upskill2-grupo2.pantheonsite.io/session/token")
   }
 
-  getId(type:string,alias: string) {
-    console.log(this.pathSource+ type +alias + "?_format=json")
-  return this.http.get<any>(this.pathSource+"/"+type+"/"+alias + "?_format=json")
+  getId(alias: string) {
+    console.log(this.pathSource+alias + "?_format=json")
+  return this.http.get<any>(this.pathSource +alias + "?_format=json")
   }
 
   getVideos(page:number) {

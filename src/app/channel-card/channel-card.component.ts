@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {UploadService} from "../upload.service";
 import {Channel, Tag, Video} from "../interface";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-channel-card',
@@ -16,6 +16,7 @@ export class ChannelCardComponent implements OnInit {
   videos: Video[] = []
   tags: Tag[] = []
   tagsByChannel: Tag[] = []
+
   channel_id!:number ;
   @Input() id!: string;
   @Input() name?: string;
@@ -25,18 +26,21 @@ export class ChannelCardComponent implements OnInit {
   @Input() nr_videos?: number;
   @Input() tag?: string
 
-  constructor(public service:UploadService) { }
+  constructor(public service:UploadService , private router:Router) { }
 
   ngOnInit(): void {
-    this.service.getId('',this.id).subscribe( (channel)=>{
+
+
+    this.service.getId(this.id).subscribe( (channel)=>{
       this.channel_id = channel.nid[0].value;
-      console.log(this.channel_id);
-    })
+
+
     this.service.getChannelsById(this.channel_id).subscribe((channel) => {
       this.channels = channel;
       for(let chnl in this.channels) {
         this.service.getVideosByChannel(this.channels[chnl].channel_id).subscribe((videos) => {
           this.videos = videos
+
 
           this.service.getTagsById(videos[Math.round((videos.length-1)*Math.random())].tags).subscribe((tags) => {
             this.tagsByChannel = tags
@@ -46,6 +50,7 @@ export class ChannelCardComponent implements OnInit {
         })
       }
 
+    })
     })
   }
 

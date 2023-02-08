@@ -1,19 +1,19 @@
 <div class="theme_sug_container">
   <div class="theme_sug_title">
     <p>{{'THEMESUG' | translate}}</p>
-    <div class="ver_todas"  [routerLink]="['/articles']">
+    <div class="ver_todas"  routerLink="/{{this.service.lang=='en'? '/articles':'pt-pt/artigos'}}" >
       <h5>{{'VIEWALL' | translate}}</h5>
     </div>
   </div>
   <div class="theme_wrapper">
-    <div class="theme_container" [routerLink]="['/article',theme.id]">
+    <div class="theme_container" routerLink="/{{theme.path}}">
       <div class="theme_avatar" style="background-image: url('{{BASEURL+theme.channel_picture}}')"></div>
       <div class="theme_info">
         <h5>{{theme.title}}</h5>
         <h6>{{theme.channel_name}}</h6>
       </div>
     </div>
-    <div class="theme_img_container" [routerLink]="['/article',theme.id]">
+    <div class="theme_img_container" routerLink="/{{theme.path}}">
       <img class="theme_img" src="{{BASEURL+theme.thumbnail}}">
     </div>
   </div>

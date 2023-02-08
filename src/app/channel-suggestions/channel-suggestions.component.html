@@ -3,13 +3,13 @@
     <p>{{'CHANSUG' | translate}}</p>
   </div>
   <div class="channel_avatar_wrapper">
-    <div class="channel_avatar" *ngFor="let channel of channels.slice(0,4)" routerLink="/channel/{{channel.channel_id}}">
+    <div class="channel_avatar" *ngFor="let channel of channels.slice(0,4)" routerLink="/{{channel.path}}">
       <div class="channel_avatar_img" style="background-image:url({{this.BaseUrl+channel.profile_picture}})"></div>
       <p>{{channel.name}}</p>
     </div>
 
   </div>
-  <div class="show_more_container" routerLink="/channels">
+  <div class="show_more_container" routerLink='{{this.pathChannelPage}}'>
     <p>{{'SHOWMORE' | translate}}</p>
   </div>
 

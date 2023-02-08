@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Channel, Video} from "../interface";
 import {UploadService} from "../upload.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-channel-page',
@@ -22,12 +22,12 @@ export class ChannelPageComponent {
   @Input() profile_picture?: string;
 
 
-  constructor( public service:UploadService,  private route: ActivatedRoute){
+  constructor( public service:UploadService,  private route: ActivatedRoute , private router:Router){
 
   }
   ngOnInit():void {
-    let url =this.route.snapshot.url;
-    this.service.getId('channel',url[1].path).subscribe((channel) => {
+    let url =this.router.url;
+    this.service.getId(url).subscribe((channel) => {
 
      this.channel_id = channel.nid[0].value;
 

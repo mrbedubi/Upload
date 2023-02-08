@@ -39,8 +39,8 @@ export class VideoPageComponent {
 
   }
   ngOnInit():void {
-    let url =this.route.snapshot.url;
-    this.service.getId('video' ,url[1].path).subscribe((video) => {
+    let url =this.router.url;
+    this.service.getId(url).subscribe((video) => {
       this.ids = video.mid[0].value;
       this.initVideoPage();
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;

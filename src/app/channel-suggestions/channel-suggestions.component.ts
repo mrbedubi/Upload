@@ -10,12 +10,12 @@ import {UploadService} from "../upload.service";
 export class ChannelSuggestionsComponent {
   BaseUrl:string="https://dev-project-upskill2-grupo2.pantheonsite.io"
   channels!:Channel[];
-  constructor( public list:UploadService) {
-  }
+  constructor( public service:UploadService) {
+  }  pathChannelPage!:string
 
   ngOnInit():void{
-
-this.list.getChannels().subscribe((channels)=>{
+    if(this.service.lang=="en")  this.pathChannelPage = "/channels"; else this.pathChannelPage = "/pt-pt/canais";
+this.service.getChannels().subscribe((channels)=>{
   this.channels=channels;
 })
   }

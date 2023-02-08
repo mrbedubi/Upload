@@ -47,7 +47,7 @@ export class VideoCardComponent implements OnInit {
 //public uploadService: UploadService
   ngOnInit(): void {
 
-    this.service.getId('',this.id).subscribe((video)=>{
+    this.service.getId(this.id).subscribe((video)=>{
       this.video_id=video.mid[0].value;
     })
 
