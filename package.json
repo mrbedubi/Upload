@@ -27,7 +27,7 @@
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "crypto-js": "^4.1.1",
-    "ngx-infinite-scroll": "^14.0.0",
+    "ngx-infinite-scroll": "^14.0.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "^0.11.8"

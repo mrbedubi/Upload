@@ -1,7 +1,12 @@
-<div class="share_container">
+<div class="icon">
+  <fa-icon class="icon"[icon]="faShareAlt" (click)="openPopUp(); $event.stopPropagation()"></fa-icon>
+</div>
+
+<div class="overlay" *ngIf="show" (click)="$event.stopPropagation()"></div>
+<div class="share_container" *ngIf="show">
   <div class="info">
     <h3>Partilhar Vídeo</h3>
-    <img class="x" (click)="this.list.closePopUp()" src="assets/closeBtn.svg" >
+    <img class="x" (click)="closePopUp()" src="assets/closeBtn.svg" >
   </div>
   <p>Partilhar via</p>
   <div class="icons">

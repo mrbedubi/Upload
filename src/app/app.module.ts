@@ -61,8 +61,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ArticleCardComponent,
     ArticleListComponent,
     SavedComponent,
-    ReportPopUpComponent,
-
+    ReportPopUpComponent
   ],
   imports: [
   BrowserModule,

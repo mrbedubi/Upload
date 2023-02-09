@@ -1,4 +1,4 @@
-import {Component, Input, SecurityContext} from '@angular/core';
+import {Component, Injectable, Input, OnInit} from '@angular/core';
 import {Rating, Tag, Video} from "../interface";
 import {UploadService} from "../upload.service";
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
@@ -9,12 +9,13 @@ import {faBookmark as notSaved, faThumbsUp as notLiked, faThumbsDown as notDisli
 import {faShareAlt, faThumbsUp as liked, faThumbsDown as disliked} from "@fortawesome/free-solid-svg-icons";
 
 
+
 @Component({
   selector: 'app-video-page',
   templateUrl: './video-page.component.html',
   styleUrls: ['./video-page.component.scss']
 })
-export class VideoPageComponent {
+export class VideoPageComponent implements OnInit{
   BaseUrl:string="https://dev-project-upskill2-grupo2.pantheonsite.io";
   video!:Video
   videosByTag: Video[] = []

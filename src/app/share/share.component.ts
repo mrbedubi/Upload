@@ -3,6 +3,8 @@ import {faFacebook} from "@fortawesome/free-brands-svg-icons";
 import {faTwitter} from "@fortawesome/free-brands-svg-icons";
 import {faWhatsapp} from "@fortawesome/free-brands-svg-icons";
 import {faLink} from "@fortawesome/free-solid-svg-icons";
+import {faShareAlt} from "@fortawesome/free-solid-svg-icons";
+
 import {UploadService} from "../upload.service";
 import {Video} from "../interface";
 import {VideoCardComponent} from "../video-card/video-card.component";
@@ -19,21 +21,19 @@ export class ShareComponent implements OnInit {
   faTwitter = faTwitter
   faWhatsapp = faWhatsapp
   faLink = faLink
+  faShareAlt = faShareAlt
   videosById: Video[] = [];
   url!:string;
+  show: boolean = false
+  @Input() video_url!: string;
 
-  @Input() video_url?: string;
 
-
-  constructor(public list: UploadService, public card:VideoCardComponent, private location:LocationStrategy) {
-    this.url=window.location.protocol +'//'+window.location.host;
+  constructor(public list: UploadService, private location:LocationStrategy) {
+    this.url=window!.location!.protocol +'//'+window!.location!.host;
 
   }
 
   ngOnInit(): void {
-    //this.list.getVideosById().subscribe()
-    //this.videosByID = video
-    console.log(this.video_url);
     this.url+=this.video_url;
 
   }
@@ -48,5 +48,12 @@ export class ShareComponent implements OnInit {
 
   }
 
+  openPopUp() {
+    this.show = true
+  }
+
+  closePopUp() {
+    this.show = false
+  }
 
 }

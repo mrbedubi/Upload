@@ -160,13 +160,14 @@ giveRating(body:{
 reportVideo(){
 
 }
-
   showShare: boolean = false
 
   openPopUp(){
-      this.showShare=true
+    this.showShare=true
 
   }
+
+
   closePopUp(){
 
       this.showShare=false;
