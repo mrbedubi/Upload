@@ -36,9 +36,9 @@
       <p (click)="tagModal=true" class="show_more_tags">{{'SHOWMORE' | translate}}</p>
     </div>
     <div class="language">
-      <h3 class="pt" (click)="switchLang('pt')">PT</h3>
+      <h3 class="pt" (click)="switchLang('pt')" [ngClass]="flag_pt">PT</h3>
       <h3> | </h3>
-      <h3 class="en" (click)="switchLang('en')">EN</h3>
+      <h3 class="en" (click)="switchLang('en')" [ngClass]="flag_en">EN</h3>
     </div>
   </div>
 </nav>

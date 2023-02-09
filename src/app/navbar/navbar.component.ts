@@ -27,6 +27,13 @@ export class NavbarComponent {
 
   constructor(public service: UploadService, public router: Router, public activatedRouter: ActivatedRoute, private translate: TranslateService) {
     translate.setDefaultLang(this.service.lang)
+    if (this.service.lang == 'pt') {
+      this.flag_pt = 'true'
+      this.flag_en = 'false'
+    } else if (this.service.lang == 'en') {
+      this.flag_pt = 'false'
+      this.flag_en = 'true'
+    }
   }
 
   ngOnInit(): void {
@@ -38,19 +45,23 @@ export class NavbarComponent {
 
   switchLang(lang: string) {
     localStorage.setItem('lang', lang)
+    if (lang == 'pt') {
+      this.flag_pt = 'true'
+      this.flag_en = 'false'
+    } else if (lang == 'en') {
+      this.flag_pt = 'false'
+      this.flag_en = 'true'
+    }
     this.translate.use(lang)
     window.location.reload()
   }
 
-  tagModalClick() {
-    if (this.tagModal) {
-      this.tagModal = false
-    } else this.tagModal = true;
-  }
 
   switchMobile() {
     this.menu == 'close' ? this.menu = 'open' : this.menu = 'close'
   }
 
   @Input() menu: 'open' | 'close' = 'close'
+  @Input() flag_pt!: 'true' | 'false'
+  @Input() flag_en!: 'true' | 'false'
 }
