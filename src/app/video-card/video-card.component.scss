@@ -35,7 +35,6 @@
 
   &:hover {
 
-
     .play_video {
       background: rgba(37, 37, 37, 0.55);
 
@@ -220,7 +219,7 @@
     .info {
       padding-left: 20px;
       padding-top: 20px;
-
+      width: 100%;
       .tags {
         display: flex;
 
@@ -250,7 +249,7 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         max-height: 2rem;
-        max-width: 70%;
+        max-width: 90%;
       }
     }
 

@@ -38,7 +38,6 @@ constructor(public service: UploadService , private  fb:FormBuilder){
 
 ngOnChanges(){
   this.getComments();
-  console.log("lssdsdsadsdsad  ",this.service.lang);
 }
 
 
@@ -119,6 +118,7 @@ private validateFormFields(form: FormGroup) {
   toggleReport() {
     this.showReport = !this.showReport
   }
+
 
 
 
