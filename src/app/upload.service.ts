@@ -188,10 +188,12 @@ reportVideo(){
 
   getComments(id:number|string , type: "video" | "channel"){
   if(type == "video"){
-
-  }else{
-  }
     return this.http.get<Comments[]>(this.BASE_URL + "videos/"+id+"/comments")
+  }else{
+
+    return this.http.get<Comments[]>(this.BASE_URL + "channels/"+id+"/comments")
+  }
+
   }
 
   getGravatar(email:string){

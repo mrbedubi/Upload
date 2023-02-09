@@ -17,12 +17,13 @@ export class CommentsComponent implements OnChanges {
 
 submitted=false;
 postComment!:FormGroup;
-  @Input() videoId!:number;
+  @Input() Id!:number |string;
   @Input() type!:'video'|'channel';
   showReport = false;
   reportSent = false;
   comments: Comments[]=[];
-  commentsNumber!:number
+  commentsNumber!:number;
+
 constructor(public service: UploadService , private  fb:FormBuilder){
   this.postComment = this.fb.group({
       name:['',[Validators.required , Validators.maxLength(100)]],
@@ -37,6 +38,7 @@ constructor(public service: UploadService , private  fb:FormBuilder){
 
 ngOnChanges(){
   this.getComments();
+  console.log("lssdsdsadsdsad  ",this.service.lang);
 }
 
 
@@ -52,24 +54,43 @@ let name=this.postComment.get('name')?.value;
 let email=this.postComment.get('email')?.value;
 let message=this.postComment.get('message')?.value;
 let newComment:Comments;
-  let comment ={
-    "entity_id":[{"target_id":this.videoId}],
+  let comment={};
+if(this.type=='video'){
+   comment ={
+    "entity_id":[{"target_id":this.Id}],
     "entity_type":[{"value":"media"}],
     "field_name":[{"value":"field_comments_"}],
     "comment_type":[{"target_id":"video_comments"}],
     "comment_body":[{"value":message,"format":"plain_text"}],
     "field_email":[{"value":email}],
-    "field_username":[{"value":name}]
+    "field_username":[{"value":name}],
+    "pid":[],
+    "langcode": [{"value":this.service.lang=='en'?'en' : 'pt-pt' }]
   }
+} else {
+  comment ={
+    "entity_id":[{"target_id":this.Id}],
+    "entity_type":[{"value":"node"}],
+    "field_name":[{"value":"field_channel_comments"}],
+    "comment_type":[{"target_id":"channel_comments"}],
+    "comment_body":[{"value":message,"format":"plain_text"}],
+    "field_email":[{"value":email}],
+    "field_username":[{"value":name}],
+    "pid":[],
+    "langcode": [{"value":this.service.lang=='en'?'en' : 'pt-pt' }]
+  }
+}
 
-
+  console.log(comment);
   this.service.postComments(comment);
   newComment={
     "comment": message,
     "email": email,
     "username": name,
     "date": "just now",
-    "video_id": this.videoId
+    "id": this.Id,
+    "comment_id": "",
+    "reply_comment_id": "",
   }
   this.comments.unshift(newComment);
 this.submitted=false;
@@ -99,24 +120,23 @@ private validateFormFields(form: FormGroup) {
     this.showReport = !this.showReport
   }
 
-  sendReport() {
-    this.showReport = false
-    this.reportSent = true
-    let start = 1000;
-
-    setTimeout( () => {
-      this.reportSent = !this.reportSent
-      console.log('a')
-    }, start);
-  }
 
 
   getComments(){
-  this.service.getComments(this.videoId , "video").subscribe((comments)=>{
-  this.comments=comments
-  })
 
+    if(this.type=='video'){
+      this.service.getComments(this.Id , "video").subscribe((comments)=>{
+        this.comments=comments
+      })
+    }else {
+
+      this.service.getComments(this.Id , "channel").subscribe((comments)=>{
+        this.comments=comments
+      })
+    }
   }
+
+
 
 
 }

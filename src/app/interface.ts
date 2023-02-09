@@ -85,7 +85,9 @@ interface Comments {
   "email": string,
   "username": string,
   "date": string,
-  "video_id": string |number
+  "id": string |number
+  "comment_id": string |number,
+  "reply_comment_id": string |number
 }
 
 interface Rating {
@@ -101,7 +103,7 @@ interface PostMessage{
   "field_email":[{"value":"diog.azev97@gmail.com"}],
   "field_user_avatar":[{"value":"jkh"}],
   "field_username":[{"value":"Ola"}],
-  "langcode": [{"value": "en"} ]
+  "langcode": [{"value": string} ]
 
 }
 

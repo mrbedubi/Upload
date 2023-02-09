@@ -1,0 +1,87 @@
+.container{
+  position: relative;
+}
+
+
+.report_container{
+  position: absolute;
+  width: fit-content;
+  max-width: 20rem;
+  max-height:10rem;
+  z-index: 100;
+
+  .report_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;width: max-content;
+  background-color: #1c1c24;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+
+  .form_group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+
+    .radio_contianer{
+      display: flex;
+
+
+      &.is-invalid {
+        border-color: red;
+        background-color: red;
+      }
+    }
+
+    label {
+      align-items: center;
+      font-size: 1rem;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+    }
+
+    input[type="radio"] {
+      margin-right: 0.5rem;
+    }
+
+    input[type="text"] {
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid lightgray;
+      font-size: 1rem;
+
+      &.is-invalid {
+        border-color: red;
+      }
+    }
+
+    .invalid-feedback {
+      font-size: 0.8rem;
+      color: red;
+      margin-top: 0.5rem;
+    }
+  }
+
+  button[type="submit"] {
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: white;
+      border-color: transparent;
+      color: #1C1C24;
+    }
+  }
+}
+
+
+}
