@@ -1,16 +1,14 @@
 <div class="popup_container">
   <div class="popup_header">
     <div>
-    <p class="title">Todas As Tags</p>
-    <p class="sub_title">Selecionar uma ou mais Tags</p>
+  <p class="title">{{'ALLTAGS' | translate}}:</p>
+    <p class="sub_title">{{'SELECTTAG' | translate}}</p>
     </div>
     <div class="close_popup" (click)="this.nav.tagModal=false"><img src="assets/closeBtn.svg" alt="close_button_popUp"></div>
   </div>
 
   <div class="popup_content">
-  <!--  <div class="tag" *ngFor="let tag of tags" [routerLink]="['/search/tag/',tag.id]"> {{tag.name}}</div> -->
-
-    <div  class="arrow"  id="lef_arrow"><</div>
+      <div  class="arrow"  id="lef_arrow"><</div>
     <div class="tag_container">
       <div *ngFor="let tag of tags" class="tag" (click)="select(tag.id)" [ngClass]=" isSelected(tag.id)  ? 'select': '' ">{{tag.name}}</div>
     </div>
@@ -18,9 +16,9 @@
   </div>
 
   <div class="searchBtn">
-    <p *ngIf="this.tagsSelected.length>0" (click)="cleanSearchTags()">Limpar seleção</p>
+    <p *ngIf="this.tagsSelected.length>0" (click)="cleanSearchTags()">{{'CLEARSELECT' | translate}}</p>
 
-    <button *ngIf="this.tagsSelected.length>0" type="button" [routerLink]="['/search/tag/',searchTags()]">Pesquisar</button>
-    <button *ngIf="this.tagsSelected.length==0" type="button" class="disabled">Pesquisar</button>
+    <button *ngIf="this.tagsSelected.length>0" type="button" [routerLink]="['/search/tag/',searchTags()]">{{'SEARCH' | translate}}</button>
+    <button *ngIf="this.tagsSelected.length==0" type="button" class="disabled">{{'SEARCH' | translate}}</button>
   </div>
 </div>

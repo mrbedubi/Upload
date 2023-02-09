@@ -35,6 +35,11 @@
   "AGO": "ago",
   "SIMILARVIDS": "Similar Videos",
   "ABOUT": "About",
-  "LEAVECOMMENT": "Write a Comment"
+  "LEAVECOMMENT": "Write a Comment",
+  "REPORTREASON" : "Please explain the reason for the report.",
+  "ALLTAGS": "All tags",
+  "SELECTTAG": "Select at least 1 tag",
+  "CLEARSELECT": "Clear selection",
+  "SEARCH": "Search"
 }
 

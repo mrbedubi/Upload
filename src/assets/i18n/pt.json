@@ -35,5 +35,10 @@
   "AGO": "atrás",
   "SIMILARVIDS": "Videos Semelhantes",
   "ABOUT": "Sobre",
-  "LEAVECOMMENT": "Escrever um comentário"
+  "LEAVECOMMENT": "Escrever um comentário",
+  "REPORTREASON": "Por favor explique a razão da denúncia.",
+  "ALLTAGS": "Todas as tags",
+  "SELECTTAG": "Selecione pelo menos 1 tag",
+  "CLEARSELECT": "Limpar seleção",
+  "SEARCH": "Pesquisar"
 }

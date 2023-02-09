@@ -26,7 +26,7 @@
       <div *ngIf="reportComment!.get('reason')!.value === 'other'">
         <input type="text" id="otherReason" formControlName="otherReason" [required]="reportComment!.get('reason')!.value === 'other'" [ngClass]="{ 'is-invalid': reportComment!.get('otherReason') && reportComment!.get('otherReason')!.invalid  }">
         <div *ngIf="reportComment!.get('otherReason') && reportComment!.get('otherReason')!.invalid" class="invalid-feedback">
-          Please explain the reason for the report.
+          {{'REPORTREASON' | translate}}
         </div>
       </div>
     </div>
