@@ -3,6 +3,7 @@ import {UploadService} from "../upload.service";
 import {Tag, Theme, Video} from "../interface";
 import {ActivatedRoute, Route, Router} from "@angular/router";
 import {DomSanitizer} from "@angular/platform-browser";
+import {join} from "@angular/compiler-cli";
 
 @Component({
   selector: 'app-article-page',
@@ -13,7 +14,7 @@ export class ArticlePageComponent implements OnInit {
 
   videoIds!: string[]
   tagsIds!: string[]
-  videos!: Video[]
+  videosByTags!: Video[]
   videosById: Video[] = []
   tagsById: Tag[] = [];
   theme!: Theme[]
@@ -30,15 +31,13 @@ export class ArticlePageComponent implements OnInit {
     this.service.getId(url).subscribe((article) => {
       this.ids = article.nid[0].value;
 
-      this.service.getVideos(this.paginaAtual).subscribe((videos) => {
-        this.videos = videos
 
-      })
 
       this.service.getThemeById(this.ids).subscribe((theme) => {
         this.videoIds = Object.values(theme)[0].video_id.split(", ")
         this.tagsIds = Object.values(theme)[0].tag_id.split(", ")
         this.theme = Object.values(theme)
+        console.log(this.theme)
 
 
         for (let video in this.videoIds) {
@@ -48,11 +47,24 @@ export class ArticlePageComponent implements OnInit {
           })
         }
 
+        let tagRandom: string[] = [];
+        let tagId: string
         for (let tag in this.tagsIds) {
           this.service.getTagsById(parseInt(this.tagsIds[tag])).subscribe((tagsById) => {
             this.tagsById.push(tagsById[0])
+            tagRandom.push(tagsById[0].id.toString())
+            tagId = tagRandom[Math.round(Math.random()*(tagRandom.length))]
+
+            this.service.getVideosByTag(tagId).subscribe((videos) => {
+              console.log(videos)
+              this.videosByTags = videos
+            })
           })
+
+
         }
+
+
       })
 
     })
@@ -80,5 +92,5 @@ export class ArticlePageComponent implements OnInit {
   @Input() channel_name?: string
   @Input() channel_cover?: string
   @Input() channel_picture?: string
-
+  @Input() external_links?: string
 }

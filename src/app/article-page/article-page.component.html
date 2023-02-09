@@ -24,7 +24,11 @@
   <div class="article_container">
     <div class="article_body" [innerHTML]="theme.body">
     </div>
-    <h2>Featured Videos</h2>
+    <div class="links">
+      <h2>{{'LINKS' | translate}}</h2>
+      <div class="link_container" *ngFor="let link of theme.external_links"><a href="{{link}}" class="link" target="_blank">{{link}}</a></div>
+    </div>
+    <h2>{{'FEATVIDEOS' | translate}}</h2>
     <div class="article_videos_container">
       <app-video-card class="video_card" [routerLink]="['/video']" *ngFor=" let video of videosById | slice:0:3"
                       [id]="video.path"
@@ -37,9 +41,10 @@
                       [channel_avatar]="this.BaseUrl + video.channel_picture">
       </app-video-card>
     </div>
-    <h2>More videos about this theme</h2>
+
+    <h2>{{'MOREVIDEOS' | translate}}</h2>
     <div class="tag_videos_container">
-      <app-video-card class="video_card" [routerLink]="['/video']" *ngFor="let video of videos"
+      <app-video-card class="video_card" [routerLink]="['/video']" *ngFor="let video of videosByTags"
                       [id]="video.path"
                       [title]="video.title"
                       [channel_name]="video.channel_name"

@@ -31,7 +31,6 @@ export class UploadService {
   }
 
   getId(alias: string) {
-    console.log(this.pathSource+alias + "?_format=json")
   return this.http.get<any>(this.pathSource +alias + "?_format=json")
   }
 
@@ -181,7 +180,7 @@ reportVideo(){
 
   getIP() {
     this.http.get('https://api.ipify.org?format=json').subscribe(data => {
-      console.log(data);
+
     });
   }
 

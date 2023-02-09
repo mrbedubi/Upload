@@ -52,6 +52,23 @@ export class VideoPageComponent implements OnInit{
 
   public initVideoPage(){
 
+    let tagRandom: string[] = [];
+    let tagId: string
+    this.service.getVideosById(this.ids).subscribe((videos) => {
+      this.video=videos[0]
+      tagRandom = this.video.tags.toString().split(',')
+      tagId = tagRandom[Math.round(Math.random()*(tagRandom.length))]
+
+      this.service.getVideosByTag(tagId).subscribe((videosByTag) => {
+
+        this.videosByTag = videosByTag
+      });
+
+      this.service.getTagsById(this.video.tags).subscribe((tagbyId)=>{
+        this.tags=tagbyId;
+      });
+    })
+
     this.service.getLikesByVideoId(this.ids).subscribe((likes) => {
       Object.values(likes)[0] != undefined ? this.likes = Object.values(likes)[0] : this.likes = {count: 0}
     })
@@ -60,17 +77,7 @@ export class VideoPageComponent implements OnInit{
       Object.values(dislikes)[0] != undefined ? this.dislikes = Object.values(dislikes)[0] : this.dislikes = {count: 0}
     })
 
-    this.service.getVideosById(this.ids).subscribe((videos) => {
-      this.video=videos[0]
-    })
 
-    this.service.getVideosByTag(6).subscribe((videosByTag) => {
-      this.videosByTag = videosByTag
-
-      this.service.getTagsById(this.video.tags).subscribe((tagbyId)=>{
-        this.tags=tagbyId;
-      });
-    });
   }
 
   public VideoId(url: string) {

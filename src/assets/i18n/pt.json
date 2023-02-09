@@ -1,5 +1,5 @@
 {
-  "LAST": "Últimos videos",
+  "LAST": "Últimos vídeos",
   "SHOWMORE": "Mostrar mais",
   "CHANSUG": "Canais sugeridos",
   "THEMESUG": "Artigos sugeridos",
@@ -11,7 +11,7 @@
   "SAVED": "Guardados",
   "TAGS": "Tags",
   "PLAY": "Ver",
-  "NOTSAVED": "Ainda não há videos guardados! :(",
+  "NOTSAVED": "Ainda não há vídeos guardados! :(",
   "RESULT": "Resultados para",
   "NAME": "Nome",
   "EMAIL": "E-mail",
@@ -40,5 +40,8 @@
   "ALLTAGS": "Todas as tags",
   "SELECTTAG": "Selecione pelo menos 1 tag",
   "CLEARSELECT": "Limpar seleção",
-  "SEARCH": "Pesquisar"
+  "SEARCH": "Pesquisar",
+  "LINKS": "Links",
+  "FEATVIDEOS": "Vídeos em destaque",
+  "MOREVIDEOS": "Mais vídeos destas tags"
 }

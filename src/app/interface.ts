@@ -44,6 +44,7 @@ interface Theme {
   channel_cover: string
   channel_picture: string
   path:string
+  external_links: string[]
 
 }
 

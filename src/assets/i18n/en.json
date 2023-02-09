@@ -40,6 +40,9 @@
   "ALLTAGS": "All tags",
   "SELECTTAG": "Select at least 1 tag",
   "CLEARSELECT": "Clear selection",
-  "SEARCH": "Search"
+  "SEARCH": "Search",
+  "LINKS": "Links",
+  "FEATVIDEOS": "Featured videos",
+  "MOREVIDEOS": "More videos about these tags"
 }
 

@@ -88,6 +88,18 @@
       padding-right: 1rem;
     }
 
+    .links {
+
+      .link_container {
+        padding-top: 1rem;
+
+        .link {
+          text-decoration: none;
+          color: #fff;
+        }
+      }
+    }
+
     .article_videos_container {
       width: 100%;
       display: flex;
