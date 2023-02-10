@@ -21,7 +21,8 @@ export class VideoPageComponent implements OnInit{
   tags:Tag[]=[]
   ids!: any;
   likes!: Rating
-  dislikes!: Rating
+  dislikes!: Rating;
+  channelId!: string;
 
 
   //FA icons
@@ -54,6 +55,9 @@ export class VideoPageComponent implements OnInit{
     let rnd: number
     this.service.getVideosById(this.ids).subscribe((videos) => {
       this.video=videos[0]
+      this.service.getChannelsById(this.video.channel_id).subscribe((channel)=>{
+        this.channelId=channel[0].path
+      })
       tagRandom = this.video.tags.toString().split(',')
       rnd = Math.round(Math.random()*(tagRandom.length-1))
       tagId = tagRandom[rnd]
