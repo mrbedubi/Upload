@@ -79,7 +79,7 @@
         bottom: 14px;
         left: 20px;
         font-size: 0.85rem;
-        z-index: 3;
+        z-index: 4;
 
         p {
           margin: 0;
@@ -207,7 +207,7 @@
         bottom: 14px;
         left: 20px;
         font-size: 0.85rem;
-        z-index: 3;
+        z-index: 4;
 
         p {
           margin: 0;
@@ -220,24 +220,17 @@
       padding-left: 20px;
       padding-top: 20px;
       width: 100%;
+
       .tags {
         display: flex;
+        padding: 0.5rem 0;
 
         .tag {
           color: #1E75FF;
           font-weight: 200;
           margin: 0;
-          padding-right: 0.4rem;
-        }
-      }
+          padding-right: 0.1rem;
 
-      .canal {
-        color: #1E75FF;
-        font-weight: 200;
-        margin: 0;
-
-        &:hover {
-          text-decoration: underline;
         }
       }
 
@@ -333,6 +326,7 @@
         bottom: 1rem;
         left: 1rem;
         font-size: 0.85rem;
+        z-index: 4;
 
         p {
           margin: 0;
@@ -352,16 +346,12 @@
           color: #92929D;
           font-weight: 200;
           margin: 0;
-
-      .canal {
-        color: #92929D;
-        font-weight: 200;
-        margin: 0;
+          padding: 0.5rem 0rem;
 
           &:hover {
             text-decoration: underline;
           }
-        }
+
 
         .titulo {
           margin: 0;

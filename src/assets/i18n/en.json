@@ -2,7 +2,7 @@
   "LAST": "Latest Videos",
   "SHOWMORE": "Show More",
   "CHANSUG": "Suggested Channels",
-  "THEMESUG": "Suggested Articles",
+  "THEMESUG": "Suggested Article",
   "VIEWALL" : "View All",
   "HOME": "Home",
   "CHANS": "Channels",
@@ -43,7 +43,11 @@
   "SEARCH": "Search",
   "LINKS": "Links",
   "FEATVIDEOS": "Featured videos",
-  "MOREVIDEOS": "More videos about these tags"
+  "MOREVIDEOS": "More videos about these tags",
+  "SHAREVIDEO": "Share video",
+  "SHAREVIA": "Share with",
+  "COPYLINK": "Or copy the link directly",
+  "COPY": "Copy",
   "WHYREPORT": "Why you want to report this comment ?",
   "ERRORREPORT": "Please explain the reason for the report.",
   "REPORT": "Report Comment from:"

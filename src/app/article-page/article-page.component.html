@@ -16,7 +16,7 @@
     <div class="article_title">
       <h1>{{theme.title}}</h1>
       <div class="article_tags">
-        <p *ngFor="let tag of tagsById">#{{tag.name}}</p>
+        <p *ngFor="let tag of tagsById" [routerLink]="['/search/tag/', tag.id]">#{{tag.name}}</p>
       </div>
     </div>
   </div>

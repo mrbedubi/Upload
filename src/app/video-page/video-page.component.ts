@@ -27,7 +27,6 @@ export class VideoPageComponent implements OnInit{
   //FA icons
   savedIcon = saved
   notSavedIcon = notSaved
-  faShareAlt = faShareAlt
   liked = liked
   notLiked = notLiked
   disliked = disliked
@@ -52,13 +51,14 @@ export class VideoPageComponent implements OnInit{
 
     let tagRandom: string[] = [];
     let tagId: string
+    let rnd: number
     this.service.getVideosById(this.ids).subscribe((videos) => {
       this.video=videos[0]
       tagRandom = this.video.tags.toString().split(',')
-      tagId = tagRandom[Math.round(Math.random()*(tagRandom.length))]
+      rnd = Math.round(Math.random()*(tagRandom.length-1))
+      tagId = tagRandom[rnd]
 
       this.service.getVideosByTag(tagId).subscribe((videosByTag) => {
-
         this.videosByTag = videosByTag
       });
 
