@@ -3,7 +3,6 @@ import {Rating, Tag, Video} from "../interface";
 import {UploadService} from "../upload.service";
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from "@angular/router";
-import {faFlag} from "@fortawesome/free-solid-svg-icons";
 import {faBookmark as saved} from "@fortawesome/free-solid-svg-icons";
 import {faBookmark as notSaved, faThumbsUp as notLiked, faThumbsDown as notDisliked} from "@fortawesome/free-regular-svg-icons";
 import {faShareAlt, faThumbsUp as liked, faThumbsDown as disliked} from "@fortawesome/free-solid-svg-icons";
@@ -26,7 +25,6 @@ export class VideoPageComponent implements OnInit{
 
 
   //FA icons
-  faFlag = faFlag
   savedIcon = saved
   notSavedIcon = notSaved
   faShareAlt = faShareAlt

@@ -30,6 +30,7 @@
       }
     }
   }
+
   .right_menu{
     width: 20%;
     position:fixed;
@@ -53,9 +54,19 @@
 @media only screen and (max-width: 768px) {
   #home_wrapper {
     padding: 10rem 0 0 0;
+    margin: 0;
+
+    p {
+      margin: 0;
+    }
 
     .main_content_wrapper {
       width: 100%;
+      padding: 0;
+
+      p {
+        padding-left: 1rem;
+      }
 
       .content_wrapper {
         padding: 0;

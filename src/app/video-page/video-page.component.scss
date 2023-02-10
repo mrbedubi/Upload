@@ -54,39 +54,23 @@
 
         .fav_button{
           width: 20%;
-          font-size: 1.5rem;
+          font-size: 1.8rem;
           justify-content: flex-end;
           align-items: center;
-          color: #92929D;
+          color: #fff;
           cursor: pointer;
           margin-right: 1.5rem;
         }
 
         .share_button{
           width: 20%;
-          font-size: 1.5rem;
+          font-size: 1.8rem;
           justify-content: flex-end;
           align-items: center;
           color: #92929D;
           cursor: pointer;
           margin-right: 1.5rem;
         }
-
-        .report_container {
-          width: 20%;
-          font-size: 1.5rem;
-          justify-content: flex-end;
-          align-items: center;
-          color: #92929D;
-          cursor: pointer;
-          margin-right: 1.5rem;
-
-          &:hover {
-            color: #fff;
-            transition: 0.3s ease-in;
-          }
-      }
-
 
       }
     }

@@ -120,7 +120,7 @@
       color: #92929D;
       cursor: pointer;
       position: absolute;
-      bottom: 0;
+      bottom: 1rem;
       padding-left: 1rem;
 
 
@@ -222,9 +222,12 @@
       .language {
         visibility: visible;
         position: fixed;
-        bottom: 0;
+        bottom: 2rem;
         transition: 0.3s ease-in;
 
+        p {
+          margin: 0;
+        }
       }
     }
 
