@@ -8,17 +8,17 @@
   </div>
 
   <div class="popup_content">
-      <div  class="arrow"  id="lef_arrow"><</div>
+      <div   *ngIf="leftArrow" class="arrow"  id="lef_arrow" (click)="prevPage()" ><</div>
     <div class="tag_container">
       <div *ngFor="let tag of tags" class="tag" (click)="select(tag.id)" [ngClass]=" isSelected(tag.id)  ? 'select': '' ">{{tag.name}}</div>
     </div>
-    <div class="arrow"  id="right_arrow">></div>
+    <div  *ngIf="rightArrow" class="arrow"  id="right_arrow" (click)="nextPage()" >></div>
   </div>
 
   <div class="searchBtn">
     <p *ngIf="this.tagsSelected.length>0" (click)="cleanSearchTags()">{{'CLEARSELECT' | translate}}</p>
 
-    <button *ngIf="this.tagsSelected.length>0" type="button" [routerLink]="['/search/tag/',searchTags()]">{{'SEARCH' | translate}}</button>
+    <button *ngIf="this.tagsSelected.length>0" type="button" (click)="go()" [routerLink]="['/search/tag/',searchTags()]">{{'SEARCH' | translate}}</button>
     <button *ngIf="this.tagsSelected.length==0" type="button" class="disabled">{{'SEARCH' | translate}}</button>
   </div>
 </div>

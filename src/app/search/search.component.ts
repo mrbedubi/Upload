@@ -19,7 +19,9 @@ tags!:Tag[];
   ngOnInit(): void {
     this.tagId = this.route.snapshot.paramMap.get('tag');
     this.service.getVideosByTag(this.tagId).subscribe((video)=>{
-      this.videos=video;
+      this.videos=video.filter((obj, index, self) => {
+        return self.findIndex(t => t.id === obj.id ) === index;
+      });
 
     });
 

@@ -14,15 +14,21 @@ export class TagsListComponent implements OnInit {
 tagsSelected: number[]=[];
 tags: Tag[]=[];
 tagQuery:string="";
+pag=0;
+resul!:number;
+leftArrow:boolean=false;
+rightArrow:boolean=true;
 
 
 
   constructor( public nav:NavbarComponent , private service:UploadService) { }
 
   ngOnInit(): void {
-
+    this.leftArrow=false;
+    this.rightArrow=true;
     this.service.getTags().subscribe((tag)=>{
       this.tags=tag;
+      this.resul=this.tags.length;
     })
 
 
@@ -39,6 +45,53 @@ tagQuery:string="";
     console.log(this.tagsSelected);
   }
 
+  nextPage(){
+    this.pag++;
+    this.service.getTags(this.pag).subscribe((tag)=>{
+      this.resul=tag.length;
+      if(this.resul>0){
+        this.tags=tag;
+      }
+      this.controlArrow()
+
+    })
+
+  }
+
+  prevPage(){
+    this.pag--;
+    this.service.getTags(this.pag).subscribe((tag)=>{
+      this.resul=tag.length;
+      if(this.resul>0 && this.pag>=0){
+        this.tags=tag;
+      }
+      this.controlArrow();
+
+    });
+  }
+
+  controlArrow(){
+    if(this.resul>0){
+      if(this.resul<7){
+        this.rightArrow=false;
+      }else {this.rightArrow=true;}
+    }else{
+      this.rightArrow=false;
+      this.prevPage();
+    }
+
+    if(this.pag>0){
+      this.leftArrow=true;
+    }else {
+      this.leftArrow=false;
+    }
+  }
+
+  go(){
+    this.cleanSearchTags()
+    this.nav.tagModal=false;
+  }
+
 
   isSelected(id:number){
     const isSelected= this.tagsSelected.includes(id);
@@ -52,6 +105,7 @@ tagQuery:string="";
 
   searchTags(){
     let s="";
+
     this.tagsSelected.forEach(tag=>{
      this.tagQuery+=tag+",";
     });

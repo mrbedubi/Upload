@@ -80,7 +80,10 @@ export class UploadService {
     return this.http.get<Rating>(this.BASE_URL + 'videos/' + id + '/dislikes')
   }
 
-  getTags() {
+  getTags( page?:number) {
+    if(page) {
+      return this.http.get<Tag[]>(this.BASE_URL + "tags?page="+page)
+    }else
     return this.http.get<Tag[]>(this.BASE_URL + "tags");
   }
 
