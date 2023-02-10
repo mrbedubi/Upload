@@ -14,6 +14,7 @@ export class ReportPopUpComponent implements OnInit {
   show=false;
   @Input() comment_id!: number|string ;
   @Input() comment_type!: 'video' | 'channel';
+  @Input() username!:string;
 
   constructor(public service: UploadService , private  fb:FormBuilder) {
 
@@ -26,6 +27,8 @@ export class ReportPopUpComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
   openReport(){
     this.show=true;
   }
@@ -35,12 +38,24 @@ export class ReportPopUpComponent implements OnInit {
   }
 
   sendReport() {
+    if(this.reportComment.valid){
     let  reason = this.reportComment.get('reason')?.value;
     let otherReason = this.reportComment.get('otherReason')?.value;
-    let comentaryId;
-
-    console.log(this.reportComment.value);
+    let comentaryId= this.comment_id;
     this.reportComment.reset();
+    this.show=false;
+    this.service.postReport({
+      "entity_id":[comentaryId],
+      "entity_type":["comment"],
+      "field_reason_option":[reason],
+      "field_reason":[otherReason? otherReason!="" :""],
+      "flag_id":"report_comments",
+      "uid":["0"]
+    })
+    }
+
+
+
   }
 
 

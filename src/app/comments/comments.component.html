@@ -43,7 +43,7 @@
             <div class="name">{{comment.username}}</div>
             <div class="publish_date">{{comment.date}}</div>
           </div>
-          <app-report-pop-up class="report" [comment_id]="comment.id" [comment_type]="type"></app-report-pop-up>
+          <app-report-pop-up *ngIf="comment.comment_id" class="report" [comment_id]="comment.comment_id" [comment_type]="type" [username]="comment.username" ></app-report-pop-up>
         </div>
         <div class="comment_body">{{comment.comment}}</div>
       </div>

@@ -2,35 +2,48 @@
   <div>
     <fa-icon [icon]="faFlag" class="icon" (click)="openReport()"></fa-icon>
   </div>
+<div class="background_contianer" *ngIf="show">
+  <div class="report_container" >
 
-  <div class="report_container" *ngIf="show">
-  <form  class="report_form"[formGroup]="reportComment" (ngSubmit)="sendReport()" >
+<div class="report_header">
+ <div><h4>{{'REPORT' | translate}} <b>{{username}}</b></h4>
+   <span >{{'ROPTION' | translate}}:</span></div>
+  <div class="close-button-container" (click)="closeReport()">
+    <div class="close-button"></div>
+  </div>
+  </div>
+  <form   calss="form"[formGroup]="reportComment" (ngSubmit)="sendReport()" >
+    <div class="report_form">
     <div class="form_group">
-      <span >{{'ROPTION' | translate}}:</span>
       <div class="radio_contianer">
-        <input type="radio" id="hateSpeech" formControlName="reason" value="hateSpeech">
+        <input type="radio" id="hateSpeech" formControlName="reason" value="Hate Speech">
         <label for="hateSpeech">{{'HSPEECH' | translate}}</label>
       </div>
       <div class="radio_contianer">
-        <input type="radio" id="sexual" formControlName="reason" value="sexual">
+        <input type="radio" id="sexual" formControlName="reason" value="Sexual content">
         <label for="sexual">{{'SEX' | translate}}</label>
       </div>
       <div class="radio_contianer">
-        <input type="radio" id="spam" formControlName="reason" value="spam">
+        <input type="radio" id="spam" formControlName="reason" value="Spam">
         <label for="spam">{{'SPAM' | translate}}</label>
       </div>
       <div class="radio_contianer" >
-        <input type="radio" id="other" formControlName="reason" value="other"  >
+        <input type="radio" id="other" formControlName="reason" value="Other"  >
         <label for="other">{{'OTHER' | translate}}</label>
       </div>
-      <div *ngIf="reportComment!.get('reason')!.value === 'other'">
-        <input type="text" id="otherReason" formControlName="otherReason" [required]="reportComment!.get('reason')!.value === 'other'" [ngClass]="{ 'is-invalid': reportComment!.get('otherReason') && reportComment!.get('otherReason')!.invalid  }">
-        <div *ngIf="reportComment!.get('otherReason') && reportComment!.get('otherReason')!.invalid" class="invalid-feedback">
-          {{'REPORTREASON' | translate}}
-        </div>
+
+    </div>
+    <div *ngIf="reportComment!.get('reason')!.value === 'Other'" class="other_container">
+      <label> {{'WHYREPORT' | translate}}</label>
+      <input  class="comment_other" type="text" id="otherReason" formControlName="otherReason" [required]="false" [ngClass]="{ 'is-invalid': reportComment!.get('otherReason') && reportComment!.get('otherReason')!.invalid  }">
+      <div *ngIf="(reportComment?.get('otherReason')?.touched && reportComment?.get('otherReason')?.invalid) || reportComment.updateOn=='submit' && reportComment?.get('otherReason')?.invalid" class="invalid-feedback">
+        {{'ERRORREPORT' | translate}}
       </div>
     </div>
-    <button type="submit" [disabled]="reportComment.invalid">{{'SEND' | translate}}</button>
+    </div>
+    <button type="submit">{{'SEND' | translate}}</button>
   </form>
+
+</div>
 </div>
 </div>
