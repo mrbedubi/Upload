@@ -27,10 +27,10 @@
 
     <div id="channel_wrapper">
       <div class="playlist_logo_container">
-        <img class="channel_logo" src="{{this.BaseUrl+video.channel_picture}}" alt="" [routerLink]="">
+        <img class="channel_logo" src="{{this.BaseUrl+video.channel_picture}}" alt="" [routerLink]="[channelId]">
       </div>
       <div class="channel_information">
-        <div class="channel_name">{{video.channel_name}}</div>
+        <div class="channel_name" [routerLink]="[channelId]">{{video.channel_name}}</div>
         <div class="publishing_date">{{video.published_date}} {{'AGO' | translate}}</div>
       </div>
       <div class="rating_container">

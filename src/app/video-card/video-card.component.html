@@ -12,7 +12,7 @@
     </div>
   </div>
   <div class="avatar" *ngIf="card=='homepage'|| card=='videopage'" style="background-image: url({{channel_avatar}})"
-       [routerLink]="['/channel/',channelId]"></div>
+       [routerLink]="[channelId]"></div>
   <div class="info" [ngClass]="selected? 'selected' :''">
     <p class="canal" *ngIf="card=='homepage'|| card=='videopage' || card == 'playlistpage'"
        [routerLink]="[''+channelId]">{{channel_name}}</p>

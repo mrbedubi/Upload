@@ -48,7 +48,7 @@ export class ReportPopUpComponent implements OnInit {
       "entity_id":[comentaryId],
       "entity_type":["comment"],
       "field_reason_option":[reason],
-      "field_reason":[otherReason? otherReason!="" :""],
+      "field_reason":[otherReason],
       "flag_id":"report_comments",
       "uid":["0"]
     })
