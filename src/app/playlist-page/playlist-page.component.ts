@@ -1,8 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {UploadService} from "../upload.service";
-import {Playlist, Video} from "../interface";
+import {Playlist, Rating, Video} from "../interface";
 import {ActivatedRoute, Router} from "@angular/router";
-import {ChangeDetectorRef} from "@angular/core";
+import {faThumbsUp as notLiked, faThumbsDown as notDisliked} from "@fortawesome/free-regular-svg-icons";
+import {faThumbsUp as liked, faThumbsDown as disliked} from "@fortawesome/free-solid-svg-icons";
+
 
 
 @Component({
@@ -20,7 +22,12 @@ export class PlaylistPageComponent implements OnInit {
   BaseUrl: string = "https://dev-project-upskill2-grupo2.pantheonsite.io"
   id_playlist: any;
   id_video: any;
-
+  likes!: Rating
+  dislikes!: Rating
+  liked = liked
+  notLiked = notLiked
+  disliked = disliked
+  notDisliked = notDisliked
 
   @Input() id?: number
   @Input() title?: string
@@ -41,7 +48,7 @@ export class PlaylistPageComponent implements OnInit {
 
     // get params from url  // playlist id  and Video Id
     this.route.params.subscribe(value => {
-      let lang="";
+     let lang="";
      if(this.service.lang == 'pt') lang='/pt-pt';
       this.service.getId(lang+'/playlist/'+ value['id_playlist']+'/').subscribe((playlist)=>{
         this.id_playlist =playlist.nid[0].value;
@@ -49,8 +56,13 @@ export class PlaylistPageComponent implements OnInit {
             this.id_video=video.mid[0].value;
             this.currentVideo( this.id_video);
 
+            this.service.getLikesByVideoId(this.id_video).subscribe((likes) => {
+              Object.values(likes)[0] != undefined ? this.likes = Object.values(likes)[0] : this.likes = {count: 0}
+            })
 
-
+            this.service.getDislikesByVideoId(this.id_video).subscribe((dislikes) => {
+              Object.values(dislikes)[0] != undefined ? this.dislikes = Object.values(dislikes)[0] : this.dislikes = {count: 0}
+            })
 
             this.service.getPlaylistById(this.id_playlist).subscribe((playlist)=>{
               // get the id of the videos with in the playlist
@@ -66,57 +78,7 @@ export class PlaylistPageComponent implements OnInit {
 
       });
 
-      // get the current video
-
-      // get comments
-
-
     });
-
-
-
-
-      // get the videos by the id
-
-
-
-      // get the videos by the tag
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-    this.service.getPlaylistById(this.id_playlist).subscribe((playlist) => {
-      // se aind nao existir id de video no url colocar o id do primeiro video
-      this.videoIds = Object.values(playlist)[0].videos.split(",");
-      this.playlist = Object.values(playlist)[0]
-      console.log(Object.values(playlist)[0])
-
-
-      this.service.getVideosById(parseInt(this.videoIds[0])).subscribe((video) => {
-        this.video = video[0]
-
-        this.service.getVideosByTag(video[0].tags).subscribe((video) => {
-          this.videosByTag = video
-        })
-      })
-
-      for (let video in this.videoIds) {
-        this.service.getVideosById(parseInt(this.videoIds[video])).subscribe((playlist) => {
-          this.videosById.push(playlist[0])
-        })
-      }
-    })
-
-    */
 
   }
 
@@ -155,22 +117,53 @@ video_id=video_id.replace('/pt-pt/','/');
   }
 
 
-
-
-
-
-
-
-
-
   public VideoId(url: string) {
     const urlParts = url.split("=");
     const videoId = urlParts[urlParts.length - 1];
     return "https://www.youtube.com/embed/" + videoId
   }
 
+  public toggleLike() {
+    if (this.likeType == 'liked') {
+      this.likeType = 'notLiked'
+    } else if (this.likeType == 'notLiked') {
+      this.likeType = 'liked'
+    }
+  }
+  public toggleDislike() {
+    if (this.dislikeType == 'disliked') {
+      this.dislikeType = 'notDisliked'
+    } else if (this.dislikeType == 'notDisliked') {
+      this.dislikeType = 'disliked'
+    }
+  }
 
+  public postLike(id: number) {
+    let body = {
+      "entity_id": [id],
+      "entity_type": ["media"],
+      "flag_id": "likes",
+      "uid":["0"]
+    }
+    this.service.giveRating(body)
+    this.likes.count++
+    this.toggleLike()
+  }
 
+  public postDislike(id: number) {
+    let body = {
+      "entity_id": [id],
+      "entity_type": ["media"],
+      "flag_id": "dislikes",
+      "uid":["0"]
+    }
+    this.service.giveRating(body)
+    this.dislikes.count++
+    this.toggleDislike()
+  }
+
+  @Input() likeType: 'liked' | 'notLiked' = 'notLiked'
+  @Input() dislikeType: 'disliked' | 'notDisliked' = 'notDisliked'
 
 }
 

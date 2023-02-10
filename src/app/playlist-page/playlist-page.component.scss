@@ -65,6 +65,47 @@
       padding: 3% 0 3% 3%;
       display: flex;
 
+      .rating_container {
+        width: 17%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: 1.1rem;
+        font-weight: 400;
+        padding-right: 5rem;
+
+        .likes_container {
+          width: 50%;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+
+          .like {
+            font-size: 1.8rem;
+            padding-right: 20%;
+          }
+
+          color: #fff;
+        }
+
+        .dislikes_container {
+          width: 50%;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          border-left: 3px solid #fff;
+          cursor: pointer;
+
+
+          .dislike {
+            font-size: 1.8rem;
+            padding-right: 20%;
+          }
+
+          color: #92929D;
+        }
+      }
     }
 
     .playlist_information {
@@ -78,8 +119,8 @@
     }
 
     .channel_logo_container {
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
       border: 2px solid #fff;
       overflow: hidden;
@@ -87,8 +128,9 @@
       align-items: center;
       justify-content: center;
 
-      .playlist_logo {
-        width: 100%;
+      .channel_logo {
+        width: 60px;
+        height: 60px;
 
       }
 

@@ -3,12 +3,13 @@
 </div>
 
 <div class="overlay" *ngIf="show" (click)="$event.stopPropagation()"></div>
+
 <div class="share_container" *ngIf="show">
   <div class="info">
-    <h3>Partilhar Vídeo</h3>
+    <h3>{{'SHAREVIDEO' | translate}}</h3>
     <img class="x" (click)="closePopUp()" src="assets/closeBtn.svg" >
   </div>
-  <p>Partilhar via</p>
+  <p class="p">{{'SHAREVIA' | translate}}</p>
   <div class="icons">
     <div class="icon">
       <a href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank">
@@ -26,10 +27,10 @@
       </a>
     </div>
   </div>
-  <p>Ou copiar o link</p>
+  <p class="p">{{'COPYLINK' | translate}}</p>
   <div class="field">
     <fa-icon [icon]="faLink"></fa-icon>
     <p class="url">{{url}}</p>
-    <button (click)="copyLink()">Copiar</button>
+    <button (click)="copyLink()">{{'COPY' | translate}}</button>
   </div>
 </div>
