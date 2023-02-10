@@ -402,6 +402,10 @@
 
     &.homepage {
       width: 100%;
+
+      .titulo {
+        width: 70%;
+      }
     }
   }
 }

@@ -26,7 +26,7 @@
     </div>
 
     <div id="channel_wrapper">
-      <div class="playlist_logo_container">
+      <div class="channel_logo_container">
         <img class="channel_logo" src="{{this.BaseUrl+video.channel_picture}}" alt="" [routerLink]="">
       </div>
       <div class="channel_information">
@@ -53,8 +53,8 @@
 
     <app-comments [Id]="video.id" type="video"></app-comments>
   </div>
-  <div class="video_card_wrapper">
 
+  <div class="video_card_wrapper">
     <ng-container *ngFor=" let videoByTag of videosByTag">
       <app-video-card class="video_card" *ngIf="video.id !== videoByTag.id"
                       [id]="videoByTag.path"

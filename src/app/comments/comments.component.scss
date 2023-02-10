@@ -175,7 +175,23 @@
 
   }
 
+@media only screen and (max-width: 768px) {
+  .comment_box {
+    padding: 0 1rem;
 
+    .comment_warper {
+
+      .comment_item {
+        padding-left: 0;
+
+        .avatar {
+          width: 60px;
+          height: 60px;
+        }
+      }
+    }
+  }
+}
 
 
 
